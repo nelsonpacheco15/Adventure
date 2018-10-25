@@ -12,17 +12,26 @@
 }
 
 
+/* SCROLLBAR */
+
+/* width */
 ::-webkit-scrollbar {
-    width: 1em;
+    width: 10px;
 }
 
+/* Track */
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px #333;
+    background: #f1f1f1; 
 }
 
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #8333;
-  outline: 1px solid #333;
+    background: #406E8E; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #23395B; 
 }
 
 
@@ -113,16 +122,16 @@ h3 {
 
 .btn-full:link,
 .btn-full:visited {
-    background-color: #87CEEB;
-    border: 1px solid #87CEEB;
-    color: rgb(31, 31, 31);
+    background-color: #406E8E;
+    border: 1px solid #406E8E;
+    color: #fff;
     margin-right: 15px;
 }
 
 
 .btn-ghost:link,
 .btn-ghost:visited {
-    border: 1px solid #87CEEB;
+    border: 1px solid #406E8E;
     color: #87CEEB;
 }
 
@@ -130,16 +139,16 @@ h3 {
 
 .btn-full:hover,
 .btn-full:active {
-    background-color: #1E90FF;
-    border: 1px solid #00BFFF;
+    background-color: #23395B;
+    border: 1px solid #23395B;
 }
 
 
 .btn-ghost:hover,
 .btn-ghost:active {
-    border: 1px solid #00BFFF;
-    color: rgb(31, 31, 31);
-    background-color: #87CEEB;
+    border: 1px solid #23395B;
+    color: #fff;
+    background-color: #23395B;
 }
 
 
