@@ -8,6 +8,7 @@
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-appearance: none;
 }
 
 
@@ -260,6 +261,51 @@ header {
 
 
 
+
+.search-bar {
+    width: 80%;
+}
+
+
+
+
+#localizacao{
+    width: 100%;
+    padding: 7px;
+    margin-top: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 3px #ccc;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+input[type=text] {
+    width: 70%;
+    padding: 7px;
+    margin-top: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 3px #ccc;
+}
+
+
+input[type=submit] {
+    width: 24.6%;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 10px;
+    color: #fff;
+    background-color: #406E8E;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s;
+}
+
+input[type=submit]:hover {
+    background-color: #23395B;
+}
 
 
 
