@@ -15,11 +15,6 @@ h2 {
     margin-bottom: 5px;
 }
 
-a {
-    text-decoration: none;
-    color: #406E8E;
-}
-
 
 
 .split {
@@ -65,9 +60,11 @@ a {
   }
 
 
-
 input[type=username],
-input[type=password] {
+input[type=password],
+input[type=text],
+input[type=email],
+input[type=number] {
     width: 100%;
     padding: 7px;
     margin-top: 15px;
