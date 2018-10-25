@@ -20,7 +20,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #87CEEB;
+  background-color: #8333;
   outline: 1px solid #333;
 }
 
@@ -42,14 +42,7 @@ body {
 /*Esta classe serve para limpar os floats, é um procedimento universal q
 ue deve ser feito sempre, ou muitas vezes, ela basicamente elimina os 
 floats depois de um elemento */
-.clearfix {zoom: 1}
-.Clearfix:after {
-    content: '.';
-    clear: both;
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
+
 
 
 
