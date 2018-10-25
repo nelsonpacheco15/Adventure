@@ -1,0 +1,357 @@
+* ---------------------------------------------- */
+/* BASIC SETUP */
+/* ---------------------------------------------- */
+
+/* Isto deve fazer-se sempre para remover qualquer margem, padding, etc */
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8333;
+  outline: 1px solid #333;
+}
+
+
+
+/* Selecinar cor, fontes e tamanhos padrão para todo o documento html */
+html,
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: "Lato", "Arial", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /*isto esconde tudo o que va para alem do eixo x*/
+}
+
+
+/*Esta classe serve para limpar os floats, é um procedimento universal q
+ue deve ser feito sempre, ou muitas vezes, ela basicamente elimina os 
+floats depois de um elemento */
+
+
+
+
+
+
+/* ---------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* ---------------------------------------------- */
+
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+
+/*Espaço em branco em todas as seccoes*/
+section {
+    padding: 80px 0;
+}
+
+
+/*-----HEADLINE/TITULOS-----*/
+
+
+h1, h2, h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+
+
+
+/*-----BUTTONS/BOTOES-----*/
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+
+.btn-full:link,
+.btn-full:visited {
+    background-color: #87CEEB;
+    border: 1px solid #87CEEB;
+    color: rgb(31, 31, 31);
+    margin-right: 15px;
+}
+
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #87CEEB;
+    color: #87CEEB;
+}
+
+
+
+.btn-full:hover,
+.btn-full:active {
+    background-color: #1E90FF;
+    border: 1px solid #00BFFF;
+}
+
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #00BFFF;
+    color: rgb(31, 31, 31);
+    background-color: #87CEEB;
+}
+
+
+/*-----LINKS-----*/
+    
+a:link,
+a:visited {
+    color: #00BFFF;
+    text-decoration: none;
+    padding-bottom: 1px;
+    -webkit-transition: border-bottom 0.2s, border 0.2s, color 0.2s;
+    transition:  border 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* ---------------------------------------------- */
+/* HEADER */
+/* ---------------------------------------------- */
+
+/* 100vh = 100% viewport */
+header {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(/sw_final/img/hero1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/sw_final/img/hero1.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+
+/* A propriedade "transform" serve para traduzir metade do tamanho do elemento para a esuqerda e para o topo neste caso */
+/* Isto é a caixa que contém o titulo do header e os botoes */
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+
+
+
+
+
+
+/*-----main navi----*/
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 55px;
+}
+
+.main-nav li {
+    display: inline;
+    margin: 40px;
+}
+
+
+/*-----NAV BUTTONS STYLE-----*/
+.main-nav li a:link, 
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #b9b9b9;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    transition: color 0.2s;
+}
+
+/*o border tem de existir no estado anterior para poder aparecer, pode ficar transparente */
+.main-nav li a:hover, 
+.main-nav li a:active {
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+/* ---------------------------------------------- */
+/* LIST */
+/* ---------------------------------------------- */
+
+
+.box img {
+    opacity: 0.9;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    transition: opacity 0.2s;
+}
+
+.box img:hover {
+    opacity: 1;
+}
+
+
+
+.list-feature {
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+/* ---------------------------------------------- */
+/* FOOTER */
+/* ---------------------------------------------- */
+
+footer {
+   background-color: #333;
+    padding:30px; 
+    /*decidi mudar aqui o font-size, assim nenhuma das outras medidas de texto que adicionei abaixo vao ser afetadas*/
+    font-size: 80%;
+}
+
+.footer-nav {
+    list-style: none;
+    float: left;
+}
+
+.social-links {
+    list-style: none;
+    float: right;
+}
+
+/*para po-los lado a lado eu tenho de formatar o "li", formatando o "ul" se eu disser que quero o inline block, nao vai funcionar*/
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/*Fiz isto para tirar a magem que ficava na direita do ultimo icone*/
+.footer-nav li:last-child,
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+
+/*pus o social-links aqui para poder dar-lhes a cor cinzenta que a navegaçao tem*/
+.social-links li a:link,
+.social-links li a:visited {
+    color: #888;
+    text-decoration: none;
+    border-bottom: 0;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #bbb;
+}
+
+
+/*------social links effect----*/
+/*aqui pus os social-links para mudar o tamanho*/
+.social-links li a:link,
+.social-links li a:visited {
+    font-size: 150%;
+}
+
+/*unica maneira para fazer a transiçao nasdiferentes cores*/
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-instagram {
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+/*HOVER EFFECT para os icones sociais*/
+.ion-social-facebook:hover {
+    color: #3b5999;
+}
+
+.ion-social-twitter:hover {
+    color: #55acee;
+}
+
+.ion-social-googleplus:hover {
+    color: #dd4b39;
+}
+
+.ion-social-instagram:hover {
+    color: #e4405f;
+}
+
+
+footer p {
+    color: #888;
+    text-align: center;
+    margin-top: 10px;
+}
