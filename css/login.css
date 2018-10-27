@@ -73,10 +73,10 @@ input[type=password] {
 
 
 input[type=submit] {
+    float: right;
     width: 40%;
     height: 40px;
     margin-top: 15px;
-    margin-left: 221px;
     color: #fff;
     background-color: #406E8E;
     border: 1px solid #ccc;
