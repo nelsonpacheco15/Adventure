@@ -27,8 +27,8 @@
             <div class="hero-text-box">
                 <h1>Want to have an adventure?</h1>
                 
-                <a class="btn btn-full" href="register.html">Registar</a>
-                <a class="btn btn-ghost" href="login.html">Login</a>
+                <a class="btn btn-full" href="register.php">Registar</a>
+                <a class="btn btn-ghost" href="login.php">Login</a>
             </div>
         </header>
 

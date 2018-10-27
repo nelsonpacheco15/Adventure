@@ -2,6 +2,28 @@
 
 include('ligar_bd.php');
 
+if($_POST['register'])
+{
+
+    $user = $_POST['user'];
+    
+    $name = $_POST['name'];
+    
+    $pass = $_POST['repeatpass'];
+    
+    $hashed_pass = crypt($pass,"123");
+    
+    $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+    
+    $sql = $db->prepare(" INSERT INTO `user` (`name`,`username`,`password`) VALUES (:name,:user,:pass)");
+    
+    $sql->bindParam(':name', $name);
+    $sql->bindParam(':user', $user);
+    $sql->bindParam(':pass', $hashed_pass);
+    
+    $sql->execute();
+    
+}
 
 ?>
 
@@ -32,8 +54,6 @@ include('ligar_bd.php');
                     <form action="" method="POST"> 
                         <input type="username" name="user" placeholder="Username">
                         <input type="text" name="name" placeholder="Name">
-                        <input type="email" name="mail" placeholder="Email">
-                        <input type="number" name="age" placeholder="Age">
                         <input type="password" name="pass" placeholder="Password">
                         <input type="password" name="repeatpass" placeholder="Repeat Password">
                         <input type="submit" name="register" value="Register">
