@@ -8,20 +8,30 @@
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-appearance: none;
 }
 
 
+/* SCROLLBAR */
+
+/* width */
 ::-webkit-scrollbar {
-    width: 1em;
+    width: 10px;
 }
 
+/* Track */
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px #333;
+    background: #f1f1f1; 
 }
 
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #87CEEB;
-  outline: 1px solid #333;
+    background: #406E8E; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #23395B; 
 }
 
 
@@ -42,14 +52,7 @@ body {
 /*Esta classe serve para limpar os floats, é um procedimento universal q
 ue deve ser feito sempre, ou muitas vezes, ela basicamente elimina os 
 floats depois de um elemento */
-.clearfix {zoom: 1}
-.Clearfix:after {
-    content: '.';
-    clear: both;
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
+
 
 
 
@@ -119,16 +122,16 @@ h3 {
 
 .btn-full:link,
 .btn-full:visited {
-    background-color: #87CEEB;
-    border: 1px solid #87CEEB;
-    color: rgb(31, 31, 31);
+    background-color: #406E8E;
+    border: 1px solid #406E8E;
+    color: #fff;
     margin-right: 15px;
 }
 
 
 .btn-ghost:link,
 .btn-ghost:visited {
-    border: 1px solid #87CEEB;
+    border: 1px solid #406E8E;
     color: #87CEEB;
 }
 
@@ -136,16 +139,16 @@ h3 {
 
 .btn-full:hover,
 .btn-full:active {
-    background-color: #1E90FF;
-    border: 1px solid #00BFFF;
+    background-color: #23395B;
+    border: 1px solid #23395B;
 }
 
 
 .btn-ghost:hover,
 .btn-ghost:active {
-    border: 1px solid #00BFFF;
-    color: rgb(31, 31, 31);
-    background-color: #87CEEB;
+    border: 1px solid #23395B;
+    color: #fff;
+    background-color: #23395B;
 }
 
 
@@ -179,8 +182,8 @@ a:active {
 
 /* 100vh = 100% viewport */
 header {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/hero.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/sw_final/img/hero.jpg);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/hero1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero1.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -267,6 +270,51 @@ header {
 
 
 
+
+.search-bar {
+    width: 80%;
+}
+
+
+
+
+#localizacao{
+    width: 100%;
+    padding: 7px;
+    margin-top: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 3px #ccc;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+input[type=text] {
+    width: 70%;
+    padding: 7px;
+    margin-top: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 3px #ccc;
+}
+
+
+input[type=submit] {
+    width: 24.6%;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 10px;
+    color: #fff;
+    background-color: #406E8E;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s;
+}
+
+input[type=submit]:hover {
+    background-color: #23395B;
+}
 
 
 
