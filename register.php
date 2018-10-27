@@ -1,3 +1,10 @@
+<?php
+
+include('ligar_bd.php');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,14 +29,14 @@
           <div class="split right">
             <div class="centered">
               <h2>Register</h2>
-                    <form action="register.php" method="POST"> 
+                    <form action="" method="POST"> 
                         <input type="username" name="user" placeholder="Username">
                         <input type="text" name="name" placeholder="Name">
                         <input type="email" name="mail" placeholder="Email">
                         <input type="number" name="age" placeholder="Age">
                         <input type="password" name="pass" placeholder="Password">
                         <input type="password" name="repeatpass" placeholder="Repeat Password">
-                        <input type="submit" name="submit" value="Register">
+                        <input type="submit" name="register" value="Register">
                     </form>
             </div>
           </div>
