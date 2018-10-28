@@ -180,6 +180,7 @@ header {
     background-color: #fff;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 1px 1px 10px #ccc;
+    padding-bottom: 12px;
 }
 
 
@@ -189,7 +190,19 @@ header {
     background-size: contain;
     margin-bottom: 15px;
     border-radius: 10px 10px 0 0;
+    -webkit-filter: brightness(100%);
 }
+
+.box img:hover {
+    -webkit-filter: brightness(30%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+
 
 .feature {
     margin: 15px;
@@ -199,7 +212,59 @@ header {
     margin-top: 30%;
 }
 
+.btn-reserve {
+    width: 50%;
+    height: 40px;
+    font-family: "lato";
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 90%;
+    cursor: pointer;
+    float: left;
+    border-radius: 5px 5px;
+    color: #fff;
+    background-color: #406E8E;
+    transition: background-color 0.2s;
+}
 
+
+.btn-reserve:hover {
+    background-color: #23395B;
+
+}
+
+
+
+.btn-more {
+    width: 20%;
+    height: 40px;
+    font-size: 120%;
+    float: right;
+    border-radius: 5px 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #406E8E;
+    transition: background-color 0.2s;
+    box-shadow: 0;
+}
+
+
+.btn-more:hover {
+    background-color: #23395B;
+
+}
+
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    /* show a hand cursor on hover; some argue that we
+    should keep the default arrow cursor for buttons */
+    cursor: pointer;
+  }
 
 
 
@@ -220,3 +285,5 @@ footer p {
     text-align: center;
     margin-top: 10px;
 }
+
+
