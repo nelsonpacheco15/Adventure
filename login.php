@@ -44,7 +44,11 @@ if($_POST['login'])
           <div class="split right">
             <div class="centered">
               <h2>Login</h2>
+<<<<<<< HEAD
                     <form method="POST"> 
+=======
+                    <form action="" method="POST"> 
+>>>>>>> miguel
                         <input type="username" name="user" placeholder="Username">
                         <input type="password" name="pass" placeholder="Password">
                         <input type="submit" name="login" value="Login">
