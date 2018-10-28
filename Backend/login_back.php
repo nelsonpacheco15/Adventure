@@ -19,15 +19,12 @@ include('ligar_bd.php');
 if($_POST['submit'])
 {
 
-    $admin = $_POST['user'];
-    $pass = $_POST['rpass'];
+    $admin = $_POST['admin'];
+    $pass = $_POST['pass'];
     $hashed_pass = crypt($pass,"123");
     $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-    $sql = $db->prepare(" INSERT INTO `admin` (`admin`,`password`) VALUES (:admin,:admin,:pass)");
-    $sql->bindParam(':admin', $admin);
-    $sql->bindParam(':pass', $hashed_pass);
+    SELECT  * administrator where username = :username and password= :password
 
-    $sql->execute();
     
 }
 
