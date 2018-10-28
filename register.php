@@ -4,6 +4,29 @@ include('ligar_bd.php');
 //se houver um pedido de resposta do formulario(isto ta defenido no input submit, o submit faz um pedido ao servidor, que tem como nome "register")
 if($_POST['register'])
 {
+    //guardamos os valores enviados atraves do input e guardamos em variaves, isto defenimos no "name" do input
+
+    $user = $_POST['user'];
+    $name = $_POST['name'];
+
+    //verificar se existe um utilizador com este username
+
+    $sql = $db->prepare("SELECT * from user where username = :username");
+    
+    $sql->bindParam(':username', $user);
+
+    //faz execute da query que preparamos anteriormente 
+    $sql->execute();    
+
+
+    $count = $sql->rowCount();
+
+        if ($count > 0) {
+
+            $user=null;
+            $err_username = "Ja Existe um utilizador com este nome !";
+        }
+
     //verifica se a pass tem mais do que 8 caracteres
     if (strlen($_POST['pass']) < 8 || strlen($_POST['repeatpass']) <8 )
     {
@@ -21,20 +44,17 @@ if($_POST['register'])
     else{
           $erro_pass = "A password tem de ser igual ! ";  
     }
-    //guardamos os valores enviados atraves do input e guardamos em variaves, isto defenimos no "name" do input
 
-    $user = $_POST['user'];
-    
-    $name = $_POST['name'];
-
-    //faz um hash da password
+    //faz um hash da password e verifica que so faz isso se a pass não estiver como null
     if($pass !=null){
         $hashed_password = crypt($pass,"123");
     }
     
-    //cross-site scripting protection
+    //cross-site scripting protection e verifica que so faz isso se o user não estiver como null
+    if($user != null){
+        $user = htmlspecialchars($user, ENT_QUOTES, 'UTF-8');
+    }
     $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-    $user = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
     
     //preparamos a query que vai ser enviada para a base de dados, onde vai fazer o registo
     $sql = $db->prepare(" INSERT INTO `user` (`name`,`username`,`password`) VALUES (:name,:user,:pass)");
@@ -50,7 +70,6 @@ if($_POST['register'])
     $count = $sql->rowCount();
 
         if ($count > 0) {
-
             $success = "Registo feito !";
         }    
 }
@@ -83,6 +102,7 @@ if($_POST['register'])
               <h2>Register</h2>
                     <form action="" method="POST"> 
                         <input type="username" name="user" placeholder="Username">
+                        <?php echo $err_username ?>
                         <input type="text" name="name" placeholder="Name">
                         <input type="password" name="pass" placeholder="Password">
                         <input type="password" name="repeatpass" placeholder="Repeat Password">
