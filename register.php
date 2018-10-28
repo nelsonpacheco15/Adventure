@@ -4,6 +4,7 @@ include('ligar_bd.php');
 //se houver um pedido de resposta do formulario(isto ta defenido no input submit, o submit faz um pedido ao servidor, que tem como nome "register")
 if($_POST['register'])
 {
+    //verifica se a pass tem mais do que 8 caracteres
     if (strlen($_POST['pass']) < 8 || strlen($_POST['repeatpass']) <8 )
     {
         $err_password_length = 'A password tem de ter um mínimo de 8 caracteres.';
@@ -11,6 +12,7 @@ if($_POST['register'])
         $_POST['repeatpass'] = null;
         
     }
+    //verifica se a pass é igual ao repeatpass
     if($_POST['pass'] == $_POST['repeatpass']){
 
          $pass = $_POST['pass'];
@@ -27,12 +29,13 @@ if($_POST['register'])
 
     //faz um hash da password
     if($pass !=null){
-
         $hashed_password = crypt($pass,"123");
     }
     
     //cross-site scripting protection
     $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+    $user = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+    
     //preparamos a query que vai ser enviada para a base de dados, onde vai fazer o registo
     $sql = $db->prepare(" INSERT INTO `user` (`name`,`username`,`password`) VALUES (:name,:user,:pass)");
     
