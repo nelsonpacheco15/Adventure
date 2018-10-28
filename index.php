@@ -45,8 +45,8 @@
                 <button><i class="icon ion-ios-search"></i></button>
             </form>
                 
-                <a class="btn btn-full" href="register.php">Registar</a>
-                <a class="btn btn-ghost" href="login.php">Login</a>
+                <a class="btn btn-full" href="/register.php">Registar</a>
+                <a class="btn btn-ghost" href="/login.php">Login</a>
             </div>
         </header>
 

@@ -14,20 +14,27 @@
 
     <body>
 
-<?php
+    <?php
+//incluir o ficheiro onde contem a ligação
 include('ligar_bd.php');
-if($_POST['submit'])
+//se houver um pedido de resposta do formulario(isto ta defenido no input submit, o submit faz um pedido ao servidor, que tem como nome "login")
+if($_POST['login'])
 {
-
     $admin = $_POST['admin'];
     $pass = $_POST['pass'];
-    $hashed_pass = crypt($pass,"123");
-    $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-    SELECT  * administrator where username = :username and password= :password
+    $hashed_password = crypt($pass,"123");
+    $sql = $db->prepare("SELECT * from administrator where username = :admin and password= :1234");    
+    $sql->bindParam(':username', $admin);
+    $sql->bindParam(':password', $hashed_password);
+    $sql->execute();
+    $count = $sql->rowCount();
+    if ($count > 0){
+        header('Location:index_back.php');
 
-    
+    } else {
+        echo "<script type='text/javascript'>alert('Error wrong credencials')</script>";
+    }
 }
-
 ?>
 
 
@@ -43,7 +50,7 @@ if($_POST['submit'])
                     <form action="login.php" method="POST"> 
                         <input type="username" name="admin" placeholder="Username">
                         <input type="password" name="pass" placeholder="Password">
-                        <input type="submit" name="submit" value="Login">
+                        <input type="submit" name="login" value="Login">
                     </form>
             </div>
           </div>
