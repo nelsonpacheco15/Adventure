@@ -1,3 +1,25 @@
+<?php
+//incluir o ficheiro onde contem a ligação
+include('ligar_bd.php');
+//se houver um pedido de resposta do formulario(isto ta defenido no input submit, o submit faz um pedido ao servidor, que tem como nome "login")
+if($_POST['login'])
+{
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
+    $hashed_password = crypt($pass,"123");
+    $sql = $db->prepare("SELECT * from user where username = :username and password= :password");    
+    $sql->bindParam(':username', $user);
+    $sql->bindParam(':password', $hashed_password);
+    $sql->execute();
+    $count = $sql->rowCount();
+    if ($count > 0){
+        header('Location:index.php');
+    }else {
+        echo "<script type='text/javascript'>alert('Error wrong credencials')</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,10 +44,10 @@
           <div class="split right">
             <div class="centered">
               <h2>Login</h2>
-                    <form action="login.php" method="POST"> 
+                    <form method="POST"> 
                         <input type="username" name="user" placeholder="Username">
                         <input type="password" name="pass" placeholder="Password">
-                        <input type="submit" name="submit" value="Login">
+                        <input type="submit" name="login" value="Login">
                         <p>Not a member? <a href="register.php">Try registering</a> </p>
                     </form>
             </div>
