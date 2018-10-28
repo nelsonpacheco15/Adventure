@@ -22,7 +22,7 @@
           <div class="split right">
             <div class="centered">
               <h2>Login</h2>
-                    <form action="login.php" method="POST"> 
+                    <form action="" method="POST"> 
                         <input type="username" name="user" placeholder="Username">
                         <input type="password" name="pass" placeholder="Password">
                         <input type="submit" name="submit" value="Login">
