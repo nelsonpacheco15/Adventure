@@ -21,7 +21,6 @@
             <div class="row">   
                 <ul class="main-nav">
                 <li><a href="all_activities.html">Activities</a></li>
-                <li><a href="#">Reserves</a></li>
                 </ul>
             </div> 
             </nav>
@@ -45,8 +44,8 @@
                 <button><i class="icon ion-ios-search"></i></button>
             </form>
                 
-                <a class="btn btn-full" href="/register.php">Registar</a>
-                <a class="btn btn-ghost" href="/login.php">Login</a>
+                <a class="btn btn-full" href="register.php">Registar</a>
+                <a class="btn btn-ghost" href="login.php">Login</a>
             </div>
         </header>
 
