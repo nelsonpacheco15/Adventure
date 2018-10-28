@@ -22,6 +22,14 @@ if($_POST['register'])
     $sql->bindParam(':pass', $hashed_pass);
     
     $sql->execute();
+
+    $count = $sql->rowCount();
+
+        if ($count > 0) {
+
+            echo"Registo feito !";
+        }
+
     
 }
 
