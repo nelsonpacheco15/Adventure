@@ -39,11 +39,11 @@
             <!---Coluna 1 --->
             <div class="col span-1-of-4 box">
             
-            <img src="img/hero1.jpg" alt="Lisbon">
+            <img src="img/diving.jpg" alt="Diving">
 
                 <!---Detalhe 1 --->
             <div class="feature">   
-                <h3><b>Mergulho</b></h3> 
+                <h3><b>Diving</b></h3> 
                 <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
             </div> 
                  <!----Detalhe 3--->
@@ -56,7 +56,7 @@
 
             <!---Coluna 2 --->
             <div class="col span-1-of-4 box">
-                    <img src="img/hero1.jpg" alt="Lisbon">
+                    <img src="img/diving.jpg" alt="Birdwatching">
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
@@ -74,7 +74,7 @@
 
                     <!---Coluna 3 --->
             <div class="col span-1-of-4 box">
-                    <img src="img/hero1.jpg" alt="Lisbon">
+                    <img src="img/diving.jpg" alt="Canoying">
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
@@ -91,11 +91,11 @@
         
                              <!---Coluna 4--->
             <div class="col span-1-of-4 box">
-                    <img src="img/hero1.jpg" alt="Lisbon">
+                    <img src="img/diving.jpg" alt="ATV">
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
-                        <h3><b>Stand Up Paddle</b></h3> 
+                        <h3><b>ATV</b></h3> 
                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                     </div> 
                          <!----Detalhe 3--->
@@ -103,65 +103,7 @@
                                 <button class="btn-reserve">Reservar</button>
                                 <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                     </div>     
-                    </div>   
-
-
-
-
-
-
-
-                    <div class="row">
-                            <!---Coluna 1 --->
-                            <div class="col span-1-of-4 box">
-                            <img src="img/hero1.jpg" alt="Lisbon">
-                
-                                <!---Detalhe 1 --->
-                            <div class="feature">   
-                                <h3><b>ATV</b></h3> 
-                                <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
-                            </div> 
-                                 <!----Detalhe 3--->
-                                <div class="feature">   
-                                        <button class="btn-reserve">Reservar</button>
-                                        <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
-                            </div>     
-                            </div>
-                
-                
-                            <!---Coluna 2 --->
-                            <div class="col span-1-of-4 box">
-                                    <img src="img/hero1.jpg" alt="Lisbon">
-                        
-                                        <!---Detalhe 1 --->
-                                    <div class="feature">   
-                                        <h3><b>Jeep Ride</b></h3> 
-                                        <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
-                                    </div> 
-                                         <!----Detalhe 3--->
-                                        <div class="feature">   
-                                                <button class="btn-reserve">Reservar</button>
-                                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
-                                    </div>     
-                                    </div>
-                
-                
-                
-                                    <!---Coluna 3 --->
-                            <div class="col span-1-of-4 box">
-                                    <img src="img/hero1.jpg" alt="Lisbon">
-                        
-                                        <!---Detalhe 1 --->
-                                    <div class="feature">   
-                                            <h3><b>Whale Watching</b></h3> 
-                                        <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
-                                    </div> 
-                                         <!----Detalhe 3--->
-                                        <div class="feature">   
-                                                <button class="btn-reserve">Reservar</button>
-                                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
-                                    </div>     
-                                    </div>
+                    </div>  
                         
                         
 

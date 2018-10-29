@@ -49,10 +49,6 @@ body {
 }
 
 
-/*Esta classe serve para limpar os floats, é um procedimento universal q
-ue deve ser feito sempre, ou muitas vezes, ela basicamente elimina os 
-floats depois de um elemento */
-
 
 
 
@@ -198,7 +194,7 @@ header {
 .btn-reservation {
     width: 100%;
     height: 60px;
-    margin-top: 5%;
+    margin-top: 27px;
     color: #fff;
     cursor: pointer;
     background-color: #406E8E;
@@ -227,7 +223,6 @@ header {
     
     .comment{
         display: flex;
-        border-radius: 3px;
         margin-bottom: 45px;
         flex-wrap: wrap;
     }
@@ -240,8 +235,7 @@ header {
         color:  #60686d;
         justify-content: flex-end;
     }
-    
-    /* User and time info */
+
     
     .comment .info{
         width: 17%;
@@ -273,7 +267,6 @@ header {
     }
     
     
-    /* The user avatar */
     
     .comment .avatar{
         width: 8%;
@@ -290,7 +283,6 @@ header {
     
     .comment .avatar img{
         display: block;
-        border-radius: 50%;
     }
     
     .comment.user-comment .avatar img{
@@ -301,7 +293,7 @@ header {
     
     
     
-    /* The comment text */
+    /* comment */
     
     .comment p{
         line-height: 1.5;
@@ -325,7 +317,6 @@ header {
         position: absolute;
         width: 15px;
         height: 15px;
-        border-radius: 50%;
         background-color: #ffffff;
         border: 2px solid #f3f3f3;
         left: -8px;
@@ -337,7 +328,6 @@ header {
         position: absolute;
         width: 15px;
         height: 15px;
-        border-radius: 50%;
         background-color: #ffffff;
         border: 2px solid #e2f8ff;
         right: -8px;
@@ -359,7 +349,6 @@ header {
         font: inherit;
     
         outline: 0;
-        border-radius: 3px;
         border: 1px solid #cecece;
         background-color:  #fefefe;
         box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.06);
@@ -371,7 +360,6 @@ header {
     }
     
     .write-new img{
-        border-radius: 50%;
         margin-top: 15px;
     }
     
@@ -391,8 +379,6 @@ header {
         }
     
     
-    
-    /* Responsive styles */
     
     @media (max-width: 800px){
 
@@ -452,6 +438,15 @@ header {
     }
 
 
+    button {
+        padding: 0;
+        border: none;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+      }
+
+
 /* ---------------------------------------------- */
 /* FOOTER */
 /* ---------------------------------------------- */
@@ -459,88 +454,5 @@ header {
 footer {
    background-color: #333;
     padding:30px; 
-    /*decidi mudar aqui o font-size, assim nenhuma das outras medidas de texto que adicionei abaixo vao ser afetadas*/
     font-size: 80%;
-}
 
-.footer-nav {
-    list-style: none;
-    float: left;
-}
-
-.social-links {
-    list-style: none;
-    float: right;
-}
-
-/*para po-los lado a lado eu tenho de formatar o "li", formatando o "ul" se eu disser que quero o inline block, nao vai funcionar*/
-.footer-nav li,
-.social-links li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-/*Fiz isto para tirar a magem que ficava na direita do ultimo icone*/
-.footer-nav li:last-child,
-.social-links li:last-child {
-    margin-right: 0;
-}
-
-.footer-nav li a:link,
-.footer-nav li a:visited,
-
-/*pus o social-links aqui para poder dar-lhes a cor cinzenta que a navegaçao tem*/
-.social-links li a:link,
-.social-links li a:visited {
-    color: #888;
-    text-decoration: none;
-    border-bottom: 0;
-    -webkit-transition: color 0.2s;
-    transition: color 0.2s;
-}
-
-.footer-nav li a:hover,
-.footer-nav li a:active {
-    color: #bbb;
-}
-
-
-/*------social links effect----*/
-/*aqui pus os social-links para mudar o tamanho*/
-.social-links li a:link,
-.social-links li a:visited {
-    font-size: 150%;
-}
-
-/*unica maneira para fazer a transiçao nasdiferentes cores*/
-.ion-social-facebook,
-.ion-social-twitter,
-.ion-social-googleplus,
-.ion-social-instagram {
-    -webkit-transition: color 0.2s;
-    transition: color 0.2s;
-}
-
-/*HOVER EFFECT para os icones sociais*/
-.ion-social-facebook:hover {
-    color: #3b5999;
-}
-
-.ion-social-twitter:hover {
-    color: #55acee;
-}
-
-.ion-social-googleplus:hover {
-    color: #dd4b39;
-}
-
-.ion-social-instagram:hover {
-    color: #e4405f;
-}
-
-
-footer p {
-    color: #888;
-    text-align: center;
-    margin-top: 10px;
-}
