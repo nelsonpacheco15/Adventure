@@ -1,3 +1,49 @@
+<?php
+
+include('../ligar_bd.php');
+
+session_start() ;
+
+if(isset($_SESSION['admin'])==null){
+  header('location.login.php');
+
+}
+
+$name = $_SESSION['admin']['username'];
+
+if($_POST['activity'])
+{
+
+  $id_admin = $_SESSION['admin']['idAdministrator'];
+  
+  $title = $_POST['title'];
+  
+  $description = $_POST['description'];
+  
+  $location = $_POST['location'];
+
+    $sql = $db->prepare(" INSERT INTO `activity` (`idAdministrator`,`title`, `desc`,`location`)
+    VALUES (:idAdmin,:title,:desc,:location)");
+
+    $sql->bindParam(':idAdmin', $id_admin);
+    $sql->bindParam(':title', $title);
+    $sql->bindParam(':desc', $description);
+    $sql->bindParam(':location', $location);
+
+    $sql->execute();
+
+    $count = $sql->rowCount();
+
+        if ($count > 0) {
+            $success = "Registo feito !";
+        }
+        else{
+          echo "erro";
+        }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,7 +76,7 @@
             <li><a href="reservations.php">Reservations</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Welcome, Admin</a></li>
+            <li><a href="#"><?php echo $name ?></a></li>
             <li><a href="login.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -42,17 +88,6 @@
         <div class="row">
           <div class="col-md-10">
             <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Activities<small>Manage Activities</small></h1>
-          </div>
-          <div class="col-md-2">
-            <div class="dropdown create">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Create Content
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a type="button" data-toggle="modal" data-target="#addActivity">Add Activity</a></li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -91,6 +126,15 @@
                 <div class="row">
                       <div class="col-md-12">
                           <input class="form-control" type="text" placeholder="Filter Activities...">
+                           <div class="col-md-2">
+                          <div class="dropdown create">
+
+                            <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="modal" data-target="#addActivity" aria-haspopup="true" aria-expanded="true">
+                              Add Activity
+                            </button>
+
+                          </div>
+                        </div>  
                       </div>
                 </div>
                 <br>
@@ -150,45 +194,38 @@
  <div class="modal fade" id="addActivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form>
+      <form action ="" method="POST">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Activity</h4>
+        <h4 class="modal-title" id="myModalLabel">Activity Form</h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
           <label>Activity Title</label>
-          <input type="text" class="form-control" placeholder="Activity Title">
+          <input type="text" name="title" class="form-control" placeholder="Activity Title">
         </div>
         <div class="form-group">
-          <label>Activity Body</label>
-          <textarea name="editor2" class="form-control" placeholder="Activity Body"></textarea>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Published
-          </label>
+          <label>Activity Description</label>
+          <textarea name="description" class="form-control" placeholder="Activity Body"></textarea>
         </div>
         <div class="form-group">
-          <label>Meta Tags</label>
-          <input type="text" class="form-control" placeholder="Add Some Tags...">
-        </div>
-        <div class="form-group">
-          <label>Meta Description</label>
-          <input type="text" class="form-control" placeholder="Add Meta Description...">
-        </div>
-        <div class="form-group">
-          <label>Date</label>
-          <input type="date" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Localization</label>
-          <input type="text" class="form-control">
+          <label>Location</label>
+           <select name ="location">
+                <option selected value="SaoMiguel">S.Miguel</option>
+                <option value="SantaMaria">Santa Maria</option>
+                <option value="Terceira">Terceira</option>
+                <option value="Pico">Pico</option>
+                <option value="Faial">Faial</option>
+                <option value="SaoJorge">S.Jorge</option>
+                <option value="Graciosa">Graciosa</option>
+                <option value="Flores">Flores</option>
+                <option value="Corvo">Corvo</option>
+           </select>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <input type="submit" name="activity" class="btn btn-primary" value="Add Activity">
       </div>
     </form>
     </div>
