@@ -36,7 +36,7 @@ if($_POST['login'])
 
     $count = $sql->rowCount();
     if ($count > 0){
-        header('Location:index_back.php');
+        header('Location:index.php');
 
     } else {
         echo "<script type='text/javascript'>alert('Error wrong credencials')</script>";

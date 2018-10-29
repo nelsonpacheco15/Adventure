@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Area | Dashboard</title>
+    <title>Admin Area | Edit Page</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
@@ -24,14 +24,14 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Dashboard</a></li>
-            <li><a href="pages.html">Pages</a></li>
-            <li><a href="posts.html">Activities</a></li>
-            <li><a href="users.html">Users</a></li>
+            <li><a href="index.php">Dashboard</a></li>
+            <li><a href="pages.php">Pages</a></li>
+            <li><a href="posts.php">Activities</a></li>
+            <li><a href="users.php">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Welcome, Admin</a></li>
-            <li><a href="login.html">Logout</a></li>
+            <li><a href="login.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -41,7 +41,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard <small>Manage Your Site</small></h1>
+            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit Page<small>About</small></h1>
           </div>
           <div class="col-md-2">
             <div class="dropdown create">
@@ -63,7 +63,9 @@
     <section id="breadcrumb">
       <div class="container">
         <ol class="breadcrumb">
-          <li class="active">Dashboard</li>
+          <li><a href="index.php">Dashboard</a></li>
+          <li><a href="pages.php">Pages</a></li>
+          <li class="active">Edit Page</li>
         </ol>
       </div>
     </section>
@@ -73,92 +75,57 @@
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="index.html" class="list-group-item active main-color-bg">
+              <a href="index.php" class="list-group-item active main-color-bg">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
               </a>
-              <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
-              <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Activities <span class="badge">33</span></a>
-              <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">203</span></a>
+              <a href="pages.php" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
+              <a href="posts.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Activities <span class="badge">33</span></a>
+              <a href="users.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">203</span></a>
             </div>
 
-  
           </div>
           <div class="col-md-9">
             <!-- Website Overview -->
             <div class="panel panel-default">
               <div class="panel-heading main-color-bg">
-                <h3 class="panel-title">Website Overview</h3>
+                <h3 class="panel-title">Edit Page</h3>
               </div>
               <div class="panel-body">
-                <div class="col-md-3">
-                  <div class="well dash-box">
-                    <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 203</h2>
-                    <h4>Users</h4>
+                <form>
+                  <div class="form-group">
+                    <label>Page Title</label>
+                    <input type="text" class="form-control" placeholder="Page Title" value="About">
                   </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="well dash-box">
-                    <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 12</h2>
-                    <h4>Pages</h4>
+                  <div class="form-group">
+                    <label>Page Body</label>
+                    <textarea name="editor1" class="form-control" placeholder="Page Body">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </textarea>
                   </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="well dash-box">
-                    <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 33</h2>
-                    <h4>Activities</h4>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked> Published
+                    </label>
                   </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="well dash-box">
-                    <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 12,334</h2>
-                    <h4>Visitors</h4>
+                  <div class="form-group">
+                    <label>Meta Tags</label>
+                    <input type="text" class="form-control" placeholder="Add Some Tags..." value="tag1, tag2">
                   </div>
-                </div>
+                  <div class="form-group">
+                    <label>Meta Description</label>
+                    <input type="text" class="form-control" placeholder="Add Meta Description..." value="  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et ">
+                  </div>
+                  <input type="submit" class="btn btn-default" value="Submit">
+                </form>
               </div>
               </div>
 
-              <!-- Latest Users -->
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Latest Users</h3>
-                </div>
-                <div class="panel-body">
-                  <table class="table table-striped table-hover">
-                      <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Joined</th>
-                      </tr>
-                      <tr>
-                        <td>Vasco Oliveira</td>
-                        <td>vasco@gmail.com</td>
-                        <td>Dec 12, 2016</td>
-                      </tr>
-                      <tr>
-                        <td>Miguel Pimentel</td>
-                        <td>miguel@yahoo.com</td>
-                        <td>Dec 13, 2016</td>
-                      </tr>
-                      <tr>
-                        <td>John Doe</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>Dec 13, 2016</td>
-                      </tr>
-                      <tr>
-                        <td>Nelson Pacheco</td>
-                        <td>nelson@yahoo.com</td>
-                        <td>Dec 14, 2016</td>
-                      </tr>
-                    </table>
-                </div>
-              </div>
           </div>
         </div>
       </div>
     </section>
 
     <footer id="footer">
-      <p>Copyright Admin, &copy; 2017</p>
     </footer>
 
     <!-- Modals -->
@@ -207,8 +174,10 @@
 
 
 
- <!-- Add Activity -->
- <div class="modal fade" id="addActivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+
+<!-- Add Activity -->
+<div class="modal fade" id="addActivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <form>
@@ -252,11 +221,10 @@
   </div>
 </div>
 
-
-<script>
-  CKEDITOR.replace( 'editor1' );
-  CKEDITOR.replace( 'editor2' );
-</script>
+  <script>
+     CKEDITOR.replace( 'editor1' );
+     CKEDITOR.replace( 'editor2' );
+ </script>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
