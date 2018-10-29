@@ -7,6 +7,29 @@ body{
   background:#f4f4f4;
 }
 
+
+/* SCROLLBAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #406E8E; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #23395B; 
+}
+
 /* Navbar */
 .navbar{
   min-height: 33px !important;
