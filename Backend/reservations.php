@@ -95,7 +95,7 @@
               <div class="panel-body">
                 <div class="row">
                       <div class="col-md-12">
-                          <input class="form-control" type="text" placeholder="Filter Users...">
+                          <input class="form-control" type="text" placeholder="Filter Reservations...">
                       </div>
                 </div>
                 <br>
