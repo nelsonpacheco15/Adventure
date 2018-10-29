@@ -1,3 +1,10 @@
+<?php
+session_start() ;
+
+    $name = $_SESSION['user'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,6 +28,11 @@
             <div class="row">   
                 <ul class="main-nav">
                 <li><a href="all_activities.php">Activities</a></li>
+                <?php if(isset($_SESSION['user']))
+                {
+                    echo '<li><a href=""> welcome '.$name.'!</a></li>';
+                }
+                ?>
                 </ul>
             </div> 
             </nav>
@@ -37,7 +49,7 @@
                     <option value="7">Graciosa</option>
                     <option value="8">Flores</option>
                     <option value="9">Corvo</option>
-            </select>
+                </select>
 
             <form class="search-bar">
                 <input type="text" placeholder="Search.." name="search">
@@ -45,7 +57,14 @@
             </form>
                 
                 <a class="btn btn-full" href="register.php">Registar</a>
-                <a class="btn btn-ghost" href="login.php">Login</a>
+                <?php if(!isset($_SESSION['user'])){
+                    echo '<a class="btn btn-ghost" href="login.php">Login</a>';
+                }
+                else{
+                     echo '<a class="btn btn-ghost" href="logout.php">Logout</a>';
+                }
+                ?>
+               
             </div>
         </header>
 
