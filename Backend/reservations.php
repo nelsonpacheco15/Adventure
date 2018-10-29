@@ -33,7 +33,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Welcome, Admin</a></li>
-            <li><a href="login.html">Logout</a></li>
+            <li><a href="login.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -111,25 +111,25 @@
                         <td>BirdWatching</td>
                         <td>Vasco Oliveira</td>
                         <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                       <tr>
                         <td>Canoying</td>
                         <td>Miguel PImentel</td>
                         <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                       <tr>
                         <td>Stand Up Paddle</td>
                         <td>John Doe</td>
                         <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                       <tr>
                         <td>ATV</td>
                         <td>Nelson Pacheco</td>
                         <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                     </table>
               </div>
