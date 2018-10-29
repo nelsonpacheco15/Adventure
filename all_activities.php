@@ -49,7 +49,7 @@
                  <!----Detalhe 3--->
                 <div class="feature">   
                 <button class="btn-reserve">Reservar</button>
-                <button class="btn-more"><i class="icon ion-ios-add"></i></button>
+                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
             </div>     
             </div>
 
@@ -60,13 +60,13 @@
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
-                        <h3><b>Mergulho</b></h3> 
+                        <h3><b>BirdWatching</b></h3> 
                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                     </div> 
                          <!----Detalhe 3--->
                         <div class="feature">   
                                 <button class="btn-reserve">Reservar</button>
-                                <button class="btn-more"><i class="icon ion-ios-add"></i></button>
+                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                     </div>     
                     </div>
 
@@ -78,13 +78,13 @@
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
-                        <h3><b>Mergulho</b></h3> 
+                        <h3><b>Canoying</b></h3> 
                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                     </div> 
                          <!----Detalhe 3--->
                         <div class="feature">   
                                 <button class="btn-reserve">Reservar</button>
-                                <button class="btn-more"><i class="icon ion-ios-add"></i></button>
+                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                     </div>     
                     </div>
         
@@ -95,13 +95,13 @@
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
-                        <h3><b>Mergulho</b></h3> 
+                        <h3><b>Stand Up Paddle</b></h3> 
                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                     </div> 
                          <!----Detalhe 3--->
                         <div class="feature">   
                                 <button class="btn-reserve">Reservar</button>
-                                <button class="btn-more"><i class="icon ion-ios-add"></i></button>
+                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                     </div>     
                     </div>   
 
@@ -118,13 +118,13 @@
                 
                                 <!---Detalhe 1 --->
                             <div class="feature">   
-                                <h3><b>Mergulho</b></h3> 
+                                <h3><b>ATV</b></h3> 
                                 <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                             </div> 
                                  <!----Detalhe 3--->
                                 <div class="feature">   
                                         <button class="btn-reserve">Reservar</button>
-                                        <button class="btn-more"><i class="icon ion-ios-add"></i></button>
+                                        <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                             </div>     
                             </div>
                 
@@ -135,13 +135,13 @@
                         
                                         <!---Detalhe 1 --->
                                     <div class="feature">   
-                                        <h3><b>Mergulho</b></h3> 
+                                        <h3><b>Jeep Ride</b></h3> 
                                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                                     </div> 
                                          <!----Detalhe 3--->
                                         <div class="feature">   
                                                 <button class="btn-reserve">Reservar</button>
-                                                <button class="btn-more"><i class="icon ion-ios-add"></i></button>
+                                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                                     </div>     
                                     </div>
                 
@@ -153,13 +153,13 @@
                         
                                         <!---Detalhe 1 --->
                                     <div class="feature">   
-                                            <h3><b>Mergulho</b></h3> 
+                                            <h3><b>Whale Watching</b></h3> 
                                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                                     </div> 
                                          <!----Detalhe 3--->
                                         <div class="feature">   
                                                 <button class="btn-reserve">Reservar</button>
-                                                <button class="btn-more"><i class="icon ion-ios-add"></i></button>
+                                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                                     </div>     
                                     </div>
                         
