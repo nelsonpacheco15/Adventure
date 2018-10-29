@@ -20,7 +20,7 @@
             <nav>
             <div class="row">   
                 <ul class="main-title">
-                <li><h2>All Activities</h2></li>
+                <li><h2>Reservations</h2></li>
                 </ul>
             </div> 
             </nav>
@@ -39,78 +39,73 @@
             <!---Coluna 1 --->
             <div class="col span-1-of-4 box">
             
-            <img src="img/diving.jpg" alt="Diving">
+            <img src="img/hero1.jpg" alt="Lisbon">
 
                 <!---Detalhe 1 --->
             <div class="feature">   
-                <h3><b>Diving</b></h3> 
+                <h3><b>Mergulho</b></h3> 
                 <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
             </div> 
-                 <!----Detalhe 3--->
-                <div class="feature">   
-                <button class="btn-reserve">Reservar</button>
-                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
             </div>     
-            </div>
+            
 
 
             <!---Coluna 2 --->
             <div class="col span-1-of-4 box">
-                    <img src="img/diving.jpg" alt="Birdwatching">
+                    <img src="img/hero1.jpg" alt="Lisbon">
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
                         <h3><b>BirdWatching</b></h3> 
                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                     </div> 
-                         <!----Detalhe 3--->
-                        <div class="feature">   
-                                <button class="btn-reserve">Reservar</button>
-                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                     </div>     
-                    </div>
+
 
 
 
                     <!---Coluna 3 --->
             <div class="col span-1-of-4 box">
-                    <img src="img/diving.jpg" alt="Canoying">
+                    <img src="img/hero1.jpg" alt="Lisbon">
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
                         <h3><b>Canoying</b></h3> 
                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                     </div> 
-                         <!----Detalhe 3--->
-                        <div class="feature">   
-                                <button class="btn-reserve">Reservar</button>
-                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                     </div>     
-                    </div>
+                    
         
         
                              <!---Coluna 4--->
             <div class="col span-1-of-4 box">
-                    <img src="img/diving.jpg" alt="ATV">
+                    <img src="img/hero1.jpg" alt="Lisbon">
         
                         <!---Detalhe 1 --->
                     <div class="feature">   
-                        <h3><b>ATV</b></h3> 
+                        <h3><b>Stand Up Paddle</b></h3> 
                         <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
                     </div> 
-                         <!----Detalhe 3--->
-                        <div class="feature">   
-                                <button class="btn-reserve">Reservar</button>
-                                <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
-                    </div>     
-                    </div>  
-                        
-                        
+                    </div>   
+                    </div>   
 
-                                               
-                                
-                                
+
+
+                    <div class="row">
+                        <!---Coluna 1 --->
+                        <div class="col span-1-of-4 box">
                         
+                        <img src="img/hero1.jpg" alt="Lisbon">
+            
+                            <!---Detalhe 1 --->
+                        <div class="feature">   
+                            <h3><b>ATV/b></h3> 
+                            <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
+                        </div> 
+                        </div>     
+                        </div>
+
+
 
 
                     

@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Area | Posts</title>
+    <title>Admin Area | Activities</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
   </head>
   <body>
@@ -26,7 +27,8 @@
           <ul class="nav navbar-nav">
             <li><a href="index.php">Dashboard</a></li>
             <li><a href="pages.php">Pages</a></li>
-            <li class="active"><a href="posts.php">Activities</a></li>
+            <li class="active"><a href="activities.php">Activities</a></li>
+            <li><a href="reservations.php">Reservations</a></li>
             <li><a href="users.php">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -79,7 +81,8 @@
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
               </a>
               <a href="pages.php" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
-              <a href="posts.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Activities <span class="badge">33</span></a>
+              <a href="activities.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Activities <span class="badge">33</span></a>
+              <a href="reservations.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Reservations <span class="badge">3</span></a>
               <a href="users.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">203</span></a>
             </div>
 
@@ -118,7 +121,7 @@
                         <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                       <tr>
-                        <td>Canoagem</td>
+                        <td>Canoying</td>
                         <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
                         <td>Dec 13, 2016</td>
                         <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
@@ -128,6 +131,12 @@
                         <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
                         <td>Dec 14, 2016</td>
                         <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                      </tr>
+                      <tr>
+                        <td>ATV/td>
+                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        <td>Dec 14, 2016</td>
+                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                       </tr>
                     </table>
               </div>
@@ -224,6 +233,10 @@
         <div class="form-group">
           <label>Date</label>
           <input type="date" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Localization</label>
+          <input type="text" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
