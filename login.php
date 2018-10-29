@@ -6,14 +6,25 @@ if($_POST['login'])
 {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
+
     $hashed_password = crypt($pass,"123");
-    $sql = $db->prepare("SELECT * from user where username = :username and password= :password");    
+
+    $sql = $db->prepare("SELECT * from user where username = :username and password= :password");   
+
     $sql->bindParam(':username', $user);
     $sql->bindParam(':password', $hashed_password);
+
     $sql->execute();
+    $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+
     $count = $sql->rowCount();
+
     if ($count > 0){
-        header('Location:index.php');
+
+        session_start();
+        $_SESSION['user'] = $row[0]["name"];
+        header('location:index.php');
+        
     }else {
         echo "<script type='text/javascript'>alert('Error wrong credencials')</script>";
     }
