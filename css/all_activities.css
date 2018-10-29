@@ -178,7 +178,6 @@ header {
 /* ---------------------------------------------- */
 .box {
     background-color: #fff;
-    border-radius: 10px 10px 10px 10px;
     box-shadow: 1px 1px 10px #ccc;
     padding-bottom: 12px;
 }
@@ -189,7 +188,6 @@ header {
     height: auto;
     background-size: contain;
     margin-bottom: 15px;
-    border-radius: 10px 10px 0 0;
     -webkit-filter: brightness(100%);
 }
 
@@ -221,7 +219,6 @@ header {
     font-size: 90%;
     cursor: pointer;
     float: left;
-    border-radius: 5px 5px;
     color: #fff;
     background-color: #406E8E;
     transition: background-color 0.2s;
@@ -240,12 +237,10 @@ header {
     height: 40px;
     font-size: 120%;
     float: right;
-    border-radius: 5px 5px;
     cursor: pointer;
     color: #fff;
     background-color: #406E8E;
     transition: background-color 0.2s;
-    box-shadow: 0;
 }
 
 
@@ -260,9 +255,6 @@ button {
     border: none;
     font: inherit;
     color: inherit;
-    background-color: transparent;
-    /* show a hand cursor on hover; some argue that we
-    should keep the default arrow cursor for buttons */
     cursor: pointer;
   }
 
@@ -275,15 +267,8 @@ button {
 footer {
    background-color: #333;
     padding:30px; 
-    /*decidi mudar aqui o font-size, assim nenhuma das outras medidas de texto que adicionei abaixo vao ser afetadas*/
     font-size: 80%;
 }
 
-
-footer p {
-    color: #888;
-    text-align: center;
-    margin-top: 10px;
-}
 
 

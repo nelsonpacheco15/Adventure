@@ -20,8 +20,7 @@
             <nav>
             <div class="row">   
                 <ul class="main-nav">
-                <li><a href="all_activities.html">Activities</a></li>
-                <li><a href="#">Reserves</a></li>
+                <li><a href="all_activities.php">Activities</a></li>
                 </ul>
             </div> 
             </nav>

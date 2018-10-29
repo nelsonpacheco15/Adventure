@@ -87,6 +87,13 @@ input[type=submit]:hover {
     background-color: #23395B;
 }
 
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
 
 
 /*Isto tira o outline que o browser por padrao poem nas caixas*/
