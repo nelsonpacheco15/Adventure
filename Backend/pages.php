@@ -26,7 +26,8 @@
           <ul class="nav navbar-nav">
             <li><a href="index.php">Dashboard</a></li>
             <li class="active"><a href="pages.php">Pages</a></li>
-            <li><a href="posts.php">Activities</a></li>
+            <li><a href="activities.php">Activities</a></li>
+            <li><a href="reservations.php">Reservations</a></li>
             <li><a href="users.php">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -78,7 +79,8 @@
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
               </a>
               <a href="pages.php" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
-              <a href="posts.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Activities <span class="badge">33</span></a>
+              <a href="activities.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Activities <span class="badge">33</span></a>
+              <a href="reservations.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Reservations <span class="badge">3</span></a>
               <a href="users.php" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">203</span></a>
             </div>
 
@@ -218,6 +220,10 @@
         <div class="form-group">
           <label>Date</label>
           <input type="date" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Localization</label>
+          <input type="text" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
