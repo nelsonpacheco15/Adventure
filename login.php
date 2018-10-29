@@ -22,7 +22,7 @@ if($_POST['login'])
     if ($count > 0){
 
         session_start();
-        $_SESSION['user'] = $row[0]["name"];
+        $_SESSION['user'] = $row[0];
         header('location:index.php');
         
     }else {

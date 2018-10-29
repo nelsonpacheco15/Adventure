@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Area | Account Login</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
-    <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
-  </head>
-  <body>
-
-
-
-
-    <?php
+<?php
 //incluir o ficheiro onde contem a ligação
 include('../ligar_bd.php');
 //se houver um pedido de resposta do formulario(isto ta defenido no input submit, o submit faz um pedido ao servidor, que tem como nome "login")
@@ -33,24 +15,38 @@ if($_POST['login'])
     $sql = $db->prepare("SELECT * from administrator where username = :username and password= :password");    
     $sql->bindParam(':username', $user);
     $sql->bindParam(':password', $hashed_password);
+
     $sql->execute();
+    $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     $count = $sql->rowCount();
+    
     if ($count > 0){
-        header('Location:index.php');
+      
+        session_start();
+        $_SESSION['admin'] = $row[0];
+        header('location:index.php');
 
     } else {
         echo "<script type='text/javascript'>alert('Error wrong credencials')</script>";
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Area | Account Login</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
+    <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
+  </head>
 
-
-
-
-
-    
-
+  <body>
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">

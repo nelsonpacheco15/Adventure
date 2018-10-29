@@ -110,9 +110,6 @@ if($_POST['register'])
                         <?php echo $err_password_length ?>
                         <input type="submit" name="register" value="Register">
                         <?php echo $success ?>
-                        
-                        
-
                     </form>
             </div>
           </div>

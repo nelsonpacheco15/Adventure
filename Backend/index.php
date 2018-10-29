@@ -1,3 +1,14 @@
+<?php
+
+session_start() ;
+
+if(isset($_SESSION['admin'])==null){
+  header('location:login.php');
+}
+  $name = $_SESSION['admin']['username'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,8 +41,8 @@
             <li><a href="reservations.php">Reservations</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Welcome, Admin</a></li>
-            <li><a href="login.php">Logout</a></li>
+            <li><a href="#"><?php echo $name ?></a></li>
+            <li><a href="logout.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -43,16 +54,6 @@
           <div class="col-md-10">
             <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard <small>Manage Your Site</small></h1>
           </div>
-          <div class="col-md-2">
-            <div class="dropdown create">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Create Content
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a type="button" data-toggle="modal" data-target="#addActivity">Add Activity</a></li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -145,58 +146,6 @@
     <footer id="footer">
       <p>Copyright Admin, &copy; 2017</p>
     </footer>
-
-    <!-- Modals -->
-
- <!-- Add Activity -->
- <div class="modal fade" id="addActivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form>
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Activity</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Activity Title</label>
-          <input type="text" class="form-control" placeholder="Activity Title">
-        </div>
-        <div class="form-group">
-          <label>Activity Body</label>
-          <textarea name="editor2" class="form-control" placeholder="Activity Body"></textarea>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Published
-          </label>
-        </div>
-        <div class="form-group">
-          <label>Meta Tags</label>
-          <input type="text" class="form-control" placeholder="Add Some Tags...">
-        </div>
-        <div class="form-group">
-          <label>Meta Description</label>
-          <input type="text" class="form-control" placeholder="Add Meta Description...">
-        </div>
-        <div class="form-group">
-          <label>Date</label>
-          <input type="date" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Localization</label>
-          <input type="text" class="form-control">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
-
 
 <script>
   CKEDITOR.replace( 'editor1' );

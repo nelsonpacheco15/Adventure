@@ -1,8 +1,7 @@
 <?php
 session_start() ;
 
-    $name = $_SESSION['user'];
-
+    $name = $_SESSION['user']['name'];
 
 ?>
 <!DOCTYPE html>
