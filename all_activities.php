@@ -65,7 +65,7 @@
                     </div> 
                          <!----Detalhe 3--->
                         <div class="feature">   
-                                <button class="btn-reserve">Reservar</button>
+                                <button class="btn-reserve">Reserve</button>
                                 <button href="activity.php" class="btn-more"><i class="icon ion-ios-add"></i></button>
                     </div>     
                     </div>
