@@ -141,40 +141,31 @@ if($_POST['activity'])
                 <table class="table table-striped table-hover">
                       <tr>
                         <th>Title</th>
-                        <th>Published</th>
-                        <th>Created</th>
+                        <th>Description</th>
+                        <th>Location</th>
                         <th></th>
                       </tr>
-                      <tr>
-                        <td>Mergulho</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 12, 2016</td>
+
+                      <?php
+
+                      $sql = $db->prepare(" SELECT * FROM `activity` ");
+
+                      $sql->execute();
+
+                      $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                      foreach( $row as $value){
+                        
+                        echo'<tr>
+                        <td>'.$value['title'].'</td>
+                        <td>'.$value['desc'].'</td>
+                        <td>'.$value['location'].'</td>
                         <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>BIrdWatching</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 13, 2016</td>
-                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Canoying</td>
-                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        <td>Dec 13, 2016</td>
-                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Stand Up Paddle</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 14, 2016</td>
-                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>ATV/td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 14, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
+                        </tr>';
+                        
+                      }
+
+                      ?>
                     </table>
               </div>
               </div>
