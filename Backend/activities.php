@@ -4,6 +4,8 @@ include('../ligar_bd.php');
 
 session_start() ;
 
+
+
 if(isset($_SESSION['admin'])==null){
   header('location:login.php');
 
@@ -20,15 +22,24 @@ if(isset($_POST['activity']))
   
   $description = $_POST['description'];
   
-  $location = $_POST['location']; 
+  $location = $_POST['location'];
 
-    $sql = $db->prepare(" INSERT INTO `activity` (`idAdministrator`,`title`, `desc`,`location`)
-    VALUES (:idAdmin,:title,:desc,:location)");
+  $image = $_FILES['image']['name'];
+
+  $uploads_dir = '../images';
+ 
+        $tmp_name = $_FILES["image"]["tmp_name"];
+        $name = basename($_FILES["image"]["name"]);
+        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+
+    $sql = $db->prepare(" INSERT INTO `activity` (`idAdministrator`,`title`, `desc`,`location`,`image`)
+    VALUES (:idAdmin,:title,:desc,:location,:image)");
 
     $sql->bindParam(':idAdmin', $id_admin);
     $sql->bindParam(':title', $title);
     $sql->bindParam(':desc', $description);
     $sql->bindParam(':location', $location);
+    $sql->bindParam(':image', $image);
 
     $sql->execute();
 
@@ -143,7 +154,7 @@ if(isset($_POST['activity']))
                         <th>Title</th>
                         <th>Description</th>
                         <th>Location</th>
-                        <th></th>
+                        <th>Image</th>
                       </tr>
 
                       <?php
@@ -156,10 +167,12 @@ if(isset($_POST['activity']))
 
                       foreach( $row as $value){
                         
-                        echo'<tr>
+                        echo'
+                        <tr>
                         <td>'.$value['title'].'</td>
                         <td>'.$value['desc'].'</td>
                         <td>'.$value['location'].'</td>
+                        <td>'.$value['image'].'</td>
                         <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                         </tr>';
                         
@@ -185,7 +198,7 @@ if(isset($_POST['activity']))
  <div class="modal fade" id="addActivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form action ="" method="POST">
+      <form action ="" method="POST" enctype="multipart/form-data">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Activity Form</h4>
@@ -201,7 +214,7 @@ if(isset($_POST['activity']))
         </div>
         <div class="form-group">
           <label>Activity Image</label>
-          <input type="file" name="fileupload" value="fileupload" id="fileupload"> 
+          <input type="file" name="image" value="fileupload" id="fileupload"> 
           <label for="fileupload"> Select a file to upload</label> <br>
         </div>
         <div class="form-group">
@@ -217,9 +230,6 @@ if(isset($_POST['activity']))
                 <option value="Flores">Flores</option>
                 <option value="Corvo">Corvo</option>
            </select>
-        </div>
-        <div class="form-group">
-        <input type="file" name="image">
         </div>
       </div>
       <div class="modal-footer">
