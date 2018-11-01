@@ -19,7 +19,10 @@ SET time_zone = "+00:00";
 --
 -- Database: `sw_final`
 --
-
+DROP DATABASE IF EXISTS `sw_final`;
+CREATE DATABASE
+IF NOT EXISTS `sw_final`;
+USE `sw_final`;
 -- --------------------------------------------------------
 
 --
