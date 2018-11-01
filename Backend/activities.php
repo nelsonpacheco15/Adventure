@@ -5,7 +5,7 @@ include('../ligar_bd.php');
 session_start() ;
 
 if(isset($_SESSION['admin'])==null){
-  header('location.login.php');
+  header('location:login.php');
 
 }
 
