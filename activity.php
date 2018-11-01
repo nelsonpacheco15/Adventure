@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/Grid.css">
         <link rel="stylesheet" type="text/css" href="css/activity.css">
+        <link rel="stylesheet" type="text/css" href="css/checkout.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
         <title>Adventure</title> 
     </head>
@@ -59,8 +60,8 @@
 
 
                 <div class="col span-1-of-2 right-col">
-                    <button class="btn-reservation" type="submit">Make a Reservation</button>
-
+                    <!-- Open The Modal -->
+                      <button class="btn-reservation" href="checkout.php">Make Reservation</button>
 
 
                     <!----COMMENTS-->
@@ -122,24 +123,14 @@
         </section>
         
         
-       
-        
-        
         
         <!---SECTION 8 FOOTER--->
     <footer>
     
         
-        <!------2 row para o texto dos copyrights---->
-        <div class="row">
-        <p>Copyright &copy; Adventure All rights reserved.</p>
-        
-        </div>
-        
         </footer>
         
     </body>
-    
     
     
 </html>
