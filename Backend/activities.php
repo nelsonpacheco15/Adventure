@@ -11,7 +11,7 @@ if(isset($_SESSION['admin'])==null){
 
 $name = $_SESSION['admin']['username'];
 
-if($_POST['activity'])
+if(isset($_POST['activity']))
 {
 
   $id_admin = $_SESSION['admin']['idAdministrator'];
@@ -20,7 +20,7 @@ if($_POST['activity'])
   
   $description = $_POST['description'];
   
-  $location = $_POST['location'];
+  $location = $_POST['location']; 
 
     $sql = $db->prepare(" INSERT INTO `activity` (`idAdministrator`,`title`, `desc`,`location`)
     VALUES (:idAdmin,:title,:desc,:location)");
@@ -212,6 +212,9 @@ if($_POST['activity'])
                 <option value="Flores">Flores</option>
                 <option value="Corvo">Corvo</option>
            </select>
+        </div>
+        <div class="form-group">
+        <input type="file" name="image">
         </div>
       </div>
       <div class="modal-footer">
