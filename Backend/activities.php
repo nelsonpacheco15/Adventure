@@ -129,7 +129,7 @@ if(isset($_POST['activity']))
                            <div class="col-md-2">
                           <div class="dropdown create">
 
-                            <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="modal" data-target="#addActivity" aria-haspopup="true" aria-expanded="true">
+                            <button class="btn-activity btn-default dropdown-toggle" type="button"  data-toggle="modal" data-target="#addActivity" aria-haspopup="true" aria-expanded="true">
                               Add Activity
                             </button>
 
@@ -198,6 +198,11 @@ if(isset($_POST['activity']))
         <div class="form-group">
           <label>Activity Description</label>
           <textarea name="description" class="form-control" placeholder="Activity Body"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Activity Image</label>
+          <input type="file" name="fileupload" value="fileupload" id="fileupload"> 
+          <label for="fileupload"> Select a file to upload</label> <br>
         </div>
         <div class="form-group">
           <label>Location</label>

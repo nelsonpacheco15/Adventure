@@ -3,12 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Flat Payment Form</title>
+  <title>Checkout</title>
   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 
       <link rel="stylesheet" href="css/checkout.css">
 
@@ -18,9 +16,6 @@
 <body>
 
   <div class='container'>
-  <div class='info'>
-    <span></span>
-  </div>
   <form class='modal'>
     <header class='header'>
       <h1>Payment of €145.00</h1>
