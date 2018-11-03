@@ -26,9 +26,9 @@ if(isset($_POST['activity']))
 
   $image = $_FILES['image']['name'];
 
-  $uploads_dir = '../images';
+  $uploads_dir = 'C:/wamp64/wwwUAC/SW/sw_final/Backend/images/';
  
-        $tmp_name = $_FILES["image"]["tmp_name"];
+        $tmp_name = $uploads_dir.$_FILES["image"]["tmp_name"];
         $name = basename($_FILES["image"]["name"]);
         move_uploaded_file($tmp_name, "$uploads_dir/$name");
 

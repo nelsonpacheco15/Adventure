@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: 28-Out-2018 às 18:39
--- Versão do servidor: 5.7.24-0ubuntu0.18.04.1
--- PHP Version: 7.2.10-0ubuntu0.18.04.1
+-- Host: 127.0.0.1:3306
+-- Generation Time: Nov 03, 2018 at 09:20 PM
+-- Server version: 5.7.19
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,188 +21,140 @@ SET time_zone = "+00:00";
 --
 -- Database: `sw_final`
 --
-CREATE DATABASE IF NOT EXISTS `sw_final`;
-USE `sw_final`;
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `activity`
+-- Table structure for table `activity`
 --
 
-CREATE TABLE `activity` (
-  `idActivity` int(11) NOT NULL,
+DROP TABLE IF EXISTS `activity`;
+CREATE TABLE IF NOT EXISTS `activity` (
+  `idActivity` int(11) NOT NULL AUTO_INCREMENT,
   `idAdministrator` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
   `desc` varchar(45) DEFAULT NULL,
-  `location` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `location` varchar(45) NOT NULL,
+  `image` varchar(45) NOT NULL,
+  PRIMARY KEY (`idActivity`),
+  KEY `fk_Activity_Administrator_idx` (`idAdministrator`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `administrator`
+-- Table structure for table `administrator`
 --
 
-CREATE TABLE `administrator` (
-  `idAdministrator` int(11) NOT NULL,
+DROP TABLE IF EXISTS `administrator`;
+CREATE TABLE IF NOT EXISTS `administrator` (
+  `idAdministrator` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`idAdministrator`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `administrator`
+-- Dumping data for table `administrator`
 --
 
 INSERT INTO `administrator` (`idAdministrator`, `username`, `password`) VALUES
-(1, 'admin', '123'),
-(2, 'admin', '1234');
+(1, 'admin', '12yJ.Of/NQ.Pk');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `comment`
+-- Table structure for table `comment`
 --
 
-CREATE TABLE `comment` (
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
   `idComment` int(11) NOT NULL,
   `idActivity` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `comment` varchar(200) NOT NULL,
-  `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`idComment`),
+  KEY `fk_Comment_Activity1_idx` (`idActivity`),
+  KEY `fk_Comment_User1_idx` (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `creditcard`
+-- Table structure for table `creditcard`
 --
 
-CREATE TABLE `creditcard` (
+DROP TABLE IF EXISTS `creditcard`;
+CREATE TABLE IF NOT EXISTS `creditcard` (
   `idCreditCard` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `cardNumber` int(11) NOT NULL,
   `cardHolderName` varchar(45) NOT NULL,
   `expiryDate` date NOT NULL,
-  `securityNumber` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `securityNumber` int(11) NOT NULL,
+  PRIMARY KEY (`idCreditCard`),
+  KEY `fk_CreditCard_User1_idx` (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reservation`
+-- Table structure for table `reservation`
 --
 
-CREATE TABLE `reservation` (
+DROP TABLE IF EXISTS `reservation`;
+CREATE TABLE IF NOT EXISTS `reservation` (
   `idReservation` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL,
-  `state` enum('standby','rejected','accepted','delayed') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idCreditCard` int(11) NOT NULL,
+  `state` enum('standby','rejected','accepted','delayed') NOT NULL,
+  PRIMARY KEY (`idReservation`),
+  KEY `fk_Reservation_CreditCard1_idx` (`idCreditCard`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `user`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `idUser` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `idUser` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=sjis;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `activity`
---
-ALTER TABLE `activity`
-  ADD PRIMARY KEY (`idActivity`),
-  ADD KEY `fk_Activity_Administrator_idx` (`idAdministrator`);
-
---
--- Indexes for table `administrator`
---
-ALTER TABLE `administrator`
-  ADD PRIMARY KEY (`idAdministrator`);
-
---
--- Indexes for table `comment`
---
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`idComment`),
-  ADD KEY `fk_Comment_Activity1_idx` (`idActivity`),
-  ADD KEY `fk_Comment_User1_idx` (`idUser`);
-
---
--- Indexes for table `creditcard`
---
-ALTER TABLE `creditcard`
-  ADD PRIMARY KEY (`idCreditCard`),
-  ADD KEY `fk_CreditCard_User1_idx` (`idUser`);
-
---
--- Indexes for table `reservation`
---
-ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`idReservation`),
-  ADD KEY `fk_Reservation_User1_idx` (`idUser`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`idUser`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `activity`
---
-ALTER TABLE `activity`
-  MODIFY `idActivity` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `administrator`
---
-ALTER TABLE `administrator`
-  MODIFY `idAdministrator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `activity`
+-- Constraints for table `activity`
 --
 ALTER TABLE `activity`
   ADD CONSTRAINT `fk_Activity_Administrator` FOREIGN KEY (`idAdministrator`) REFERENCES `administrator` (`idAdministrator`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `comment`
+-- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `fk_Comment_Activity1` FOREIGN KEY (`idActivity`) REFERENCES `activity` (`idActivity`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Comment_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `creditcard`
+-- Constraints for table `creditcard`
 --
 ALTER TABLE `creditcard`
   ADD CONSTRAINT `fk_CreditCard_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `reservation`
+-- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `fk_Reservation_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Reservation_CreditCard1` FOREIGN KEY (`idCreditCard`) REFERENCES `creditcard` (`idCreditCard`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
