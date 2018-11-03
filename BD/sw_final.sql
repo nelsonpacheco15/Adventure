@@ -31,7 +31,7 @@ CREATE TABLE `activity` (
   `idActivity` int(11) NOT NULL,
   `idAdministrator` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
-  `desc` varchar(45) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
   `location` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
