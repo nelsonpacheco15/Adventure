@@ -33,12 +33,19 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `idActivity` int(11) NOT NULL AUTO_INCREMENT,
   `idAdministrator` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
+<<<<<<< HEAD
   `desc` varchar(45) DEFAULT NULL,
   `location` varchar(45) NOT NULL,
   `image` varchar(45) NOT NULL,
   PRIMARY KEY (`idActivity`),
   KEY `fk_Activity_Administrator_idx` (`idAdministrator`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+=======
+  `description` varchar(45) DEFAULT NULL,
+  `location` varchar(45) NOT NULL,
+  `image` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+>>>>>>> dc6635a79a1c7ac454c3bd69b1fb374b8657f445
 
 -- --------------------------------------------------------
 
@@ -58,9 +65,12 @@ CREATE TABLE IF NOT EXISTS `administrator` (
 -- Dumping data for table `administrator`
 --
 
+<<<<<<< HEAD
 INSERT INTO `administrator` (`idAdministrator`, `username`, `password`) VALUES
 (1, 'admin', '12yJ.Of/NQ.Pk');
 
+=======
+>>>>>>> dc6635a79a1c7ac454c3bd69b1fb374b8657f445
 -- --------------------------------------------------------
 
 --

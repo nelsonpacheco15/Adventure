@@ -6,7 +6,6 @@
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/Grid.css">
         <link rel="stylesheet" type="text/css" href="css/activity.css">
-        <link rel="stylesheet" type="text/css" href="css/checkout.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
         <title>Adventure</title> 
     </head>
@@ -44,17 +43,17 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                            aliquip ex ea commodo consequat. <blockquote>Duis aute irure dolor in reprehenderit in 
                             voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                            anim id est laborum.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                            occaecat cupidatat non proident, in culpa qui officia deserunt mollit 
+                            anim id est laborum.</blockquote> 
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
                             aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
                             voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
                             occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                            anim id est laborum.</p>
+                            anim id est laborum.</p></p>
                     </div>
             </div>
 

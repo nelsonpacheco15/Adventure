@@ -24,15 +24,30 @@ if(isset($_POST['activity']))
   
   $location = $_POST['location'];
 
-  $image = $_FILES['image']['name'];
+  $target_dir = "/var/www/UA/SW/sw_final/images/";
 
+<<<<<<< HEAD
   $uploads_dir = 'C:/wamp64/wwwUAC/SW/sw_final/Backend/images/';
  
         $tmp_name = $uploads_dir.$_FILES["image"]["tmp_name"];
         $name = basename($_FILES["image"]["name"]);
         move_uploaded_file($tmp_name, "$uploads_dir/$name");
+=======
+    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+>>>>>>> dc6635a79a1c7ac454c3bd69b1fb374b8657f445
 
-    $sql = $db->prepare(" INSERT INTO `activity` (`idAdministrator`,`title`, `desc`,`location`,`image`)
+    if (move_uploaded_file($target_dir.$_FILES["image"]["tmp_name"], $target_file)) {
+      
+        echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
+    $image=($_FILES["image"]["name"]);
+
+    $sql = $db->prepare(" INSERT INTO `activity` (`idAdministrator`,`title`, `description`,`location`,`image`)
     VALUES (:idAdmin,:title,:desc,:location,:image)");
 
     $sql->bindParam(':idAdmin', $id_admin);
@@ -52,8 +67,15 @@ if(isset($_POST['activity']))
           echo "erro";
         }
 
-}
+        
 
+} 
+
+if($_POST['editing']){
+
+ header('location:edit.php');
+
+}   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -151,6 +173,7 @@ if(isset($_POST['activity']))
                 <br>
                 <table class="table table-striped table-hover">
                       <tr>
+                        <th>ID</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Location</th>
@@ -166,17 +189,25 @@ if(isset($_POST['activity']))
                       $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                       foreach( $row as $value){
+
+                        
                         
                         echo'
+                        <form action="" method ="GET">
                         <tr>
+                        <td>'.$value['idActivity'].'</td>
                         <td>'.$value['title'].'</td>
                         <td>'.$value['desc'].'</td>
                         <td>'.$value['location'].'</td>
                         <td>'.$value['image'].'</td>
-                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                        </tr>';
-                        
+                        <td><a class="btn btn-default"  href="edit.php?editing&id='.$value['idActivity'].'">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                        </tr>
+                        </form>';
+
+                                              
+
                       }
+                      
 
                       ?>
                     </table>
@@ -206,7 +237,7 @@ if(isset($_POST['activity']))
       <div class="modal-body">
         <div class="form-group">
           <label>Activity Title</label>
-          <input type="text" name="title" class="form-control" placeholder="Activity Title">
+          <input type="text" name="title" value ="<?php $id['title']?>"class="form-control" placeholder="Activity Title">
         </div>
         <div class="form-group">
           <label>Activity Description</label>
@@ -235,14 +266,11 @@ if(isset($_POST['activity']))
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <input type="submit" name="activity" class="btn btn-primary" value="Add Activity">
-      </div>
+      </div>Imagem
     </form>
     </div>
   </div>
 </div>
-
-
-
 
 <script>
   CKEDITOR.replace( 'editor1' );

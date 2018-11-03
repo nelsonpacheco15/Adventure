@@ -160,6 +160,8 @@
   outline: none;
   display: block;
   background: #406E8E;
+  font-weight: 400;
+  font-size: 100%;
   width: 100%;
   border: 0;
   padding: 20px 30px;
