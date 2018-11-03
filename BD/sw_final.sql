@@ -65,12 +65,9 @@ CREATE TABLE IF NOT EXISTS `administrator` (
 -- Dumping data for table `administrator`
 --
 
-<<<<<<< HEAD
 INSERT INTO `administrator` (`idAdministrator`, `username`, `password`) VALUES
 (1, 'admin', '12yJ.Of/NQ.Pk');
 
-=======
->>>>>>> dc6635a79a1c7ac454c3bd69b1fb374b8657f445
 -- --------------------------------------------------------
 
 --
