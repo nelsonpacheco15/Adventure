@@ -1,9 +1,62 @@
 <?php
+
+include('../ligar_bd.php');
+
 session_start() ;
 
 if(isset($_SESSION['admin'])==null){
   header('location:login.php');
 }
+
+  $id = $_GET['id'];
+
+  $sql = $db->prepare(" SELECT * FROM `activity` where idActivity = :id ");
+
+  $sql->bindParam(':id', $id);
+
+  $sql->execute();
+
+  $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+  if($_POST['edit']){
+
+    $id = $_GET['id'];
+    var_dump($id);
+    $title = $_POST['title'];
+    var_dump($title);
+    $desc = $_POST['description'];
+    var_dump($desc);
+    $image=($_FILES["image"]["name"]);
+    var_dump($image);
+    $location = $_POST['location'];
+    var_dump($location);
+    
+
+    $sql = $db->prepare(" UPDATE activity SET title = :title, description= :description, location= :location, image= :image where idActivity = :id ");
+
+    $sql->bindParam(':title', $title);
+    $sql->bindParam(':description', $desc);
+    $sql->bindParam(':location', $location);
+    $sql->bindParam(':image', $image);
+    $sql->bindParam(':id', $id);
+
+    $sql->execute();
+
+
+    $count = $sql->rowCount();
+    
+
+    if ($count > 0){
+
+      header('location:activities.php');
+
+    }else {
+
+        echo"erro";
+
+    }
+
+  }
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +92,7 @@ if(isset($_SESSION['admin'])==null){
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Welcome, Admin</a></li>
-            <li><a href="login.php">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -84,35 +137,40 @@ if(isset($_SESSION['admin'])==null){
                 <h3 class="panel-title">Edit Page</h3>
               </div>
               <div class="panel-body">
-                <form>
+               <form action ="" method="POST" enctype="multipart/form-data">
                   <div class="form-group">
-                    <label>Page Title</label>
-                    <input type="text" class="form-control" placeholder="Page Title" value="About">
+                    <label>Title Activity</label>
+                    <input type="text" name="title" class="form-control" placeholder="Page Title" value="<?php echo $row[0]['title']?>">
                   </div>
-                  <div class="form-group">
-                    <label>Page Body</label>
-                    <textarea name="editor1" class="form-control" placeholder="Page Body">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <div class="form-group">
+                    <label>Activity Description</label>
+                    <textarea name="description" class="form-control" placeholder="Activity Body">
+                    <?php echo $row[0]['description']?>
                     </textarea>
                   </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" checked> Published
-                    </label>
-                  </div>
                   <div class="form-group">
-                    <label>Meta Tags</label>
-                    <input type="text" class="form-control" placeholder="Add Some Tags..." value="tag1, tag2">
+                  <label>Activity Image</label>
+                  <input type="file" name="image" value="<?php echo $row[0]['image']?> " id="fileupload">
+                  <?php echo $row[0]['image']?> 
                   </div>
-                  <div class="form-group">
-                    <label>Meta Description</label>
-                    <input type="text" class="form-control" placeholder="Add Meta Description..." value="  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et ">
-                  </div>
-                  <input type="submit" class="btn btn-default" value="Submit">
+                   <div class="form-group">
+                  <label>Location</label>
+                  <select name ="location">
+                        <option selected value="<?php echo $row[0]['location']?>"><?php echo $row[0]['location']?></option>
+                        <option value="SantaMaria">Santa Maria</option>
+                        <option value="Terceira">Terceira</option>
+                        <option value="Pico">Pico</option>
+                        <option value="Faial">Faial</option>
+                        <option value="SaoJorge">S.Jorge</option>
+                        <option value="Graciosa">Graciosa</option>
+                        <option value="Flores">Flores</option>
+                        <option value="Corvo">Corvo</option>
+                  </select>
+                </div>
+                  <input type="submit" name="edit" class="btn btn-default" value="Edit">
                 </form>
               </div>
               </div>
-
           </div>
         </div>
       </div>
@@ -120,57 +178,6 @@ if(isset($_SESSION['admin'])==null){
 
     <footer id="footer">
     </footer>
-
-    <!-- Modals -->
-
-<!-- Add Activity -->
-<div class="modal fade" id="addActivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form>
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Activity</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Activity Title</label>
-          <input type="text" class="form-control" placeholder="Activity Title">
-        </div>
-        <div class="form-group">
-          <label>Activity Body</label>
-          <textarea name="editor2" class="form-control" placeholder="Activity Body"></textarea>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Published
-          </label>
-        </div>
-        <div class="form-group">
-          <label>Meta Tags</label>
-          <input type="text" class="form-control" placeholder="Add Some Tags...">
-        </div>
-        <div class="form-group">
-          <label>Meta Description</label>
-          <input type="text" class="form-control" placeholder="Add Meta Description...">
-        </div>
-        <div class="form-group">
-          <label>Date</label>
-          <input type="date" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Localization</label>
-          <input type="text" class="form-control">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
 
   <script>
      CKEDITOR.replace( 'editor1' );

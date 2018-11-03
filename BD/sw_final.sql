@@ -31,8 +31,9 @@ CREATE TABLE `activity` (
   `idActivity` int(11) NOT NULL,
   `idAdministrator` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
-  `desc` varchar(45) DEFAULT NULL,
-  `location` varchar(45) NOT NULL
+  `description` varchar(45) DEFAULT NULL,
+  `location` varchar(45) NOT NULL,
+  `image` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -50,10 +51,6 @@ CREATE TABLE `administrator` (
 --
 -- Extraindo dados da tabela `administrator`
 --
-
-INSERT INTO `administrator` (`idAdministrator`, `username`, `password`) VALUES
-(1, 'admin', '123'),
-(2, 'admin', '1234');
 
 -- --------------------------------------------------------
 
