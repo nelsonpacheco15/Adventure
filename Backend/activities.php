@@ -26,17 +26,9 @@ if(isset($_POST['activity']))
 
   $target_dir = "/var/www/UA/SW/sw_final/images/";
 
-<<<<<<< HEAD
-  $uploads_dir = 'C:/wamp64/wwwUAC/SW/sw_final/Backend/images/';
- 
-        $tmp_name = $uploads_dir.$_FILES["image"]["tmp_name"];
-        $name = basename($_FILES["image"]["name"]);
-        move_uploaded_file($tmp_name, "$uploads_dir/$name");
-=======
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
->>>>>>> dc6635a79a1c7ac454c3bd69b1fb374b8657f445
 
     if (move_uploaded_file($target_dir.$_FILES["image"]["tmp_name"], $target_file)) {
       
@@ -197,7 +189,7 @@ if($_POST['editing']){
                         <tr>
                         <td>'.$value['idActivity'].'</td>
                         <td>'.$value['title'].'</td>
-                        <td>'.$value['desc'].'</td>
+                        <td>'.$value['description'].'</td>
                         <td>'.$value['location'].'</td>
                         <td>'.$value['image'].'</td>
                         <td><a class="btn btn-default"  href="edit.php?editing&id='.$value['idActivity'].'">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
