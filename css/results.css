@@ -140,11 +140,11 @@ a:active {
 
 /* 100vh = 100% viewport */
 header {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/hero1.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero1.jpg);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(64, 110, 142, 0.52)), to(rgba(0, 0, 0, 0.918))), url(img/tumblr_ng88k4nD8U1tv1qiho1_1280.gif);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.287), rgba(0, 0, 0, 0.548)), url(img/tumblr_ng88k4nD8U1tv1qiho1_1280.gif);
     background-size: cover;
     background-position: center;
-    height: 20vh;
+    height: 27vh;
     background-attachment: fixed;
 }
 
@@ -156,17 +156,21 @@ header {
     float: left;
     margin-top: 55px;
     list-style-type: none;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.157);
 }
 
 .main-title li h2 {
     display: inline;
     margin: 40px;
     padding: 8px 0;
-    color: #b9b9b9;
+    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     list-style: none;
     font-size: 220%;
+    font-weight: 300;
+    letter-spacing: 2px;
 }
 
 
@@ -189,6 +193,7 @@ header {
     background-size: contain;
     margin-bottom: 15px;
     -webkit-filter: brightness(100%);
+    cursor: pointer;
 }
 
 .box img:hover {
@@ -198,6 +203,7 @@ header {
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
     transition: all 1s ease;
+    cursor: pointer;
 }
 
 
@@ -214,9 +220,8 @@ header {
     width: 50%;
     height: 40px;
     font-family: "lato";
-    text-transform: uppercase;
-    font-weight: 300;
-    font-size: 90%;
+    font-weight: 400;
+    font-size: 100%;
     cursor: pointer;
     float: left;
     color: #fff;
