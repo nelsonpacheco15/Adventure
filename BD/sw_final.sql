@@ -52,8 +52,7 @@ CREATE TABLE `administrator` (
 --
 
 INSERT INTO `administrator` (`idAdministrator`, `username`, `password`) VALUES
-(1, 'admin', '123'),
-(2, 'admin', '1234');
+(1, 'admin', '12yJ.Of/NQ.Pk');
 
 -- --------------------------------------------------------
 
