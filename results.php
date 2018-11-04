@@ -4,7 +4,7 @@ include('ligar_bd.php');
 
 session_start();
 
-    echo $_SESSION['search'][0];
+    $row = $_SESSION['search'];
 
 
 ?>
@@ -47,15 +47,21 @@ session_start();
             
         
         <div class="row">
-            <!---Coluna 1 --->
-            <div class="col span-1-of-4 box">
+
+        <?php
+        
+        foreach ($row as $value){
+
             
-            <img href="activity.php" src="img/diving.jpg" alt="Diving">
+            echo '
+            <div class="col span-1-of-4 box">
+
+            <img href="activity.php" src="../images/'.$value['image'].'" alt="Diving">
 
                 <!---Detalhe 1 --->
             <div class="feature">   
-                <h3><b>Diving</b></h3> 
-                <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
+                <h3><b>'.$value['title'].'</b></h3> 
+                '.$value['description'].'
             </div> 
                  <!----Detalhe 3--->
                 <div class="feature">   
@@ -63,73 +69,22 @@ session_start();
             </div>     
             </div>
 
-
-            <!---Coluna 2 --->
-            <div class="col span-1-of-4 box">
-                    <img href="activity.php" src="img/bird.jpg" alt="Birdwatching">
-        
-                        <!---Detalhe 1 --->
-                    <div class="feature">   
-                        <h3><b>BirdWatching</b></h3> 
-                        <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
-                    </div> 
-                         <!----Detalhe 3--->
-                        <div class="feature">   
-                        <button class="btn-reserve" href="checkout.php">Reservar</button>
-                    </div>     
-                    </div>
-
-
-
-                    <!---Coluna 3 --->
-            <div class="col span-1-of-4 box">
-                    <img href="activity.php" src="img/paddle.jpg" alt="Paddle">
-        
-                        <!---Detalhe 1 --->
-                    <div class="feature">   
-                        <h3><b>Paddle</b></h3> 
-                        <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
-                    </div> 
-                         <!----Detalhe 3--->
-                        <div class="feature">   
-                                <button class="btn-reserve" href="checkout.php">Reservar</button>
-                    </div>     
-                    </div>
+            ';
+            
+        }
         
         
-                             <!---Coluna 4--->
-            <div class="col span-1-of-4 box">
-                    <img href="activity.php" src="img/bi.jpg" alt="Bycicle">
         
-                        <!---Detalhe 1 --->
-                    <div class="feature">   
-                        <h3><b>Bicycle rides</b></h3> 
-                        <p>LOrem ipsum sit dolor amt romagnoli torino sasuolo caborini</p>
-                    </div> 
-                         <!----Detalhe 3--->
-                        <div class="feature">   
-                        <button class="btn-reserve" href="checkout.php">Reservar</button>
-                    </div>     
-                    </div>  
-                        
-                        
-
-                                               
-                                
-                                
-                        
-
-
-                    
-
+        ?>
         
-    </section> 
+        
+</section> 
 
 
         
         <!---SECTION 8 FOOTER--->
     <footer>
     
-        </footer>
+    </footer>
         
     </body>

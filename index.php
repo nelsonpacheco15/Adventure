@@ -16,26 +16,29 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
     $name_activity = htmlspecialchars($name_activity, ENT_QUOTES, 'UTF-8');
 
-    $sql = $db->prepare("SELECT * from activity where title = :title and location= :location");   
-
-    $sql->bindParam(':title', $name_activity);
-    $sql->bindParam(':location', $location);
-
-    $sql->execute();
-    $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-    $count = $sql->rowCount();
-
-    if ($count > 0){
+    $sql = $db->prepare("SELECT * from activity where title = :title or location= :location");   
         
-        session_destroy();
-        session_start();
-        $_SESSION['search'] = $row[0];
-        header('location:results.php');
+        $sql->bindParam(':title', $name_activity);
+        $sql->bindParam(':location', $location);
         
-    }else {
-        echo "erro";
-    }
+        $sql->execute();
+        $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+        
+        var_dump($row);
+
+        $count = $sql->rowCount();
+        
+        if ($count > 0){
+            
+            session_destroy();
+            session_start();
+            $_SESSION['search'] = $row;
+            header('location:results.php');
+            
+        }else {
+            echo "erro";
+        }
+        
     
 }
 
