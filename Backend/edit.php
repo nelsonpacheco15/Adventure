@@ -1,15 +1,17 @@
 <?php
-
+//inclui a BD
 include('../ligar_bd.php');
 
 session_start() ;
-
+//Verifica se existe sessão de admin senão é redirecionado para o login.php
+//isto para evitar qualquer pessoa entrar no ficheiro
 if(isset($_SESSION['admin'])==null){
   header('location:login.php');
 }
-
+  //id da atividade onde agarra atraves do URL
   $id = $_GET['id'];
-
+  // quero para mostrar toda a informação da atividade para depois estar predefenida no formulario
+  //para puder mudar
   $sql = $db->prepare(" SELECT * FROM `activity` where idActivity = :id ");
 
   $sql->bindParam(':id', $id);
@@ -18,20 +20,17 @@ if(isset($_SESSION['admin'])==null){
 
   $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+
+  //quando for clicado no formulario para editar edita e redireciona para as atividades
   if($_POST['edit']){
 
     $id = $_GET['id'];
-    var_dump($id);
     $title = $_POST['title'];
-    var_dump($title);
     $desc = $_POST['description'];
-    var_dump($desc);
     $image=($_FILES["image"]["name"]);
-    var_dump($image);
-    $location = $_POST['location'];
-    var_dump($location);
-    
+    $location = $_POST['location'];    
 
+    //query para dar update das informações da atividade que esta a ser alterada
     $sql = $db->prepare(" UPDATE activity SET title = :title, description= :description, location= :location, image= :image where idActivity = :id ");
 
     $sql->bindParam(':title', $title);
@@ -45,7 +44,8 @@ if(isset($_SESSION['admin'])==null){
 
     $count = $sql->rowCount();
     
-
+    //se ouver uma alteraçao na tabela quer dizer que foi feito com sucesso assim redireciona para as
+    //atividades
     if ($count > 0){
 
       header('location:activities.php');
@@ -140,6 +140,7 @@ if(isset($_SESSION['admin'])==null){
                <form action ="" method="POST" enctype="multipart/form-data">
                   <div class="form-group">
                     <label>Title Activity</label>
+                    <!--  mostra o valor que tem no campo titulo desta atividade !-->
                     <input type="text" name="title" class="form-control" placeholder="Page Title" value="<?php echo $row[0]['title']?>">
                   </div>
                     <div class="form-group">
@@ -150,11 +151,13 @@ if(isset($_SESSION['admin'])==null){
                   </div>
                   <div class="form-group">
                   <label>Activity Image</label>
+                  <!--  mostra o valor que tem no campo da imagem desta atividade !-->
                   <input type="file" name="image" value="<?php echo $row[0]['image']?> " id="fileupload">
                   <?php echo $row[0]['image']?> 
                   </div>
                    <div class="form-group">
                   <label>Location</label>
+                  <!--  mostra o valor que tem no campo location desta atividade !-->
                   <select name ="location">
                         <option selected value="<?php echo $row[0]['location']?>"><?php echo $row[0]['location']?></option>
                         <option value="SantaMaria">Santa Maria</option>

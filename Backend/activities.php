@@ -1,29 +1,37 @@
 <?php
-
+//inclui BD
 include('../ligar_bd.php');
 
 session_start() ;
 
 
-
+//verifica se existe sessão de admin senão volta para o login.php, isto para proteger quem quiser aceder
+//ao ficheiro 
 if(isset($_SESSION['admin'])==null){
   header('location:login.php');
 
 }
 
+// nome do admin so para mostrar que tem sessão iniciada na pagina
 $name = $_SESSION['admin']['username'];
 
+// se houver um post do formulario com o nome to input submit "activity" cria uma nova atividade
 if(isset($_POST['activity']))
 {
 
+  //id do admin
   $id_admin = $_SESSION['admin']['idAdministrator'];
   
+  //titulo da atividade
   $title = $_POST['title'];
   
+  //descrição da atividade
   $description = $_POST['description'];
   
+  //localização da atividade
   $location = $_POST['location'];
 
+  //supostamente faria o upload da imagem inserida no modal da atividade, mas ainda não funciona...
   $target_dir = "/var/www/UA/SW/sw_final/images/";
 
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -37,21 +45,26 @@ if(isset($_POST['activity']))
         echo "Sorry, there was an error uploading your file.";
     }
 
+    //o nome da imagem
     $image=($_FILES["image"]["name"]);
 
+    //query de inserção de uma atividade com parametros predefenidos
     $sql = $db->prepare(" INSERT INTO `activity` (`idAdministrator`,`title`, `description`,`location`,`image`)
     VALUES (:idAdmin,:title,:desc,:location,:image)");
 
+    //bind dos parametros, isto para evitar mysql injection
     $sql->bindParam(':idAdmin', $id_admin);
     $sql->bindParam(':title', $title);
     $sql->bindParam(':desc', $description);
     $sql->bindParam(':location', $location);
     $sql->bindParam(':image', $image);
 
+    //Executa a query que predefenimos
     $sql->execute();
 
     $count = $sql->rowCount();
 
+    //verifica se houve uma nova linha adiçionada na tabela se sim quer dizer que ouve sucesso !
         if ($count > 0) {
             $success = "Registo feito !";
         }
@@ -63,6 +76,7 @@ if(isset($_POST['activity']))
 
 } 
 
+//se for clicado no Edit redireciona para a pagina Edit onde vai editar a atividade
 if($_POST['editing']){
 
  header('location:edit.php');
@@ -173,13 +187,14 @@ if($_POST['editing']){
                       </tr>
 
                       <?php
-
+                      //query para listar as atividades
                       $sql = $db->prepare(" SELECT * FROM `activity` ");
 
                       $sql->execute();
-
-                      $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-
+            
+                      $dadps = $sql->fetchAll(PDO::FETCH_ASSOC);
+                      
+                      //para cada atividade uso o foreach para 
                       foreach( $row as $value){
 
                         
@@ -199,6 +214,10 @@ if($_POST['editing']){
                                               
 
                       }
+
+                      //no botao editar quando foi clicado leva consigo no URL o Id da ativiade para que na pagina onde
+                      //vai ser redirecionada é possivel pegarmos no ID e a partir dai fazemos uma query para a BD
+                      //para ter toda a informação necessária da atividade cujo queromos editar
                       
 
                       ?>
