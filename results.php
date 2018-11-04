@@ -56,12 +56,13 @@ session_start();
             echo '
             <div class="col span-1-of-4 box">
 
-            <img href="activity.php" src="../images/'.$value['image'].'" alt="Diving">
+            <img href="activity.php" src="images/'.$value['image'].'">
 
                 <!---Detalhe 1 --->
             <div class="feature">   
                 <h3><b>'.$value['title'].'</b></h3> 
-                '.$value['description'].'
+                Location : '.$value['location'].'
+
             </div> 
                  <!----Detalhe 3--->
                 <div class="feature">   
