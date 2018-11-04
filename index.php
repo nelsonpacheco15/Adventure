@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
     $name_activity = htmlspecialchars($name_activity, ENT_QUOTES, 'UTF-8');
 
-        
-        $sql = $db->prepare("SELECT * from activity where title = :title or location= :location");   
+    $sql = $db->prepare("SELECT * from activity where title = :title or location= :location");   
         
         $sql->bindParam(':title', $name_activity);
         $sql->bindParam(':location', $location);
