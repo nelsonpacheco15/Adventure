@@ -9,6 +9,8 @@ if(isset($_POST['login']))
 
     $hashed_password = crypt($pass,"123");
 
+    $user = htmlspecialchars($user, ENT_QUOTES, 'UTF-8');
+
     $sql = $db->prepare("SELECT * from user where username = :username and password= :password");   
 
     $sql->bindParam(':username', $user);

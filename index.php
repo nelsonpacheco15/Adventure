@@ -6,7 +6,16 @@ session_start() ;
         $name = $_SESSION['user']['name'];
     }
 
+if ($_SERVER['REQUEST_METHOD']=='POST'){
+
+    $location = $_POST['location'];
+    $name_activity = $_POST['name'];
+    
+}
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,22 +49,24 @@ session_start() ;
             </nav>
             <div class="hero-text-box">
                 <h1>Live an <b>amazing</b> Adventure!</h1>
+            
+            <form method="POST">
+            
+                <select name ="location" class="local">
 
-                <select class="local">
-                    <option selected value="1">S.Miguel</option>
-                    <option value="2">Santa Maria</option>
-                    <option value="3">Terceira</option>
-                    <option value="4">Pico</option>
-                    <option value="5">Faial</option>
-                    <option value="6">S.Jorge</option>
-                    <option value="7">Graciosa</option>
-                    <option value="8">Flores</option>
-                    <option value="9">Corvo</option>
+                <option selected value="SaoMiguel">S.Miguel</option>
+                <option value="SantaMaria">Santa Maria</option>
+                <option value="Terceira">Terceira</option>
+                <option value="Pico">Pico</option>
+                <option value="Faial">Faial</option>
+                <option value="SaoJorge">S.Jorge</option>
+                <option value="Graciosa">Graciosa</option>
+                <option value="Flores">Flores</option>
+                <option value="Corvo">Corvo</option>
+
                 </select>
-
-            <form class="search-bar">
-                <input type="text" placeholder="Search.." name="search">
-                <button><i class="icon ion-ios-search"></i></button>
+            
+                <input type="text" class="search-bar" placeholder="Search.." name="name">  
             </form>
                 
                 <a class="btn btn-full" href="register.php">Registar</a>
