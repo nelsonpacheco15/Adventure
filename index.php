@@ -16,9 +16,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
     $name_activity = htmlspecialchars($name_activity, ENT_QUOTES, 'UTF-8');
 
-    if($location = $_POST['location'] == null){
-
-        
+  
         $sql = $db->prepare("SELECT * from activity where title = :title or location= :location");   
         
         $sql->bindParam(':title', $name_activity);
@@ -33,14 +31,14 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             
             session_destroy();
             session_start();
-            $_SESSION['search'] = $row[0];
+            $_SESSION['search'] = $row;
             header('location:results.php');
             
         }else {
             echo "erro";
         }
         
-    }
+    
 }
 
 ?>
