@@ -193,7 +193,7 @@ if(isset($_POST['editing'])){
                         <td>'.$value['title'].'</td>
                         <td>'.$value['description'].'</td>
                         <td>'.$value['location'].'</td>
-                        <td>'.$value['image'].'<img class="showIMG" src="../images/shows.png"  alt="shows" /></td>
+                        <td> <img class="showIMG" src="../images/'.$value['image'].'"  alt="shows" /></td>
                         <td><a class="btn btn-default"  href="edit.php?editing&id='.$value['idActivity'].'">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                         </tr>
                         </form>';
