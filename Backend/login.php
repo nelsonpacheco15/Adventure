@@ -2,8 +2,8 @@
 //incluir o ficheiro onde contem a ligação
 include('../ligar_bd.php');
 //se houver um pedido de resposta do formulario(isto ta defenido no input submit, o submit faz um pedido ao servidor, que tem como nome "login")
-if(isset($_POST['login']))
-{
+If(isset($_POST['login'])){
+
     $user = $_POST['user'];
     $pass = $_POST['pass'];
 

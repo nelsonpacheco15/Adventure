@@ -1,7 +1,10 @@
 <?php
 session_start() ;
 
-    $name = $_SESSION['user']['name'];
+    if(isset($_SESSION['user']['name'])){
+        
+        $name = $_SESSION['user']['name'];
+    }
 
 ?>
 <!DOCTYPE html>
@@ -27,7 +30,7 @@ session_start() ;
             <div class="row">   
                 <ul class="main-nav">
                 <li><a href="all_activities.php">Activities</a></li>
-                <?php if(isset($_SESSION['user']))
+                <?php if(isset($_SESSION['user']['name']))
                 {
                     echo '<li><a href=""> welcome '.$name.'!</a></li>';
                 }

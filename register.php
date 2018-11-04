@@ -2,7 +2,10 @@
 //incluir o ficheiro onde contem a ligação
 include('ligar_bd.php');
 //se houver um pedido de resposta do formulario(isto ta defenido no input submit, o submit faz um pedido ao servidor, que tem como nome "register")
-if($_POST['register'])
+
+$err_username = $err_password_length = $erro_pass = $success = "";
+
+if(isset($_POST['register']))
 {
     //guardamos os valores enviados atraves do input e guardamos em variaves, isto defenimos no "name" do input
 
@@ -106,10 +109,10 @@ if($_POST['register'])
                         <input type="text" name="name" placeholder="Name">
                         <input type="password" name="pass" placeholder="Password">
                         <input type="password" name="repeatpass" placeholder="Repeat Password">
-                        <?php echo $erro_pass ?>
-                        <?php echo $err_password_length ?>
+                        <?php echo $erro_pass; ?>
+                        <?php echo $err_password_length; ?>
                         <input type="submit" name="register" value="Register">
-                        <?php echo $success ?>
+                        <?php echo $success; ?>
                     </form>
             </div>
           </div>
