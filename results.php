@@ -4,7 +4,7 @@ include('ligar_bd.php');
 
 session_start();
 
-    echo $_SESSION['search'][0];
+    var_dump( $_SESSION['search']);
 
 
 ?>
