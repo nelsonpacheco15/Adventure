@@ -179,7 +179,7 @@ if(isset($_POST['editing'])){
 
                       $sql->execute();
             
-                      $dadps = $sql->fetchAll(PDO::FETCH_ASSOC);
+                      $row = $sql->fetchAll(PDO::FETCH_ASSOC);
                       
                       //para cada atividade uso o foreach para 
                       foreach( $row as $value){
