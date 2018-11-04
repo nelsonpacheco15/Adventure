@@ -35,11 +35,14 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             $_SESSION['search'] = $row;
             header('location:results.php');
             
-        }else {
-            echo "erro";
         }
-        
-    
+        else{
+            
+            session_destroy();
+            session_start();
+            $_SESSION['search'] = $row;
+            header('location:results.php');
+        }
 }
 
 ?>

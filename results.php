@@ -4,6 +4,12 @@ include('ligar_bd.php');
 
 session_start();
 
+    if($_SESSION['search']==null){
+
+        $no_result = "Não existem resultados";
+        
+    }
+
     $row = $_SESSION['search'];
 
 
@@ -36,18 +42,17 @@ session_start();
             </div> 
             </nav>
         </header>
-
-
-
-
-
         
+
         <!-------------SECTION LIST-------------->
  <section class="section-list" id="list">
+
             
         
         <div class="row">
 
+        <?php echo $no_result ?>
+        
         <?php
         
         foreach ($row as $value){
