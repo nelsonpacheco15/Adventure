@@ -1,3 +1,14 @@
+<?php
+
+include('ligar_bd.php');
+
+session_start();
+
+    echo $_SESSION['search'][0];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
