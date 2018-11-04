@@ -235,7 +235,7 @@ if(isset($_POST['editing'])){
       <div class="modal-body">
         <div class="form-group">
           <label>Activity Title</label>
-          <input type="text" name="title" value ="<?php $id['title']?>"class="form-control" placeholder="Activity Title">
+          <input type="text" name="title" class="form-control" placeholder="Activity Title">
         </div>
         <div class="form-group">
           <label>Activity Description</label>
