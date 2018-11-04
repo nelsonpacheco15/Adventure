@@ -20,7 +20,10 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `sw_final`
---
+
+CREATE DATABASE `sw_final`;
+
+USE `sw_final`;
 
 -- --------------------------------------------------------
 
@@ -33,12 +36,21 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `idActivity` int(11) NOT NULL AUTO_INCREMENT,
   `idAdministrator` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
+<<<<<<< HEAD
   `desccription` varchar(45) DEFAULT NULL,
   `location` varchar(45) NOT NULL,
   `image` varchar(45) NOT NULL,
   PRIMARY KEY (`idActivity`),
   KEY `fk_Activity_Administrator_idx` (`idAdministrator`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+=======
+  `description` varchar(45) DEFAULT NULL,
+  `location` varchar(45) NOT NULL,
+  `image` varchar(45) NOT NULL,
+  PRIMARY KEY (`idActivity`),
+  KEY`fk_Activity_Administrator_idx` (`idAdministrator`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+>>>>>>> eefc00bd77fb55d06b884466fbe25ffd3b9d22b0
 
 -- --------------------------------------------------------
 
@@ -121,6 +133,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `idUser` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`idUser`)
