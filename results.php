@@ -2,7 +2,9 @@
 
 include('ligar_bd.php');
 
+
 session_start();
+
 
     if($_SESSION['search']==null){
 
@@ -59,9 +61,12 @@ session_start();
 
             
             echo '
+
+           
+
             <div class="col span-1-of-4 box">
 
-            <img href="activity.php" src="images/'.$value['image'].'">
+            <a href="activity.php?activity&id='.$value['idActivity'].'"> <img src="images/'.$value['image'].'"></a>
 
                 <!---Detalhe 1 --->
             <div class="feature">   
@@ -74,7 +79,7 @@ session_start();
                 <button class="btn-reserve" href="checkout.php">Reservar</button>
             </div>     
             </div>
-
+            
             ';
             
         }
