@@ -3,7 +3,9 @@ session_start() ;
 
 include('ligar_bd.php');
 
-    if(isset($_SESSION['user']['name'])){
+
+
+    if(isset($_SESSION['user'])){
         
         $name = $_SESSION['user']['name'];
     }
@@ -16,8 +18,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
     $name_activity = htmlspecialchars($name_activity, ENT_QUOTES, 'UTF-8');
 
-  
-        $sql = $db->prepare("SELECT * from activity where title = :title or location= :location");   
+    $sql = $db->prepare("SELECT * from activity where title = :title and location= :location");   
         
         $sql->bindParam(':title', $name_activity);
         $sql->bindParam(':location', $location);
@@ -25,20 +26,23 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
         $sql->execute();
         $row = $sql->fetchAll(PDO::FETCH_ASSOC);
         
+        var_dump($row);
+
         $count = $sql->rowCount();
         
         if ($count > 0){
             
-            session_destroy();
-            session_start();
+            unset($_SESSION["search"]);
             $_SESSION['search'] = $row;
             header('location:results.php');
             
-        }else {
-            echo "erro";
         }
-        
-    
+        else{
+            
+            unset($_SESSION["search"]);
+            $_SESSION['search'] = $row;
+            header('location:results.php');
+        }
 }
 
 ?>

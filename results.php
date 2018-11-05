@@ -2,7 +2,15 @@
 
 include('ligar_bd.php');
 
+
 session_start();
+
+
+    if($_SESSION['search']==null){
+
+        $no_result = "Não existem resultados";
+        
+    }
 
     $row = $_SESSION['search'];
 
@@ -36,39 +44,42 @@ session_start();
             </div> 
             </nav>
         </header>
-
-
-
-
-
         
+
         <!-------------SECTION LIST-------------->
  <section class="section-list" id="list">
+
             
         
         <div class="row">
 
+        <?php echo $no_result ?>
+        
         <?php
         
         foreach ($row as $value){
 
             
             echo '
+
+           
+
             <div class="col span-1-of-4 box">
 
-            <img href="activity.php" src="../images/'.$value['image'].'" alt="Diving">
+            <a href="activity.php?activity&id='.$value['idActivity'].'"> <img src="images/'.$value['image'].'"></a>
 
                 <!---Detalhe 1 --->
             <div class="feature">   
                 <h3><b>'.$value['title'].'</b></h3> 
-                '.$value['description'].'
+                Location : '.$value['location'].'
+
             </div> 
                  <!----Detalhe 3--->
                 <div class="feature">   
                 <button class="btn-reserve" href="checkout.php">Reservar</button>
             </div>     
             </div>
-
+            
             ';
             
         }
