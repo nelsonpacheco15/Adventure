@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 03, 2018 at 09:20 PM
+-- Generation Time: Nov 05, 2018 at 06:35 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -20,10 +20,7 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `sw_final`
-
-CREATE DATABASE `sw_final`;
-
-USE `sw_final`;
+--
 
 -- --------------------------------------------------------
 
@@ -37,12 +34,18 @@ CREATE TABLE IF NOT EXISTS `activity`
 ( `idActivity` int(11) NOT NULL AUTO_INCREMENT,
   `idAdministrator` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
-  `description` varchar(45) DEFAULT NULL,
+  `desc` varchar(45) DEFAULT NULL,
   `location` varchar(45) NOT NULL,
   `image` varchar(45) NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY(`idActivity`),
   KEY`fk_Activity_Administrator_idx`(`idAdministrator`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+=======
+  PRIMARY KEY (`idActivity`),
+  KEY `fk_Activity_Administrator_idx` (`idAdministrator`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+>>>>>>> 183252654cd60404ff9305cfbc4f21d6ef9b999c
 
 -- --------------------------------------------------------
 
@@ -57,15 +60,22 @@ CREATE TABLE IF NOT EXISTS `administrator`
   `idAdministrator` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY(`idAdministrator`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+=======
+  PRIMARY KEY (`idAdministrator`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+>>>>>>> 183252654cd60404ff9305cfbc4f21d6ef9b999c
 
---
--- Dumping data for table `administrator`
---
 
+<<<<<<< HEAD
 INSERT INTO `administrator` (`idAdministrator`,`username`, `password`) VALUES
 (1, 'admin', '12yJ.Of/NQ.Pk');
+=======
+INSERT INTO `administrator` (`idAdministrator`,`username`,`password`) VALUES
+(1,'admin','12yJ.Of/NQ.Pk');
+>>>>>>> 183252654cd60404ff9305cfbc4f21d6ef9b999c
 
 -- --------------------------------------------------------
 
@@ -119,9 +129,15 @@ CREATE TABLE IF NOT EXISTS `reservation`
   `idCreditCard` int(11) NOT NULL,
   `idActivity` int(11) NOT NULL,
   `state` enum('standby','rejected','accepted','delayed') NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY(`idReservation`),
   KEY `fk_Reservation_CreditCard1_idx`(`idCreditCard`)
   KEY `idActivity`(`idActivity`);
+=======
+  PRIMARY KEY (`idReservation`),
+  KEY `fk_Reservation_CreditCard1_idx` (`idCreditCard`),
+  KEY `fk_Reservation_Activity1_idx` (`idActivity`)
+>>>>>>> 183252654cd60404ff9305cfbc4f21d6ef9b999c
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -133,7 +149,6 @@ CREATE TABLE IF NOT EXISTS `reservation`
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `idUser` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY(`idUser`)
@@ -182,11 +197,16 @@ UPDATE NO ACTION;
 -- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
+<<<<<<< HEAD
 ADD CONSTRAINT `fk_Reservation_CreditCard1` FOREIGN KEY
 (`idCreditCard`) REFERENCES `creditcard`
 (`idCreditCard`) ON
 DELETE NO ACTION ON
 UPDATE NO ACTION;
+=======
+  ADD CONSTRAINT `fk_Reservation_Activity1` FOREIGN KEY (`idActivity`) REFERENCES `activity` (`idActivity`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Reservation_CreditCard1` FOREIGN KEY (`idCreditCard`) REFERENCES `creditcard` (`idCreditCard`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+>>>>>>> 183252654cd60404ff9305cfbc4f21d6ef9b999c
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
