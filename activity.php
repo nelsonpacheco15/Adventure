@@ -56,7 +56,7 @@ session_start();
             
              $error_comment = "error on inserting comment";
 
-             $var_dump($error_comment);
+             var_dump($error_comment);
 
             }
 

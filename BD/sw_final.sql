@@ -73,7 +73,7 @@ DROP TABLE IF EXISTS `comment`;
 
 CREATE TABLE IF NOT EXISTS `comment`
 (
-  `idComment` int(11) NOT NULL,
+  `idComment` int(11) NOT NULL AUTO_INCREMENT,
   `idActivity` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `comment` varchar(200) NOT NULL,
