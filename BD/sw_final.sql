@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `activity`
 ( `idActivity` int(11) NOT NULL AUTO_INCREMENT,
   `idAdministrator` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
-  `desc` varchar(45) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
   `location` varchar(45) NOT NULL,
   `image` varchar(45) NOT NULL,
   PRIMARY KEY (`idActivity`),
