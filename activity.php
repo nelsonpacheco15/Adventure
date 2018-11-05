@@ -33,6 +33,7 @@ session_start();
           
           $date = date('y-m-d');
         
+            $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
 
             $sql = $db->prepare(" INSERT INTO `comment` (`idActivity`,`idUser`, `comment`,`date`)
             VALUES (:idActivity,:idUser,:comment,:date)");
