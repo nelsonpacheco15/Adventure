@@ -5,6 +5,7 @@ include('ligar_bd.php');
 
 session_start();
 
+$no_result = "";
 
     if($_SESSION['search']==null){
 

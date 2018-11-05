@@ -4,6 +4,8 @@ include('ligar_bd.php');
 
 session_start();
 
+ $no_session ="";
+
 //id da atividade onde agarra atraves do URL
   $id_activity = $_GET['id'];
   // quero para mostrar toda a informação da atividade para depois estar predefenida no formulario
@@ -16,7 +18,7 @@ session_start();
 
   $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-      if($_POST['commentary']){
+      if(isset($_POST['commentary'])){
 
         if(isset($_SESSION['user'])){
 
