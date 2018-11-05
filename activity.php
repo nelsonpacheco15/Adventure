@@ -180,7 +180,7 @@ session_start();
                                 <div>
                                     <input type="submit" name="commentary" value="submit">
                                 </div>
-            
+                                <?php echo $no_session ?>
                             </form>
             
                         </li>
