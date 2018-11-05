@@ -7,7 +7,7 @@ session_start() ;
 
 //verifica se existe sessão de admin senão volta para o login.php, isto para proteger quem quiser aceder
 //ao ficheiro 
-if(isset($_SESSION['admin'])==null){
+if(!isset($_SESSION['admin'])){
   header('location:login.php');
 
 }

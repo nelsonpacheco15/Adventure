@@ -5,7 +5,7 @@ include('../ligar_bd.php');
 session_start() ;
 //Verifica se existe sessão de admin senão é redirecionado para o login.php
 //isto para evitar qualquer pessoa entrar no ficheiro
-if(isset($_SESSION['admin'])==null){
+if(!isset($_SESSION['admin'])){
   header('location:login.php');
 }
   //id da atividade onde agarra atraves do URL
