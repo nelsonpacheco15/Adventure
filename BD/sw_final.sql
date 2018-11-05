@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `comment`
   `idActivity` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `comment` varchar(200) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` DATE NOT NULL,
   PRIMARY KEY(`idComment`),
   KEY `fk_Comment_Activity1_idx`(`idActivity`),
   KEY `fk_Comment_User1_idx`(`idUser`)
