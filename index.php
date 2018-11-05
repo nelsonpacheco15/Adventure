@@ -3,7 +3,9 @@ session_start() ;
 
 include('ligar_bd.php');
 
-    if(isset($_SESSION['user']['name'])){
+
+
+    if(isset($_SESSION['user'])){
         
         $name = $_SESSION['user']['name'];
     }
@@ -30,16 +32,14 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
         
         if ($count > 0){
             
-            session_destroy();
-            session_start();
+            unset($_SESSION["search"]);
             $_SESSION['search'] = $row;
             header('location:results.php');
             
         }
         else{
             
-            session_destroy();
-            session_start();
+            unset($_SESSION["search"]);
             $_SESSION['search'] = $row;
             header('location:results.php');
         }
