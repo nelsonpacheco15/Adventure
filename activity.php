@@ -181,7 +181,7 @@ session_start();
                                 <textarea placeholder="Write your comment here" name="comment"></textarea>
             
                                 <div>
-                                    <input type="submit" name="commentary" value="submit">
+                                    <input class="btn-submit" type="submit" name="commentary" value="submit">
                                 </div>
                                 <?php echo $no_session ?>
                             </form>
