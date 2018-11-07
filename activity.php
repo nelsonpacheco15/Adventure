@@ -121,7 +121,13 @@ session_start();
 
                 <div class="col span-1-of-2 right-col">
                     <!-- Open The Modal -->
-                      <button class="btn-reservation" href="checkout.php">Make Reservation</button>
+                    <?php
+                        echo
+                        '
+                         <a href="checkout.php?Activity&id='.$row[0]['idActivity'].'"><button class="btn-reservation">Reserve</button></a>
+                        ';
+                    ?>
+                    
 
 
                     <!----COMMENTS-->
