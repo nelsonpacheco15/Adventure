@@ -14,6 +14,45 @@
 
     $securitynumber = $_POST['securitynumber'];
 
+    $cipher = "aes-128-gcm";
+
+    $key="ola";
+
+    $ivlen = openssl_cipher_iv_length($cipher);
+    $iv = openssl_random_pseudo_bytes($ivlen);
+
+    $expirydate = openssl_encrypt($expirydate, $cipher, $key, $options=0, $iv, $tag);
+    $securitynumber = openssl_encrypt($securitynumber, $cipher, $key, $options=0, $iv, $tag);
+
+    $expirydate = htmlspecialchars($expirydate, ENT_QUOTES, 'UTF-8');
+    $cardholdername = htmlspecialchars($cardholdername, ENT_QUOTES, 'UTF-8');
+    $cardnumber = htmlspecialchars($cardnumber, ENT_QUOTES, 'UTF-8');
+    $securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');
+    
+
+
+    $sql = $db->prepare(" INSERT INTO `creditcard` (`idUser`,`cardNumber`, `cardHolderName`,`expiryDate`
+    `securityNumber`)
+    VALUES (:idUser,:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
+
+      $sql->bindParam(':idUser', $user_id);
+      $sql->bindParam(':cardNumber', $cardnumber);
+      $sql->bindParam(':cardHolderName', $cardholdername);
+      $sql->bindParam(':expiryDate', $expirydate);
+      $sql->bindParam(':securityNumber', $securitynumber);
+
+      $sql->execute();
+
+
+      $sql = $db->prepare("SELECT idCreditCard where cardNumber = :cardnumber");
+
+      $sql->bindParam(':cardNumber', $cardnumber);
+
+      $sql->execute();
+
+
+
+
      
   }
 
