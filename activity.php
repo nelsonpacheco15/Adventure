@@ -33,6 +33,7 @@ session_start();
           
           $date = date('y-m-d');
         
+            $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
 
             $sql = $db->prepare(" INSERT INTO `comment` (`idActivity`,`idUser`, `comment`,`date`)
             VALUES (:idActivity,:idUser,:comment,:date)");
@@ -120,7 +121,13 @@ session_start();
 
                 <div class="col span-1-of-2 right-col">
                     <!-- Open The Modal -->
-                      <button class="btn-reservation" href="checkout.php">Make Reservation</button>
+                    <?php
+                        echo
+                        '
+                         <a href="checkout.php?Activity&id='.$row[0]['idActivity'].'"><button class="btn-reservation">Reserve</button></a>
+                        ';
+                    ?>
+                    
 
 
                     <!----COMMENTS-->
@@ -180,7 +187,7 @@ session_start();
                                 <textarea placeholder="Write your comment here" name="comment"></textarea>
             
                                 <div>
-                                    <input type="submit" name="commentary" value="submit">
+                                    <input class="btn-submit" type="submit" name="commentary" value="submit">
                                 </div>
                                 <?php echo $no_session ?>
                             </form>

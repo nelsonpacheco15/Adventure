@@ -1,3 +1,27 @@
+<?php
+
+ if(isset($_POST['reserve'])){
+   
+   if(isset($_SESSION['user'])){
+
+    $user_id = $_SESSION['user']['idUser'];
+
+    $cardholdername = $_POST['cardholdername'];
+
+    $cardnumber = $_POST['cardnumber'];
+
+    $expirydate = $_POST['expirydate'];
+
+    $securitynumber = $_POST['securitynumber'];
+
+     
+  }
+
+ }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -18,7 +42,6 @@
   <div class='container'>
   <form class='modal'>
     <header class='header'>
-      <h1>Payment of €145.00</h1>
       <div class='card-type'>
         <a class='card' href='#'>
           <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Amex.png'>
@@ -39,29 +62,29 @@
         <div class='form-row'>
           <div class='input-group'>
             <label for=''>Name on card</label>
-            <input placeholder='' type='text'>
+            <input name="cardholdername" placeholder='' type='text'>
           </div>
         </div>
         <div class='form-row'>
           <div class='input-group'>
             <label for=''>Card Number</label>
-            <input maxlength='16' placeholder='' type='number'>
+            <input name="cardnumber" maxlength='16' placeholder='' type='number'>
           </div>
         </div>
         <div class='form-row'>
           <div class='input-group'>
             <label for=''>Expiry Date</label>
-            <input placeholder='' type='month'>
+            <input name="expirydate" placeholder='' type='month'>
           </div>
           <div class='input-group'>
             <label for=''>CVS</label>
-            <input maxlenght='4' placeholder='' type='number'>
+            <input name="securitynumber" maxlenght='4' placeholder='' type='number'>
           </div>
         </div>
       </div>
     </div>
     <footer class='footer'>
-      <button class='button'>Complete Payment</button>
+      <input type="submit" name="reserve" value="Complete Payment" class='button'>
     </footer>
   </form>
 </div>

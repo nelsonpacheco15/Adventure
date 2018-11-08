@@ -198,7 +198,7 @@ button {
 
 
 .showIMG img { display:none; }
-.showIMG img:hover { 
+.showIMG:hover img { 
   display:block; 
  position:absolute;
  width: 5%;

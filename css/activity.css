@@ -482,7 +482,7 @@ blockquote cite:before {
     }
 
 
-    button {
+    input {
         padding: 0;
         border: none;
         font: inherit;
@@ -511,13 +511,26 @@ blockquote cite:before {
 
 
 
+.btn-submit {
+    height: 40px;
+    width: 40%;
+    font-family: "lato";
+    font-weight: 400;
+    margin-left: 60%;
+    margin-top: 10px;
+    font-size: 100%;
+    cursor: pointer;
+    float: left;
+    color: #fff;
+    background-color: #406E8E;
+    transition: background-color 0.2s;
+}
 
 
+.btn-submit:hover {
+    background-color: #23395B;
 
-/* FORM */
-
-
-  
+}
   
   
 

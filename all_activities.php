@@ -5,15 +5,14 @@ include('ligar_bd.php');
 
 session_start();
 
-$no_result = "";
+ $no_session ="";
 
-    if($_SESSION['search']==null){
 
-        $no_result = "Não existem resultados";
-        
-    }
+  $id_activity = $_GET['id'];
+  $sql = $db->prepare(" SELECT * FROM activity);
+  $sql->execute();
+  $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-    $row = $_SESSION['search'];
 
 
 ?>
@@ -25,10 +24,10 @@ $no_result = "";
         
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/Grid.css">
-        <link rel="stylesheet" type="text/css" href="css/results.css">
+        <link rel="stylesheet" type="text/css" href="css/all_activities.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
         <link href="https://unpkg.com/ionicons@4.4.6/dist/css/ionicons.min.css" rel="stylesheet">
-        <title>Adventure | Results</title> 
+        <title>Adventure | Activities</title> 
     </head>
     
 
@@ -40,7 +39,7 @@ $no_result = "";
             <nav>
             <div class="row">   
                 <ul class="main-title">
-                <li><h2>Search Results...</h2></li>
+                <li><h2>Activities</h2></li>
                 </ul>
             </div> 
             </nav>
@@ -54,7 +53,6 @@ $no_result = "";
         
         <div class="row">
 
-        <?php echo $no_result ?>
         
         <?php
         
