@@ -1,43 +1,47 @@
 <?php
 
+include('ligar_bd.php');
+
+session_start();
+
  if(isset($_POST['reserve'])){
-   
+
    if(isset($_SESSION['user'])){
 
 
     $id_activity = $_GET['id'];
-
+    var_dump($id_activity);
     $user_id = $_SESSION['user']['idUser'];
-
-    $cardholdername = $_POST['cardholdername'];
-
+   
     $cardnumber = $_POST['cardnumber'];
-
+    var_dump($cardnumber);
+    $cardholdername = $_POST['cardholdername'];
+    var_dump($cardholdername);
     $expirydate = $_POST['expirydate'];
-
+    var_dump($expirydate);
     $securitynumber = $_POST['securitynumber'];
-
+    var_dump($securitynumber);
     $state = 'standby';
+    var_dump($state);
 
-    $cipher = "aes-128-gcm";
+    #$cipher = "aes-128-gcm";
 
-    $key="ola";
+    #$key="ola";
 
-    $ivlen = openssl_cipher_iv_length($cipher);
-    $iv = openssl_random_pseudo_bytes($ivlen);
+    #$ivlen = openssl_cipher_iv_length($cipher);
+    #$iv = openssl_random_pseudo_bytes($ivlen);
 
-    $expirydate = openssl_encrypt($expirydate, $cipher, $key, $options=0, $iv, $tag);
-    $securitynumber = openssl_encrypt($securitynumber, $cipher, $key, $options=0, $iv, $tag);
+    #$expirydate = openssl_encrypt($expirydate, $cipher, $key, $options=0, $iv, $tag);
+    #$securitynumber = openssl_encrypt($securitynumber, $cipher, $key, $options=0, $iv, $tag);
 
-    $expirydate = htmlspecialchars($expirydate, ENT_QUOTES, 'UTF-8');
-    $cardholdername = htmlspecialchars($cardholdername, ENT_QUOTES, 'UTF-8');
-    $cardnumber = htmlspecialchars($cardnumber, ENT_QUOTES, 'UTF-8');
-    $securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');
+    #$expirydate = htmlspecialchars($expirydate, ENT_QUOTES, 'UTF-8');
+    #$cardholdername = htmlspecialchars($cardholdername, ENT_QUOTES, 'UTF-8');
+    #$cardnumber = htmlspecialchars($cardnumber, ENT_QUOTES, 'UTF-8');
+    #$securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');
     
 
 
-    $sql = $db->prepare(" INSERT INTO `creditcard` (`cardNumber`, `cardHolderName`,`expiryDate`
-    `securityNumber`)
+    $sql = $db->prepare(" INSERT INTO `creditcard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
     VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
 
       $sql->bindParam(':cardNumber', $cardnumber);
@@ -46,23 +50,29 @@
       $sql->bindParam(':securityNumber', $securitynumber);
 
       $sql->execute();
+      
+     /* $count = $sql->rowCount();
 
+            if ($count > 0){
+              $success = "success";
+              echo $success;
+            }
+            else{
+              $error = "error";
+              var_dump($error);
+            }
 
-      $sql = $db->prepare("SELECT cardNumber where cardNumber = :cardnumber");
+      */
 
-      $sql->bindParam(':cardNumber', $cardnumber);
-
-      $sql->execute();
-
-       $sql = $db->prepare(" INSERT INTO `reservation` (`idUser`, `idActivity`,`cardNumber`
-       `state`)
+       $sql = $db->prepare(" INSERT INTO `reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
         VALUES (:idUser,:idActivity,:cardNumber,:state)");
 
       $sql->bindParam(':idUser', $user_id);
       $sql->bindParam(':idActivity', $id_activity);
       $sql->bindParam(':cardNumber', $cardnumber);
       $sql->bindParam(':state', $state);
-
+          
+      $sql->execute();
      
   }
 
@@ -89,7 +99,7 @@
 <body>
 
   <div class='container'>
-  <form class='modal'>
+  <form class='modal' method="POST">
     <header class='header'>
       <div class='card-type'>
         <a class='card' href='#'>
