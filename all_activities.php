@@ -5,11 +5,14 @@ include('ligar_bd.php');
 
 session_start();
 
- $no_session ="";
 
+<<<<<<< HEAD
 
   
   $sql = $db->prepare(" SELECT * FROM activity");
+=======
+  $sql = $db->prepare(" SELECT * FROM 'activity' ");
+>>>>>>> 5c594f1f0794625ac69b18f194cbc96b1fb5f874
   $sql->execute();
   $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
