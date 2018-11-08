@@ -4,6 +4,9 @@
    
    if(isset($_SESSION['user'])){
 
+
+    $id_activity = $_GET['id'];
+
     $user_id = $_SESSION['user']['idUser'];
 
     $cardholdername = $_POST['cardholdername'];
@@ -13,6 +16,8 @@
     $expirydate = $_POST['expirydate'];
 
     $securitynumber = $_POST['securitynumber'];
+
+    $state = 'standby';
 
     $cipher = "aes-128-gcm";
 
@@ -31,11 +36,10 @@
     
 
 
-    $sql = $db->prepare(" INSERT INTO `creditcard` (`idUser`,`cardNumber`, `cardHolderName`,`expiryDate`
+    $sql = $db->prepare(" INSERT INTO `creditcard` (`cardNumber`, `cardHolderName`,`expiryDate`
     `securityNumber`)
-    VALUES (:idUser,:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
+    VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
 
-      $sql->bindParam(':idUser', $user_id);
       $sql->bindParam(':cardNumber', $cardnumber);
       $sql->bindParam(':cardHolderName', $cardholdername);
       $sql->bindParam(':expiryDate', $expirydate);
@@ -44,14 +48,20 @@
       $sql->execute();
 
 
-      $sql = $db->prepare("SELECT idCreditCard where cardNumber = :cardnumber");
+      $sql = $db->prepare("SELECT cardNumber where cardNumber = :cardnumber");
 
       $sql->bindParam(':cardNumber', $cardnumber);
 
       $sql->execute();
 
+       $sql = $db->prepare(" INSERT INTO `reservation` (`idUser`, `idActivity`,`cardNumber`
+       `state`)
+        VALUES (:idUser,:idActivity,:cardNumber,:state)");
 
-
+      $sql->bindParam(':idUser', $user_id);
+      $sql->bindParam(':idActivity', $id_activity);
+      $sql->bindParam(':cardNumber', $cardnumber);
+      $sql->bindParam(':state', $state);
 
      
   }
