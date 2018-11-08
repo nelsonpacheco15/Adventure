@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type="text" class="search-bar" placeholder="Search.." name="name">  
             </form>
                 
-                <a class="btn btn-full" href="register.php">Registar</a>
+                <a class="btn btn-full" href="register.php">Register</a>
                 <?php if(!isset($_SESSION['user'])){
                     echo '<a class="btn btn-ghost" href="login.php">Login</a>';
                 }

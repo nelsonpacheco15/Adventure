@@ -42,7 +42,7 @@ if(isset($_POST['login']))
         <link rel="stylesheet" type="text/css" href="css/Grid.css">
         <link rel="stylesheet" type="text/css" href="css/login.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
-        <title>Adventure</title> 
+        <title>Adventure | Login</title> 
     </head>
     
 
