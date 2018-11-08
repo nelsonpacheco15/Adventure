@@ -68,7 +68,8 @@ if(isset($_POST['editing'])){
 
  header('location:edit.php');
 
-}   
+} 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -151,7 +152,9 @@ if(isset($_POST['editing'])){
               <div class="panel-body">
                 <div class="row">
                       <div class="col-md-12">
-                          <input class="form-control" type="text" placeholder="Filter Activities...">
+                          <form method="post">
+                          <input class="form-control" name="filter" placeholder="Filter Activities...">
+                          </form>
                            <div class="col-md-2">
                           <div class="dropdown create">
 
@@ -174,13 +177,47 @@ if(isset($_POST['editing'])){
                       </tr>
 
                       <?php
+
+if(isset($_POST['filter']))
+{
+
+  $f=$_POST['filter'];
+  htmlspecialchars($f, ENT_QUOTES, 'UTF-8');
+  $sql = $db->prepare(" SELECT * FROM activity WHERE title = :title");
+  $sql->bindParam(':title', $f);
+  $sql->execute();
+
+  $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+  
+     //para cada atividade uso o foreach para 
+
+     foreach( $row as $value){
+
+      echo'
+      <form action="" method ="GET">
+      <tr>
+      <td>'.$value['idActivity'].'</td>
+      <td>'.$value['title'].'</td>
+      <td>'.$value['description'].'</td>
+      <td>'.$value['location'].'</td>
+      <td>'.$value['image'].'</td>
+      <td><a class="btn btn-default"  href="edit.php?editing&id='.$value['idActivity'].'">Edit</a> <a class="btn btn-danger" href="delete.php?deleting&id='.$value['idActivity'].'">Delete</a></td>
+      </tr>
+      </form>';
+
+                            
+
+    }
+
+}if($_POST['filter']==null)
+{
                       //query para listar as atividades
                       $sql = $db->prepare(" SELECT * FROM `activity` ");
 
                       $sql->execute();
             
                       $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-                      
+
                       //para cada atividade uso o foreach para 
                       foreach( $row as $value){
 
@@ -205,8 +242,7 @@ if(isset($_POST['editing'])){
                       //no botao editar quando foi clicado leva consigo no URL o Id da ativiade para que na pagina onde
                       //vai ser redirecionada é possivel pegarmos no ID e a partir dai fazemos uma query para a BD
                       //para ter toda a informação necessária da atividade cujo queromos editar
-                      
-
+}
                       ?>
                     </table>
               </div>
