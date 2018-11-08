@@ -9,8 +9,7 @@ session_start();
 
 
   $id_activity = $_GET['id'];
-  $sql = $db->prepare(" SELECT * FROM `activity` where idActivity = :id ");
-  $sql->bindParam(':id', $id_activity);
+  $sql = $db->prepare(" SELECT * FROM activity);
   $sql->execute();
   $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
