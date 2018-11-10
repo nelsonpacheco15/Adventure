@@ -59,10 +59,11 @@ session_start();
       $sql->execute();
 
 
-     $sql = $db->prepare(" SELECT idActivity FROM `Reservation` where `idUser` = :idUser ");
-     $sql->bindParam(':idUser', $user_id);
+      $sql = $db->prepare(" SELECT idActivity FROM `Reservation` where `idUser` = :idUser AND `idActivity` = :idActivity ");
+      $sql->bindParam(':idUser', $user_id);
+      $sql->bindParam(':idActivity', $id_activity);
 
-     $sql->execute();
+      $sql->execute();
 
      $count = $sql->rowCount();
 
