@@ -144,7 +144,6 @@ if(!isset($_SESSION['admin'])){
     </section>
 
     <footer id="footer">
-      <p>Copyright Admin, &copy; 2017</p>
     </footer>
 
 <script>
