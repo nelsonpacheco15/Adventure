@@ -1,7 +1,7 @@
 html,
 body {
     color: #555;
-    font-family: "Lato", "Arial", sans-serif;
+    font-family: "Lato";
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
@@ -91,6 +91,8 @@ input[type=submit] {
     float: right;
     width: 40%;
     height: 40px;
+    font-size: 90%;
+    text-transform: capitalize;
     margin-top: 15px;
     cursor: pointer;
     color: #fff;

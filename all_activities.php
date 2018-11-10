@@ -55,9 +55,8 @@ session_start();
         
         foreach ($row as $value){
 
-            
             echo '
-
+        
            
 
             <div class="col span-1-of-4 box">
@@ -67,7 +66,7 @@ session_start();
                 <!---Detalhe 1 --->
             <div class="feature">   
                 <h3><b>'.$value['title'].'</b></h3> 
-                Location : '.$value['location'].'
+                '.$value['location'].'
 
             </div> 
                  <!----Detalhe 3--->
