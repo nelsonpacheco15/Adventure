@@ -9,6 +9,8 @@ session_start();
    if(isset($_SESSION['user'])){
 
 
+
+
     $id_activity = $_GET['id'];
     #var_dump($id_activity);
     $user_id = $_SESSION['user']['idUser'];
@@ -55,8 +57,23 @@ session_start();
       $sql->bindParam(':securityNumber', $securitynumber);
 
       $sql->execute();
-      
 
+
+     $sql = $db->prepare(" SELECT idActivity FROM `Reservation` where `idUser` = :idUser ");
+     $sql->bindParam(':idUser', $user_id);
+
+     $sql->execute();
+
+     $count = $sql->rowCount();
+
+     if ($count > 0){
+
+        $erro_reserva_user = "Ja fez reserva para esta Actividade ";
+        
+    }else{
+
+      
+      
       $sql = $db->prepare(" INSERT INTO `Reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
       VALUES (:idUser,:idActivity,:cardNumber,:state)");
 
@@ -64,18 +81,19 @@ session_start();
       $sql->bindParam(':idActivity', $id_activity);
       $sql->bindParam(':cardNumber', $cardnumber);
       $sql->bindParam(':state', $state);
-          
+
       $sql->execute();
 
-       $count = $sql->rowCount();
+      $count = $sql->rowCount();
 
-            if ($count > 0){
-              $success = "Reserva Feita !";
-            }
-            else{
-              $error = "erro na reserva !";
-            }
+      if ($count > 0){
+        $success = "Reserva Feita !";
+      }
+      else{
+        $error = "erro na reserva !";
+      }
 
+    }
            
   }
 
@@ -147,7 +165,8 @@ session_start();
     </div>
     <footer class='footer'>
       <input type="submit" name="reserve" value="Complete Payment" class='button'>
-      <?php echo $success ?>
+     <?php echo $erro_reserva_user ?>
+     <?php echo $success ?>
     </footer>
   </form>
 </div>
