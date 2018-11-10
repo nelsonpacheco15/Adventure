@@ -50,17 +50,57 @@ session_start();
     $securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');  
     
 
-    $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
-    VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
+    $sql = $db->prepare(" SELECT `cardNumber` FROM `CreditCard` ");
+    $sql->execute();
+    $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $count = $sql->rowCount();
 
-      $sql->bindParam(':cardNumber', $cardnumber);
-      $sql->bindParam(':cardHolderName', $cardholdername);
-      $sql->bindParam(':expiryDate', $expirydate);
-      $sql->bindParam(':securityNumber', $securitynumber);
+    if ($count > 0)
+    {
+        foreach( $row as $value)
+      {
+    
+          $key = "teste";
+                              
+          $cardnumber = $value['cardNumber'];
+          $c = base64_decode($cardnumber);
+          $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
+          $iv = substr($c, 0, $ivlen);
+          $hmac = substr($c, $ivlen, $sha2len=32);
+          $ciphertext_raw = substr($c, $ivlen+$sha2len);
+          $newcardnumber = openssl_decrypt($ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+          $calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
+            
 
-      $sql->execute();
-
-
+          if($newcardnumber == $_POST['cardnumber'])
+            {
+              $already_exists_db = "";
+            }else
+              {
+                $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
+            VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
+      
+              $sql->bindParam(':cardNumber', $cardnumber);
+              $sql->bindParam(':cardHolderName', $cardholdername);
+              $sql->bindParam(':expiryDate', $expirydate);
+              $sql->bindParam(':securityNumber', $securitynumber);
+      
+              $sql->execute();  
+              } 
+        } 
+    } else {
+              
+              $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
+              VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
+          
+                $sql->bindParam(':cardNumber', $cardnumber);
+                $sql->bindParam(':cardHolderName', $cardholdername);
+                $sql->bindParam(':expiryDate', $expirydate);
+                $sql->bindParam(':securityNumber', $securitynumber);
+          
+                $sql->execute();
+            }
+    
       $sql = $db->prepare(" SELECT idActivity FROM `Reservation` where `idUser` = :idUser AND `idActivity` = :idActivity ");
       $sql->bindParam(':idUser', $user_id);
       $sql->bindParam(':idActivity', $id_activity);
@@ -101,7 +141,6 @@ session_start();
   }
 
  }
-
 
 ?>
 
@@ -168,6 +207,7 @@ session_start();
     </div>
     <footer class='footer'>
       <input type="submit" name="reserve" value="Complete Payment" class='button'>
+      <?php echo $already_exists_db ?>
      <?php echo $erro_reserva_user ?>
      <?php echo $success ?>
     </footer>
