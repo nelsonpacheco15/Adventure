@@ -56,7 +56,8 @@ if(isset($_POST['login']))
           
           <div class="split right">
             <div class="centered">
-              <h2>Login</h2>
+              <h2>Welcome Back!</h2>
+              <h3>We are happy to see you again!</h3>
                     <form action="" method="POST"> 
                         <input type="username" name="user" placeholder="Username">
                         <input type="password" name="pass" placeholder="Password">
