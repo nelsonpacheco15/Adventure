@@ -11,7 +11,7 @@ if(isset($_POST['login']))
 
     $user = htmlspecialchars($user, ENT_QUOTES, 'UTF-8');
 
-    $sql = $db->prepare("SELECT * from user where username = :username and password= :password");   
+    $sql = $db->prepare("SELECT * from User where username = :username and password= :password");   
 
     $sql->bindParam(':username', $user);
     $sql->bindParam(':password', $hashed_password);
@@ -56,7 +56,8 @@ if(isset($_POST['login']))
           
           <div class="split right">
             <div class="centered">
-              <h2>Login</h2>
+              <h2>Welcome Back!</h2>
+              <h3>We are happy to see you again!</h3>
                     <form action="" method="POST"> 
                         <input type="username" name="user" placeholder="Username">
                         <input type="password" name="pass" placeholder="Password">

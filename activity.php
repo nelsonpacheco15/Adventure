@@ -10,7 +10,7 @@ session_start();
   $id_activity = $_GET['id'];
   // quero para mostrar toda a informação da atividade para depois estar predefenida no formulario
   //para puder mudar
-  $sql = $db->prepare(" SELECT * FROM `activity` where idActivity = :id ");
+  $sql = $db->prepare(" SELECT * FROM `Activity` where idActivity = :id ");
 
   $sql->bindParam(':id', $id_activity);
 
@@ -35,7 +35,7 @@ session_start();
         
             $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
 
-            $sql = $db->prepare(" INSERT INTO `comment` (`idActivity`,`idUser`, `comment`,`date`)
+            $sql = $db->prepare(" INSERT INTO `Comment` (`idActivity`,`idUser`, `comment`,`date`)
             VALUES (:idActivity,:idUser,:comment,:date)");
 
             //bind dos parametros, isto para evitar mysql injection
@@ -136,7 +136,7 @@ session_start();
                     <?php 
                     
                       //query para listar as atividades
-                      $sql = $db->prepare(" SELECT * FROM `comment` where `idActivity` = :idActivity ");
+                      $sql = $db->prepare(" SELECT * FROM `Comment` where `idActivity` = :idActivity ");
 
                       $sql->bindParam(':idActivity', $id_activity);
 

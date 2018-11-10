@@ -12,7 +12,7 @@ If(isset($_POST['login'])){
     //mysql injection protection
     $hashed_password = crypt($pass,"123");
 
-    $sql = $db->prepare("SELECT * from administrator where username = :username and password= :password");    
+    $sql = $db->prepare("SELECT * from Administrator where username = :username and password= :password");    
     $sql->bindParam(':username', $user);
     $sql->bindParam(':password', $hashed_password);
 

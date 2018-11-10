@@ -6,7 +6,7 @@ if(!isset($_SESSION['admin'])){
   header('location:login.php');
 }
 
-$name = $_SESSION['admin']['username'];
+$name = $_SESSION['admin']['name'];
 
 ?>
 <!DOCTYPE html>

@@ -18,7 +18,7 @@ if (isset($_POST['name'])){
     $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
     $name_activity = htmlspecialchars($name_activity, ENT_QUOTES, 'UTF-8');
 
-    $sql = $db->prepare("SELECT * from activity where title = :title and location= :location");   
+    $sql = $db->prepare("SELECT * from Activity where title = :title and location= :location");   
         
         $sql->bindParam(':title', $name_activity);
         $sql->bindParam(':location', $location);
