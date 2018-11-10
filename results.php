@@ -54,7 +54,7 @@ $no_result = "";
         
         <div class="row">
 
-        <?php echo $no_result ?>
+        <div class="no_result"><?php echo $no_result ?></div>
         
         <?php
         
