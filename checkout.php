@@ -30,21 +30,14 @@ session_start();
     $hmac = hash_hmac('sha256', $cardnumber, $key, $as_binary=true);
     $cardnumber = base64_encode( $iv.$hmac.$cardnumber );
 
-    #var_dump($cardnumber);
-
-    #var_dump($cardholdername);
-
     $securitynumber = openssl_encrypt($securitynumber, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
     $hmac = hash_hmac('sha256', $securitynumber, $key, $as_binary=true);
     $securitynumber = base64_encode( $iv.$hmac.$securitynumber );
 
-    #var_dump($securitynumber);
 
     $expirydate = openssl_encrypt($expirydate, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
     $hmac = hash_hmac('sha256', $expirydate, $key, $as_binary=true);
     $expirydate = base64_encode( $iv.$hmac.$expirydate );
-
-    #var_dump($expirydate);
     
 
     $expirydate = htmlspecialchars($expirydate, ENT_QUOTES, 'UTF-8');
