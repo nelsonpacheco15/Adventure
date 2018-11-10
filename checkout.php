@@ -30,21 +30,21 @@ session_start();
     $hmac = hash_hmac('sha256', $cardnumber, $key, $as_binary=true);
     $cardnumber = base64_encode( $iv.$hmac.$cardnumber );
 
-    var_dump($cardnumber);
+    #var_dump($cardnumber);
 
-    var_dump($cardholdername);
+    #var_dump($cardholdername);
 
     $securitynumber = openssl_encrypt($securitynumber, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
     $hmac = hash_hmac('sha256', $securitynumber, $key, $as_binary=true);
     $securitynumber = base64_encode( $iv.$hmac.$securitynumber );
 
-    var_dump($securitynumber);
+    #var_dump($securitynumber);
 
     $expirydate = openssl_encrypt($expirydate, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
     $hmac = hash_hmac('sha256', $expirydate, $key, $as_binary=true);
     $expirydate = base64_encode( $iv.$hmac.$expirydate );
 
-    var_dump($expirydate);
+    #var_dump($expirydate);
     
 
     $expirydate = htmlspecialchars($expirydate, ENT_QUOTES, 'UTF-8');
@@ -63,18 +63,6 @@ session_start();
 
       $sql->execute();
       
-     /* $count = $sql->rowCount();
-
-            if ($count > 0){
-              $success = "success";
-              echo $success;
-            }
-            else{
-              $error = "error";
-              var_dump($error);
-            }
-
-      */
 
       $sql = $db->prepare(" INSERT INTO `Reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
       VALUES (:idUser,:idActivity,:cardNumber,:state)");
@@ -85,7 +73,17 @@ session_start();
       $sql->bindParam(':state', $state);
           
       $sql->execute();
-     
+
+       $count = $sql->rowCount();
+
+            if ($count > 0){
+              $success = "Reserva Feita !";
+            }
+            else{
+              $error = "erro na reserva !";
+            }
+
+           
   }
 
  }
@@ -156,6 +154,7 @@ session_start();
     </div>
     <footer class='footer'>
       <input type="submit" name="reserve" value="Complete Payment" class='button'>
+      <?php echo $success ?>
     </footer>
   </form>
 </div>
