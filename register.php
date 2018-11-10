@@ -102,7 +102,8 @@ if(isset($_POST['register']))
           
           <div class="split right">
             <div class="centered">
-              <h2>Register</h2>
+              <h2>Welcome!</h2>
+              <h3>We are happy to see you joining</h3>
                     <form action="" method="POST"> 
                         <input type="username" name="user" placeholder="Username">
                         <?php echo $err_username ?>
