@@ -32,7 +32,7 @@ session_start();
     <body>
         
         <!-----------HEADER-------------------->
-        <header>
+        <a href="index.php"> <header>
             <nav>
             <div class="row">   
                 <ul class="main-title">
@@ -40,7 +40,7 @@ session_start();
                 </ul>
             </div> 
             </nav>
-        </header>
+        </header></a>
         
 
         <!-------------SECTION LIST-------------->
@@ -55,9 +55,8 @@ session_start();
         
         foreach ($row as $value){
 
-            
             echo '
-
+        
            
 
             <div class="col span-1-of-4 box">
@@ -67,7 +66,7 @@ session_start();
                 <!---Detalhe 1 --->
             <div class="feature">   
                 <h3><b>'.$value['title'].'</b></h3> 
-                Location : '.$value['location'].'
+                '.$value['location'].'
 
             </div> 
                  <!----Detalhe 3--->

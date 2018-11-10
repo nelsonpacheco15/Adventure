@@ -42,35 +42,49 @@ a {
 
 
 
-input[type=username],
-input[type=password] {
-    width: 100%;
-    padding: 7px;
-    margin-top: 30px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 3px #ccc;
-}
-
-
-input[type=submit] {
-    width: 40%;
-    height: 40px;
-    float: right;
-    margin-top: 15px;
-    color: #fff;
-    background-color: #406E8E;
-    border: 1px solid #ccc;
-    transition: background-color 0.2s;
-}
-
-input[type=submit]:hover {
-    background-color: #23395B;
-}
-
-
-
-/*Isto tira o outline que o browser por padrao poem nas caixas*/
-*:focus {
-    outline: none;
-}
+  input[type=username],
+  input[type=password] {
+      width: 100%;
+      padding: 7px;
+      margin-top: 15px;
+      background-color: #fff;
+      border: 1px solid #acacac;
+  }
+  
+  input::placeholder {
+      color: #ccc;
+  }
+  
+  
+  input[type=submit] {
+      position: relative;
+      float: right;
+      width: 40%;
+      height: 40px;
+      font-size: 90%;
+      text-transform: capitalize;
+      margin-top: 15px;
+      cursor: pointer;
+      color: #fff;
+      background-color: #27ae60;
+      border: 1px solid #27ae60;
+      transition: background-color 0.2s;
+  }
+  
+  input[type=submit]:hover {
+      background-color: #219251;
+  }
+  
+  button {
+      padding: 0;
+      border: none;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
+  
+  
+  /*Isto tira o outline que o browser por padrao poem nas caixas*/
+  input:focus {
+      outline-color: #27ae60;
+  }

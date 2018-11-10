@@ -52,7 +52,7 @@ if(!isset($_SESSION['admin'])){
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard <small>Manage Your Site</small></h1>
+            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard</h1>
           </div>
           </div>
         </div>
@@ -144,7 +144,6 @@ if(!isset($_SESSION['admin'])){
     </section>
 
     <footer id="footer">
-      <p>Copyright Admin, &copy; 2017</p>
     </footer>
 
 <script>

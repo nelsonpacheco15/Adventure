@@ -80,6 +80,7 @@ session_start();
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/Grid.css">
         <link rel="stylesheet" type="text/css" href="css/activity.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
         <title>Adventure</title> 
     </head>
@@ -89,7 +90,7 @@ session_start();
     <body>
         
         <!-----------HEADER-------------------->
-        <header>
+        <a href="index.php"><header>
             <nav>
             <div class="row">   
                 <ul class="main-title">
@@ -97,7 +98,7 @@ session_start();
                 </ul>
             </div> 
             </nav>
-        </header>
+        </header></a>
 
 
 
@@ -108,30 +109,47 @@ session_start();
  
         
         <section class="section-post" id="post">
+                
+
+            <div class="row">
+                <div class="col span-1-of-2">
                 <div class="post-img">
                         <img src="img/hero.jpg">
                     </div>
-            <div class="row">
-                <div class="col span-1-of-2">
-                    <div class="description">
-                        <p><?php echo $row[0]['description'] ?></p></p>
-                    </div>
             </div>
 
+                <div class="col span-1-of-2">
 
-                <div class="col span-1-of-2 right-col">
+                
                     <!-- Open The Modal -->
                     <?php
                         echo
                         '
-                         <a href="checkout.php?Activity&id='.$row[0]['idActivity'].'"><button class="btn-reservation">Reserve</button></a>
+                         <a href="checkout.php?Activity&id='.$row[0]['idActivity'].'"><button class="btn-reservation">Make Reservation</button></a>
                         ';
                     ?>
+
+
+                    <div class="description">
+                        <p><?php echo $row[0]['description'] ?></p></p>
+                    </div>
+
+                    <div class="social">
+                        <h3>Share with your friends</h3>
+                    <ul class="social-icons">
+                        <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                        <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                        <li><a href="" class="social-icon"> <i class="fa fa-rss"></i></a></li>
+                        <li><a href="" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="" class="social-icon"> <i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                    </div>    
                     
 
-
+                
                     <!----COMMENTS-->
                     <ul class="comment-section">
+
 
                     <?php 
                     
@@ -157,9 +175,11 @@ session_start();
             
                          $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-                                                
+                                         
                         echo
                         '
+
+                        
                         <li class="comment user-comment">
                         
                         <div class="info">
@@ -196,10 +216,8 @@ session_start();
             
                     </ul>
 
-                </div>
-
-
-        </div>    
+                </div> 
+                    </div>
             
         </section>
         

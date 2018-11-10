@@ -159,14 +159,14 @@
 .modal .footer .button {
   outline: none;
   display: block;
-  background: #406E8E;
-  font-weight: 400;
-  font-size: 100%;
+  background: #27ae60;
+  font-weight: 300;
+  font-family: "lato";
+  font-size: 120%;
   width: 100%;
   border: 0;
   padding: 20px 30px;
   color: #FFF;
-  font-weight: 700;
   letter-spacing: 1px;
   text-transform: capitalize;
   cursor: pointer;
@@ -175,7 +175,7 @@
 
 
 .modal .footer .button:hover {
-  background: #23395B;
+  background: #219251;
 }
 
 
