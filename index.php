@@ -10,7 +10,7 @@ include('ligar_bd.php');
         $name = $_SESSION['user']['name'];
     }
 
-if ($_SERVER['REQUEST_METHOD']=='POST'){
+if (isset($_POST['name'])){
 
     $location = $_POST['location'];
     $name_activity = $_POST['name'];
