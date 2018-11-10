@@ -32,7 +32,7 @@ CREATE TABLE `Activity` (
   `idActivity` int(11) NOT NULL,
   `idAdministrator` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
-  `description` varchar(45) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
   `location` varchar(45) NOT NULL,
   `image` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -66,7 +66,7 @@ CREATE TABLE `Comment` (
   `idActivity` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `comment` varchar(200) NOT NULL,
-  `date` datetime NOT NULL
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -76,10 +76,10 @@ CREATE TABLE `Comment` (
 --
 
 CREATE TABLE `CreditCard` (
-  `cardNumber` varchar(45) NOT NULL,
+  `cardNumber` varchar(200) NOT NULL,
   `cardHolderName` varchar(45) NOT NULL,
-  `expiryDate` varchar(45) NOT NULL,
-  `securityNumber` int(11) NOT NULL
+  `expiryDate` varchar(200) NOT NULL,
+  `securityNumber` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -92,7 +92,7 @@ CREATE TABLE `Reservation` (
   `idReservation` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `idActivity` int(11) NOT NULL,
-  `cardNumber` varchar(45) NOT NULL,
+  `cardNumber` varchar(200) NOT NULL,
   `state` enum('standby','rejected','accepted','delayed') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

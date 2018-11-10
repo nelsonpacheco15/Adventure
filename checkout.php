@@ -10,38 +10,50 @@ session_start();
 
 
     $id_activity = $_GET['id'];
-    var_dump($id_activity);
+    #var_dump($id_activity);
     $user_id = $_SESSION['user']['idUser'];
-   
     $cardnumber = $_POST['cardnumber'];
-    var_dump($cardnumber);
+    #var_dump($cardnumber);
     $cardholdername = $_POST['cardholdername'];
-    var_dump($cardholdername);
+    #var_dump($cardholdername);
     $expirydate = $_POST['expirydate'];
-    var_dump($expirydate);
+   # var_dump($expirydate);
     $securitynumber = $_POST['securitynumber'];
-    var_dump($securitynumber);
+   # var_dump($securitynumber);
     $state = 'standby';
-    var_dump($state);
+    #var_dump($state);
 
-    #$cipher = "aes-128-gcm";
+    $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
+    $iv = openssl_random_pseudo_bytes($ivlen);
 
-    #$key="ola";
+    $cardnumber = openssl_encrypt($cardnumber, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+    $hmac = hash_hmac('sha256', $cardnumber, $key, $as_binary=true);
+    $cardnumber = base64_encode( $iv.$hmac.$cardnumber );
 
-    #$ivlen = openssl_cipher_iv_length($cipher);
-    #$iv = openssl_random_pseudo_bytes($ivlen);
+    var_dump($cardnumber);
 
-    #$expirydate = openssl_encrypt($expirydate, $cipher, $key, $options=0, $iv, $tag);
-    #$securitynumber = openssl_encrypt($securitynumber, $cipher, $key, $options=0, $iv, $tag);
+    var_dump($cardholdername);
+
+    $securitynumber = openssl_encrypt($securitynumber, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+    $hmac = hash_hmac('sha256', $securitynumber, $key, $as_binary=true);
+    $securitynumber = base64_encode( $iv.$hmac.$securitynumber );
+
+    var_dump($securitynumber);
+
+    $expirydate = openssl_encrypt($expirydate, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+    $hmac = hash_hmac('sha256', $expirydate, $key, $as_binary=true);
+    $expirydate = base64_encode( $iv.$hmac.$expirydate );
+
+    var_dump($expirydate);
+    
 
     $expirydate = htmlspecialchars($expirydate, ENT_QUOTES, 'UTF-8');
     $cardholdername = htmlspecialchars($cardholdername, ENT_QUOTES, 'UTF-8');
     $cardnumber = htmlspecialchars($cardnumber, ENT_QUOTES, 'UTF-8');
-    $securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');
+    $securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');  
     
 
-
-    $sql = $db->prepare(" INSERT INTO `Creditcard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
+    $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
     VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
 
       $sql->bindParam(':cardNumber', $cardnumber);
@@ -64,8 +76,8 @@ session_start();
 
       */
 
-       $sql = $db->prepare(" INSERT INTO `Reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
-        VALUES (:idUser,:idActivity,:cardNumber,:state)");
+      $sql = $db->prepare(" INSERT INTO `Reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
+      VALUES (:idUser,:idActivity,:cardNumber,:state)");
 
       $sql->bindParam(':idUser', $user_id);
       $sql->bindParam(':idActivity', $id_activity);
@@ -137,7 +149,7 @@ session_start();
           </div>
           <div class='input-group'>
             <label for=''>CVS</label>
-            <input name="securitynumber" maxlenght='4' placeholder='' type='number'>
+            <input name="securitynumber" maxlenght='3' placeholder='' type='number'>
           </div>
         </div>
       </div>

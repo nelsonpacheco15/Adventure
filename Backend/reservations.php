@@ -1,6 +1,8 @@
 <?php
 session_start() ;
 
+include('../ligar_bd.php');
+
 if(!isset($_SESSION['admin'])){
 
   header('location:login.php');
@@ -88,43 +90,56 @@ $name = $_SESSION['admin']['name'];
                 <h3 class="panel-title">Reservations</h3>
               </div>
               <div class="panel-body">
-                <div class="row">
-                      <div class="col-md-12">
-                          <input class="form-control" type="text" placeholder="Filter Reservations...">
-                      </div>
-                </div>
-                <br>
+                
+                
                 <table class="table table-striped table-hover">
                       <tr>
-                        <th>Activity</th>
-                        <th>User</th>
-                        <th>Date</th>
-                        <th></th>
+                        <th>IdReservation</th>
+                        <th>idUser</th>
+                        <th>idActivity</th>
+                        <th>CardNumber</th>
+                        <th>State</th>
                       </tr>
-                      <tr>
-                        <td>BirdWatching</td>
-                        <td>Vasco Oliveira</td>
-                        <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Canoying</td>
-                        <td>Miguel PImentel</td>
-                        <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Stand Up Paddle</td>
-                        <td>John Doe</td>
-                        <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>ATV</td>
-                        <td>Nelson Pacheco</td>
-                        <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
+
+                      <?php
+
+                      $sql = $db->prepare(" SELECT * FROM `Reservation` ");
+                      $sql->execute();
+            
+                      $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                      $cardnumber = $row[0]['cardNumber'];
+                      $c = base64_decode($cardnumber);
+                      $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
+                      $iv = substr($c, 0, $ivlen);
+                      $hmac = substr($c, $ivlen, $sha2len=32);
+                      $ciphertext_raw = substr($c, $ivlen+$sha2len);
+                      $newcardnumber = openssl_decrypt($ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+                      $calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
+                      
+
+                      //para cada atividade uso o foreach para 
+                      foreach( $row as $value){
+
+                        
+                                              
+                        echo'
+                        <form action="" method ="GET">
+                        <tr>
+                        <td>'.$value['idReservation'].'</td>
+                        <td>'.$value['idUser'].'</td>
+                        <td>'.$value['idActivity'].'</td>
+                        <td>'.$newcardnumber.'</td>
+                        <td>'.$value['state'].'</td>
+                        <td><a class="btn btn-default"  href="edit.php?editing&id='.$value['idActivity'].'">Edit</a> <a class="btn btn-danger" href="delete.php?deleting&id='.$value['idActivity'].'">Delete</a></td>
+                        </tr>
+                        </form>';
+
+                                              
+
+                      }
+
+                      ?>
                     </table>
               </div>
               </div>
