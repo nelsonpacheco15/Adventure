@@ -19,7 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `sw_final`
 --
+  CREATE DATABASE `sw_final`;
 
+  USE `sw_final`;
 -- --------------------------------------------------------
 
 --
@@ -47,6 +49,11 @@ CREATE TABLE `Administrator` (
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Administrator` (`idAdministrator`,`name`,`username`,`password`) VALUES
+(1,'Miguel','AdminMiguel','12yJ.Of/NQ.Pk'),
+(2,'Vasco','AdminVasco','12yJ.Of/NQ.Pk'),
+(3,'Nelson','AdminNelson','12yJ.Of/NQ.Pk');
 
 -- --------------------------------------------------------
 

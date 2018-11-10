@@ -34,10 +34,10 @@ session_start();
     #$expirydate = openssl_encrypt($expirydate, $cipher, $key, $options=0, $iv, $tag);
     #$securitynumber = openssl_encrypt($securitynumber, $cipher, $key, $options=0, $iv, $tag);
 
-    #$expirydate = htmlspecialchars($expirydate, ENT_QUOTES, 'UTF-8');
-    #$cardholdername = htmlspecialchars($cardholdername, ENT_QUOTES, 'UTF-8');
-    #$cardnumber = htmlspecialchars($cardnumber, ENT_QUOTES, 'UTF-8');
-    #$securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');
+    $expirydate = htmlspecialchars($expirydate, ENT_QUOTES, 'UTF-8');
+    $cardholdername = htmlspecialchars($cardholdername, ENT_QUOTES, 'UTF-8');
+    $cardnumber = htmlspecialchars($cardnumber, ENT_QUOTES, 'UTF-8');
+    $securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');
     
 
 
