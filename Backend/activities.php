@@ -114,7 +114,7 @@ if(isset($_POST['editing'])){
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Activities<small>Manage Activities</small></h1>
+            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Activities</h1>
           </div>
         </div>
       </div>
