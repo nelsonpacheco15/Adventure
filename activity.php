@@ -112,13 +112,14 @@ session_start();
                 
 
             <div class="row">
-                <div class="col span-1-of-2">
+                <div class="col span-1-of-2 style="height: calc(100vh)>
                 <div class="post-img">
                         <img src="img/hero.jpg">
                     </div>
             </div>
 
-                <div class="col span-1-of-2">
+
+                <div class="col span-1-of-2 right-col">
 
                 
                     <!-- Open The Modal -->
@@ -213,10 +214,8 @@ session_start();
                             </form>
             
                         </li>
-            
+                    </div>
                     </ul>
-
-                </div> 
                     </div>
             
         </section>
