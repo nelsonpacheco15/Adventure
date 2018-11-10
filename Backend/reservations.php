@@ -108,19 +108,20 @@ $name = $_SESSION['admin']['name'];
             
                       $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-                      $cardnumber = $row[0]['cardNumber'];
-                      $c = base64_decode($cardnumber);
-                      $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
-                      $iv = substr($c, 0, $ivlen);
-                      $hmac = substr($c, $ivlen, $sha2len=32);
-                      $ciphertext_raw = substr($c, $ivlen+$sha2len);
-                      $newcardnumber = openssl_decrypt($ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
-                      $calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
                       
-
+                      
                       //para cada atividade uso o foreach para 
                       foreach( $row as $value){
-
+                        
+                        
+                        $cardnumber = $value['cardNumber'];
+                        $c = base64_decode($cardnumber);
+                        $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
+                        $iv = substr($c, 0, $ivlen);
+                        $hmac = substr($c, $ivlen, $sha2len=32);
+                        $ciphertext_raw = substr($c, $ivlen+$sha2len);
+                        $newcardnumber = openssl_decrypt($ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+                        $calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
                         
                                               
                         echo'
