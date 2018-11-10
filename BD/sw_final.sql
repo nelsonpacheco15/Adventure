@@ -104,6 +104,7 @@ CREATE TABLE `Reservation` (
 
 CREATE TABLE `User` (
   `idUser` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=sjis;

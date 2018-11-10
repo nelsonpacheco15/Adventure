@@ -74,6 +74,9 @@ if(isset($_POST['register']))
 
         if ($count > 0) {
             $success = "Registo feito !";
+        }
+        else{
+            $error_register ="Erro !";
         }    
 }
 
@@ -114,6 +117,7 @@ if(isset($_POST['register']))
                         <?php echo $err_password_length; ?>
                         <input type="submit" name="register" value="Register">
                         <?php echo $success; ?>
+                        <?php echo $error_register ?>
                     </form>
             </div>
           </div>
