@@ -41,7 +41,7 @@ session_start();
     
 
 
-    $sql = $db->prepare(" INSERT INTO `creditcard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
+    $sql = $db->prepare(" INSERT INTO `Creditcard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
     VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
 
       $sql->bindParam(':cardNumber', $cardnumber);
@@ -64,7 +64,7 @@ session_start();
 
       */
 
-       $sql = $db->prepare(" INSERT INTO `reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
+       $sql = $db->prepare(" INSERT INTO `Reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
         VALUES (:idUser,:idActivity,:cardNumber,:state)");
 
       $sql->bindParam(':idUser', $user_id);

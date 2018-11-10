@@ -14,7 +14,7 @@ if(isset($_POST['register']))
 
     //verificar se existe um utilizador com este username
 
-    $sql = $db->prepare("SELECT * from user where username = :username");
+    $sql = $db->prepare("SELECT * from User where username = :username");
     
     $sql->bindParam(':username', $user);
 
@@ -60,7 +60,7 @@ if(isset($_POST['register']))
     $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
     
     //preparamos a query que vai ser enviada para a base de dados, onde vai fazer o registo
-    $sql = $db->prepare(" INSERT INTO `user` (`name`,`username`,`password`) VALUES (:name,:user,:pass)");
+    $sql = $db->prepare(" INSERT INTO `User` (`name`,`username`,`password`) VALUES (:name,:user,:pass)");
     
     //fazemos um "bind" nos parametros:name,user,pass que é onde vai ser enviado a informação, isto para evitar mysql injection
     $sql->bindParam(':name', $name);

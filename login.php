@@ -11,7 +11,7 @@ if(isset($_POST['login']))
 
     $user = htmlspecialchars($user, ENT_QUOTES, 'UTF-8');
 
-    $sql = $db->prepare("SELECT * from user where username = :username and password= :password");   
+    $sql = $db->prepare("SELECT * from User where username = :username and password= :password");   
 
     $sql->bindParam(':username', $user);
     $sql->bindParam(':password', $hashed_password);

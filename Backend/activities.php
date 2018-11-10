@@ -37,7 +37,7 @@ if(isset($_POST['activity']))
   $image = $_FILES['image']['name'];
 
     //query de inserção de uma atividade com parametros predefenidos
-    $sql = $db->prepare(" INSERT INTO `activity` (`idAdministrator`,`title`, `description`,`location`,`image`)
+    $sql = $db->prepare(" INSERT INTO `Activity` (`idAdministrator`,`title`, `description`,`location`,`image`)
     VALUES (:idAdmin,:title,:desc,:location,:image)");
 
     //bind dos parametros, isto para evitar mysql injection
@@ -183,7 +183,7 @@ if(isset($_POST['filter']))
 
   $f=$_POST['filter'];
   htmlspecialchars($f, ENT_QUOTES, 'UTF-8');
-  $sql = $db->prepare(" SELECT * FROM activity WHERE title = :title");
+  $sql = $db->prepare(" SELECT * FROM Activity WHERE title = :title");
   $sql->bindParam(':title', $f);
   $sql->execute();
 
@@ -212,7 +212,7 @@ if(isset($_POST['filter']))
 }if($_POST['filter']==null)
 {
                       //query para listar as atividades
-                      $sql = $db->prepare(" SELECT * FROM `activity` ");
+                      $sql = $db->prepare(" SELECT * FROM `Activity` ");
 
                       $sql->execute();
             
