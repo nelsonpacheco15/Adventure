@@ -141,7 +141,14 @@ header {
     background-size: cover;
     background-position: center;
     height: 27vh;
+    filter: brightness(100%);
     background-attachment: fixed;
+    transition: filter 0.2s;
+}
+
+header:hover {
+    cursor: pointer;
+    filter: brightness(80%);
 }
 
 

@@ -36,7 +36,7 @@ $no_result = "";
     <body>
         
         <!-----------HEADER-------------------->
-        <header>
+        <a href="index.php"> <header>
             <nav>
             <div class="row">   
                 <ul class="main-title">
@@ -44,7 +44,7 @@ $no_result = "";
                 </ul>
             </div> 
             </nav>
-        </header>
+        </header></a>
         
 
         <!-------------SECTION LIST-------------->

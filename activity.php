@@ -90,7 +90,7 @@ session_start();
     <body>
         
         <!-----------HEADER-------------------->
-        <header>
+        <a href="index.php"><header>
             <nav>
             <div class="row">   
                 <ul class="main-title">
@@ -98,7 +98,7 @@ session_start();
                 </ul>
             </div> 
             </nav>
-        </header>
+        </header></a>
 
 
 
