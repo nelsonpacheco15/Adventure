@@ -28,6 +28,8 @@ session_start();
     $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
     $iv = openssl_random_pseudo_bytes($ivlen);
 
+    $key = "teste";
+
     $cardnumber = openssl_encrypt($cardnumber, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
     $hmac = hash_hmac('sha256', $cardnumber, $key, $as_binary=true);
     $cardnumber = base64_encode( $iv.$hmac.$cardnumber );

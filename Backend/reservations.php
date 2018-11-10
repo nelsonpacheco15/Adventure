@@ -113,6 +113,7 @@ $name = $_SESSION['admin']['name'];
                       //para cada atividade uso o foreach para 
                       foreach( $row as $value){
                         
+                        $key = "teste";
                         
                         $cardnumber = $value['cardNumber'];
                         $c = base64_decode($cardnumber);
