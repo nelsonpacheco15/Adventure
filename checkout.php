@@ -8,9 +8,6 @@ session_start();
 
    if(isset($_SESSION['user'])){
 
-
-
-
     $id_activity = $_GET['id'];
     #var_dump($id_activity);
     $user_id = $_SESSION['user']['idUser'];
@@ -77,8 +74,9 @@ session_start();
               $already_exists_db = "";
             }else
               {
+                
                 $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
-            VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
+                VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
       
               $sql->bindParam(':cardNumber', $cardnumber);
               $sql->bindParam(':cardHolderName', $cardholdername);
