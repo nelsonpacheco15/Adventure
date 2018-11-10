@@ -75,7 +75,7 @@ input[type=number] {
     padding: 7px;
     margin-top: 15px;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #acacac;
 }
 
 input::placeholder {
