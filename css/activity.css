@@ -605,6 +605,10 @@ ul.social-icons {
 .right-col {
     margin-top: 8%;
     margin-bottom: 2%;
+   /* object-fit: contain;
+    height: 85vh;
+    overflow-y: scroll;
+    overflow-x: hidden; */
 }
 
 

@@ -133,7 +133,7 @@ $name = $_SESSION['admin']['name'];
                         <td>'.$value['idActivity'].'</td>
                         <td>'.$newcardnumber.'</td>
                         <td>'.$value['state'].'</td>
-                        <td><a class="btn btn-default"  href="edit.php?editing&id='.$value['idActivity'].'">Edit</a> <a class="btn btn-danger" href="delete.php?deleting&id='.$value['idActivity'].'">Delete</a></td>
+                        <td><a class="btn btn-default"  href="edit.php?editing&id='.$value['idActivity'].'">Delay</a> <a class="btn btn-danger approve" href="delete.php?deleting&id='.$value['idActivity'].'">Approve</a><a class="btn btn-danger" href="delete.php?deleting&id='.$value['idActivity'].'">Cancel</a></td>
                         </tr>
                         </form>';
 

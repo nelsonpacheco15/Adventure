@@ -146,7 +146,7 @@ body{
   color:#ffffff;
   text-align:center;
   padding:40px;
-  margin-top:30px;
+  margin-top:202px;
 }
 
 
@@ -203,4 +203,15 @@ button {
  position:absolute;
  width: 5%;
  height: auto;
+  }
+
+  .approve {
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #27ae60;
+  }
+
+
+  .approve:hover {
+    background-color: #219251;
   }
