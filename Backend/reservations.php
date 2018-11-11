@@ -8,6 +8,9 @@ if(!isset($_SESSION['admin'])){
   header('location:login.php');
 }
 
+
+
+
 $name = $_SESSION['admin']['name'];
 
 ?>
@@ -108,7 +111,60 @@ $name = $_SESSION['admin']['name'];
             
                       $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+
+
+                      if (isset($_POST["delay"])) {
+                        
+                      $idreserva = $_POST['idreserva']; 
+
+                      $sql = $db->prepare(" UPDATE Reservation SET state = :state WHERE idReservation = :idReserva ");
+                        
+                      $delay = "Delayed";
+                        
+                      $sql->bindParam(':idReserva', $idreserva);
+                      $sql->bindParam(':state', $delay);
+
+                      $sql->execute();
+
+                      header("Refresh:0; url=reservations.php");
+
+                    }
+
+                    if (isset($_POST["approve"])) {
                       
+                      $idreserva = $_POST['idreserva'];
+
+                      $sql = $db->prepare(" UPDATE Reservation SET state = :state WHERE idReservation = :idReserva");
+
+                      $approve = "Approved";
+                      
+                      $sql->bindParam(':idReserva', $idreserva);
+                      $sql->bindParam(':state', $approve);
+
+                      $sql->execute();
+
+                      header("Refresh:0; url=reservations.php");
+
+
+                    }
+
+
+                    if (isset($_POST["cancel"])) {
+
+                      $idreserva = $_POST['idreserva'];
+                      
+                      $sql = $db->prepare(" UPDATE Reservation SET state = :state WHERE idReservation = :idReserva ");
+                      
+                      $cancel = "Rejected";
+                      
+                      $sql->bindParam(':idReserva', $idreserva);
+                      $sql->bindParam(':state', $cancel);
+
+                      $sql->execute();
+
+                      header("Refresh:0; url=reservations.php");
+
+                    }
                       
                       //para cada atividade uso o foreach para 
                       foreach( $row as $value){
@@ -126,60 +182,20 @@ $name = $_SESSION['admin']['name'];
                         
                                               
                         echo'
-                        <form action="" method ="GET">
+                        <form action="" method ="POST">
                         <tr>
                         <td>'.$value['idReservation'].'</td>
                         <td>'.$value['idUser'].'</td>
                         <td>'.$value['idActivity'].'</td>
                         <td>'.$newcardnumber.'</td>
                         <td>'.$value['state'].'</td>
-                        <td><a class="btn btn-default" name="delay"  href="edit.php?editing&id='.$value['state'].'">Delay</a> <a class="btn btn-danger approve" name="approve" href="delete.php?deleting&id='.$value['state'].'">Approve</a><a class="btn btn-danger" name="cancel" href="delete.php?deleting&id='.$value['state'].'">Cancel</a></td>
+                        <td><input type="submit" class="btn btn-default" name="delay" value="Delay"> <input type="submit" class="btn btn-danger approve" name="approve" value="Aprove"> <input type="submit" class="btn btn-danger" name="cancel" value="Cancel"></td>
                         </tr>
+                        <input  name="idreserva" type="hidden" value="'.$value['idReservation'].'">
                         </form>';
+    
 
-
-                          $delay = "Delayed";
-
-                            if $_POST["delay"] {
-                              $sql = $db->prepare(" UPDATE reservation SET state = :state ");
-
-                              $sql->bindParam(':state', $delay);
                           
-                              $sql->execute();
-                          
-                          
-                              $count = $sql->rowCount();
-                            }
-
-
-
-                            $approve = "Approved";
-
-                            if $_POST["approve"] {
-                              $sql = $db->prepare(" UPDATE reservation SET state = :state ");
-
-                              $sql->bindParam(':state', $approve);
-                          
-                              $sql->execute();
-                          
-                          
-                              $count = $sql->rowCount();
-                            }
-
-
-
-                            $cancel = "Rejected";
-
-                            if $_POST["cancel"] {
-                              $sql = $db->prepare(" UPDATE reservation SET state = :state ");
-
-                              $sql->bindParam(':state', $cancel);
-                          
-                              $sql->execute();
-                          
-                          
-                              $count = $sql->rowCount();
-                            }
 
                                               
 
