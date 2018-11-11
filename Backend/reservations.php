@@ -54,7 +54,7 @@ $name = $_SESSION['admin']['name'];
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Reservations></h1>
+            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Reservations</h1>
           </div>
         </div>
       </div>
