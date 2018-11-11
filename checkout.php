@@ -19,7 +19,7 @@ session_start();
    # var_dump($expirydate);
     $securitynumber = $_POST['securitynumber'];
    # var_dump($securitynumber);
-    $state = 'standby';
+    $state = 'Standby';
     #var_dump($state);
 
     $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");

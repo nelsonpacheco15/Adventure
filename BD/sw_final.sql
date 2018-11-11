@@ -93,7 +93,7 @@ CREATE TABLE `Reservation` (
   `idUser` int(11) NOT NULL,
   `idActivity` int(11) NOT NULL,
   `cardNumber` varchar(200) NOT NULL,
-  `state` enum('standby','rejected','accepted','delayed') NOT NULL
+  `state` enum('Standby','Rejected','Approved','Delayed') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
