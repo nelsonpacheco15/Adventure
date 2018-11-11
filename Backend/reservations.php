@@ -133,9 +133,53 @@ $name = $_SESSION['admin']['name'];
                         <td>'.$value['idActivity'].'</td>
                         <td>'.$newcardnumber.'</td>
                         <td>'.$value['state'].'</td>
-                        <td><a class="btn btn-default"  href="edit.php?editing&id='.$value['idActivity'].'">Delay</a> <a class="btn btn-danger approve" href="delete.php?deleting&id='.$value['idActivity'].'">Approve</a><a class="btn btn-danger" href="delete.php?deleting&id='.$value['idActivity'].'">Cancel</a></td>
+                        <td><a class="btn btn-default" name="delay"  href="edit.php?editing&id='.$value['state'].'">Delay</a> <a class="btn btn-danger approve" name="approve" href="delete.php?deleting&id='.$value['state'].'">Approve</a><a class="btn btn-danger" name="cancel" href="delete.php?deleting&id='.$value['state'].'">Cancel</a></td>
                         </tr>
                         </form>';
+
+
+                          $delay = "Delayed";
+
+                            if $_POST["delay"] {
+                              $sql = $db->prepare(" UPDATE reservation SET state = :state ");
+
+                              $sql->bindParam(':state', $delay);
+                          
+                              $sql->execute();
+                          
+                          
+                              $count = $sql->rowCount();
+                            }
+
+
+
+                            $approve = "Approved";
+
+                            if $_POST["approve"] {
+                              $sql = $db->prepare(" UPDATE reservation SET state = :state ");
+
+                              $sql->bindParam(':state', $approve);
+                          
+                              $sql->execute();
+                          
+                          
+                              $count = $sql->rowCount();
+                            }
+
+
+
+                            $cancel = "Rejected";
+
+                            if $_POST["cancel"] {
+                              $sql = $db->prepare(" UPDATE reservation SET state = :state ");
+
+                              $sql->bindParam(':state', $cancel);
+                          
+                              $sql->execute();
+                          
+                          
+                              $count = $sql->rowCount();
+                            }
 
                                               
 
