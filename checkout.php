@@ -137,6 +137,9 @@ session_start();
     }
            
   }
+  else{
+    $error_session = "Precisa de fazer de ter feito login para fazer reserva !";
+  }
 
  }
 
@@ -208,6 +211,7 @@ session_start();
       <?php echo $already_exists_db ?>
      <?php echo $erro_reserva_user ?>
      <?php echo $success ?>
+    <?php echo  $error_session ?>
     </footer>
   </form>
 </div>
