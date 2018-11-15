@@ -9,6 +9,7 @@ if(isset($_SESSION['admin'])==null){
 }
 
 $id = $_GET['id']; // Guardamos o id que vem pela sessao do activities.php numa variavel $id
+$id = htmlspecialchars($id, ENT_QUOTES, 'UTF-8');
 
 $sql = $db->prepare(" DELETE FROM `Activity` where idActivity = :id "); // Query de SQL que vai á base de dados 
 $sql->bindParam(':id', $id); // Encriptação dos dados da variavel $id

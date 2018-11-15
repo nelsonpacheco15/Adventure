@@ -12,6 +12,9 @@ if(isset($_POST['register']))
     $user = $_POST['user'];
     $name = $_POST['name'];
 
+    $user = htmlspecialchars($user, ENT_QUOTES, 'UTF-8');
+    $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+
     //verificar se existe um utilizador com este username
 
     $sql = $db->prepare("SELECT * from User where username = :username");
