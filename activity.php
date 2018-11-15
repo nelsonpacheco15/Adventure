@@ -17,7 +17,7 @@ session_start();
   $sql->execute();
 
   $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-
+    //se ouver um post comentario e com sessão user, cria um comentario
       if(isset($_POST['commentary'])){
 
         if(isset($_SESSION['user'])){

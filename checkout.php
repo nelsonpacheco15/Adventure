@@ -3,30 +3,33 @@
 include('ligar_bd.php');
 
 session_start();
-
+  //se ouver um submit reserva faz a reserva 
  if(isset($_POST['reserve'])){
-
+  //so faz a reserva se primeiro tiver sessao iniciada
    if(isset($_SESSION['user'])){
-
+    //defenição das variaves a serem introduzidas na query de inserção de reserva e do cartao de crédito
     $id_activity = $_GET['id'];
-    #var_dump($id_activity);
-    $user_id = $_SESSION['user']['idUser'];
-    $cardnumber = $_POST['cardnumber'];
-    #var_dump($cardnumber);
-    $cardholdername = $_POST['cardholdername'];
-    #var_dump($cardholdername);
-    $expirydate = $_POST['expirydate'];
-   # var_dump($expirydate);
-    $securitynumber = $_POST['securitynumber'];
-   # var_dump($securitynumber);
-    $state = 'Standby';
-    #var_dump($state);
 
+    $user_id = $_SESSION['user']['idUser'];
+
+    $cardnumber = $_POST['cardnumber'];
+
+    $cardholdername = $_POST['cardholdername'];
+
+    $expirydate = $_POST['expirydate'];
+
+    $securitynumber = $_POST['securitynumber'];
+   
+    $state = 'Standby';
+    
+    //encriptação dos dados para a tabela cartao de credito
+    //com uma chave simétrica
     $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
     $iv = openssl_random_pseudo_bytes($ivlen);
-
+  
     $key = "teste";
 
+    //encriptação dos valores
     $cardnumber = openssl_encrypt($cardnumber, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
     $hmac = hash_hmac('sha256', $cardnumber, $key, $as_binary=true);
     $cardnumber = base64_encode( $iv.$hmac.$cardnumber );
@@ -46,12 +49,16 @@ session_start();
     $cardnumber = htmlspecialchars($cardnumber, ENT_QUOTES, 'UTF-8');
     $securitynumber = htmlspecialchars($securitynumber, ENT_QUOTES, 'UTF-8');  
     
-
+    //query que pega tudo do cartão de credito
     $sql = $db->prepare(" SELECT `cardNumber` FROM `CreditCard` ");
     $sql->execute();
     $row = $sql->fetchAll(PDO::FETCH_ASSOC);
     $count = $sql->rowCount();
-
+    
+    //se tiver resultados ve em cada row da tabela e desencripta os dados anteriormente encriptdos
+    // e compara se existe cartão de credito igual ao que vai ser inserido de momento, isto para que não crie sempre
+    // um cartao de credito no momento que faz reserva mesmo que ja exista um igual na BD, isto aconteçe porque no momento de encriptção fica diferente 
+    // ao valor que vai ser inserido, para isso temos de buscar tudo desencriptar e so depois conseguimos comparar
     if ($count > 0)
     {
         foreach( $row as $value)
@@ -68,7 +75,7 @@ session_start();
           $newcardnumber = openssl_decrypt($ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
           $calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
             
-
+       
           if($newcardnumber == $_POST['cardnumber'])
             {
               $already_exists_db = "";

@@ -103,6 +103,7 @@ $name = $_SESSION['admin']['name'];
                         <th>CardNumber</th>
                         <th>State</th>
                       </tr>
+                      //faz a listagem das reservas
 
                       <?php
 
@@ -111,8 +112,7 @@ $name = $_SESSION['admin']['name'];
             
                       $row = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-
-
+                      //se for clicado no botao delay muda o estado da reserva
                       if (isset($_POST["delay"])) {
                         
                       $idreserva = $_POST['idreserva']; 
@@ -129,7 +129,7 @@ $name = $_SESSION['admin']['name'];
                       header("Refresh:0; url=reservations.php");
 
                     }
-
+                     //se for clicado no botao approve muda o estado da reserva
                     if (isset($_POST["approve"])) {
                       
                       $idreserva = $_POST['idreserva'];
@@ -148,7 +148,7 @@ $name = $_SESSION['admin']['name'];
 
                     }
 
-
+                     //se for clicado no botao cancel muda o estado da reserva
                     if (isset($_POST["cancel"])) {
 
                       $idreserva = $_POST['idreserva'];
