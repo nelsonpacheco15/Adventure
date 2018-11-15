@@ -27,7 +27,7 @@ if(isset($_POST['activity']))
   
   //descrição da atividade
   $description = $_POST['description'];
-
+  
   //localização da atividade
   $location = $_POST['location'];
 
@@ -35,13 +35,6 @@ if(isset($_POST['activity']))
   move_uploaded_file( $_FILES['image']['tmp_name'], $destFile );
 
   $image = $_FILES['image']['name'];
-
-  // Crossite scripting protection
-  $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
-  $description = htmlspecialchars($description, ENT_QUOTES, 'UTF-8');
-  $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
-  $id_admin = htmlspecialchars($id_admin, ENT_QUOTES, 'UTF-8');
-  $image = htmlspecialchars($image, ENT_QUOTES, 'UTF-8');
 
     //query de inserção de uma atividade com parametros predefenidos
     $sql = $db->prepare(" INSERT INTO `Activity` (`idAdministrator`,`title`, `description`,`location`,`image`)
@@ -185,11 +178,12 @@ if(isset($_POST['editing'])){
 
                       <?php
 
+//procura as atividades pelo nome da atividade
 if(isset($_POST['filter']))
 {
 
   $f=$_POST['filter'];
-  $f=htmlspecialchars($f, ENT_QUOTES, 'UTF-8');
+  htmlspecialchars($f, ENT_QUOTES, 'UTF-8');
   $sql = $db->prepare(" SELECT * FROM Activity WHERE title = :title AND idAdministrator = :idAdmin");
   $sql->bindParam(':title', $f);
   $sql->bindParam(':idAdmin', $id_admin);
@@ -216,7 +210,7 @@ if(isset($_POST['filter']))
                             
 
     }
-
+  //se tiver null quando clicar no enter na filtragem das atividades faz a pesquisa de todas as atividades
 }if($_POST['filter']==null)
 {
                       //query para listar as atividades

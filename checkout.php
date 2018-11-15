@@ -9,32 +9,14 @@ session_start();
    if(isset($_SESSION['user'])){
     //defenição das variaves a serem introduzidas na query de inserção de reserva e do cartao de crédito
     $id_activity = $_GET['id'];
-<<<<<<< HEAD
-
-=======
->>>>>>> bf7873b4a3f7206e7134bd8513e4224b311df3f9
     $user_id = $_SESSION['user']['idUser'];
 
     $cardnumber = $_POST['cardnumber'];
-<<<<<<< HEAD
-
-    $cardholdername = $_POST['cardholdername'];
-
-    $expirydate = $_POST['expirydate'];
-
-    $securitynumber = $_POST['securitynumber'];
-   
-    $state = 'Standby';
-    
-    //encriptação dos dados para a tabela cartao de credito
-    //com uma chave simétrica
-=======
     $cardholdername = $_POST['cardholdername'];
     $expirydate = $_POST['expirydate'];
     $securitynumber = $_POST['securitynumber'];
     $state = 'Standby';
 
->>>>>>> bf7873b4a3f7206e7134bd8513e4224b311df3f9
     $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
     $iv = openssl_random_pseudo_bytes($ivlen);
   

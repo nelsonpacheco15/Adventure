@@ -12,9 +12,6 @@ if(isset($_POST['register']))
     $user = $_POST['user'];
     $name = $_POST['name'];
 
-    $user = htmlspecialchars($user, ENT_QUOTES, 'UTF-8');
-    $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-
     //verificar se existe um utilizador com este username
 
     $sql = $db->prepare("SELECT * from User where username = :username");
@@ -54,12 +51,13 @@ if(isset($_POST['register']))
     //faz um hash da password e verifica que so faz isso se a pass não estiver como null
     if($pass !=null){
         $hashed_password = crypt($pass,"123");
-    }
+    }.
     
     //cross-site scripting protection e verifica que so faz isso se o user não estiver como null
     if($user != null){
         $user = htmlspecialchars($user, ENT_QUOTES, 'UTF-8');
     }
+    
     $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
     
     //preparamos a query que vai ser enviada para a base de dados, onde vai fazer o registo
