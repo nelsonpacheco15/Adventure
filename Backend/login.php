@@ -9,6 +9,8 @@ If(isset($_POST['login'])){
 
     //cross-site scripint protection
     $user = htmlspecialchars($user, ENT_QUOTES, 'UTF-8');
+    
+    $pass = htmlspecialchars($pass, ENT_QUOTES, 'UTF-8');
     //mysql injection protection
     $hashed_password = crypt($pass,"123");
 
