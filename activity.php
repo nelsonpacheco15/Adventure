@@ -8,6 +8,8 @@ session_start();
 
 //id da atividade onde agarra atraves do URL
   $id_activity = $_GET['id'];
+
+  $id_activity = htmlspecialchars($id_activity, ENT_QUOTES, 'UTF-8');
   // quero para mostrar toda a informação da atividade para depois estar predefenida no formulario
   //para puder mudar
   $sql = $db->prepare(" SELECT * FROM `Activity` where idActivity = :id ");
@@ -26,14 +28,17 @@ session_start();
           
           
           $user_id = $_SESSION['user']['idUser'];
-         
-          
+      
           $comment = $_POST['comment'];
          
-          
           $date = date('y-m-d');
+          
         
+            //Cross Site Scripting
+            $user_id = htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8');
             $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
+            $date = htmlspecialchars($date, ENT_QUOTES, 'UTF-8');
+            
 
             $sql = $db->prepare(" INSERT INTO `Comment` (`idActivity`,`idUser`, `comment`,`date`)
             VALUES (:idActivity,:idUser,:comment,:date)");
@@ -167,6 +172,8 @@ session_start();
                       foreach( $row as $value){
 
                        $id_user = $value['idUser'];
+
+                       $id_user = htmlspecialchars($id_user, ENT_QUOTES, 'UTF-8');
 
                          $sql = $db->prepare(" SELECT username FROM `user` where `idUser` = :id ");
 

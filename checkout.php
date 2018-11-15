@@ -9,10 +9,14 @@ session_start();
    if(isset($_SESSION['user'])){
     //defenição das variaves a serem introduzidas na query de inserção de reserva e do cartao de crédito
     $id_activity = $_GET['id'];
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf7873b4a3f7206e7134bd8513e4224b311df3f9
     $user_id = $_SESSION['user']['idUser'];
 
     $cardnumber = $_POST['cardnumber'];
+<<<<<<< HEAD
 
     $cardholdername = $_POST['cardholdername'];
 
@@ -24,6 +28,13 @@ session_start();
     
     //encriptação dos dados para a tabela cartao de credito
     //com uma chave simétrica
+=======
+    $cardholdername = $_POST['cardholdername'];
+    $expirydate = $_POST['expirydate'];
+    $securitynumber = $_POST['securitynumber'];
+    $state = 'Standby';
+
+>>>>>>> bf7873b4a3f7206e7134bd8513e4224b311df3f9
     $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
     $iv = openssl_random_pseudo_bytes($ivlen);
   
@@ -81,9 +92,9 @@ session_start();
               $already_exists_db = "";
             }else
               {
-                
-                $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
-                VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
+                                        
+              $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
+              VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
       
               $sql->bindParam(':cardNumber', $cardnumber);
               $sql->bindParam(':cardHolderName', $cardholdername);
@@ -94,7 +105,6 @@ session_start();
               } 
         } 
     } else {
-              
               $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
               VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
           
@@ -105,7 +115,6 @@ session_start();
           
                 $sql->execute();
             }
-    
       $sql = $db->prepare(" SELECT idActivity FROM `Reservation` where `idUser` = :idUser AND `idActivity` = :idActivity ");
       $sql->bindParam(':idUser', $user_id);
       $sql->bindParam(':idActivity', $id_activity);
@@ -119,8 +128,6 @@ session_start();
         $erro_reserva_user = "Ja fez reserva para esta Actividade ";
         
     }else{
-
-      
       
       $sql = $db->prepare(" INSERT INTO `Reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
       VALUES (:idUser,:idActivity,:cardNumber,:state)");
@@ -143,6 +150,9 @@ session_start();
 
     }
            
+  }
+  else{
+    $error_session = "Precisa de fazer de ter feito login para fazer reserva !";
   }
 
  }
@@ -215,6 +225,7 @@ session_start();
       <?php echo $already_exists_db ?>
      <?php echo $erro_reserva_user ?>
      <?php echo $success ?>
+    <?php echo  $error_session ?> 
     </footer>
   </form>
 </div>

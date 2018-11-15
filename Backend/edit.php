@@ -12,6 +12,8 @@ if(!isset($_SESSION['admin'])){
   $id = $_GET['id'];
   // quero para mostrar toda a informação da atividade para depois estar predefenida no formulario
   //para puder mudar
+  $id = htmlspecialchars($id, ENT_QUOTES, 'UTF-8');
+
   $sql = $db->prepare(" SELECT * FROM `Activity` where idActivity = :id ");
 
   $sql->bindParam(':id', $id);
@@ -27,8 +29,14 @@ if(!isset($_SESSION['admin'])){
     $id = $_GET['id'];
     $title = $_POST['title'];
     $desc = $_POST['description'];
-    $image=($_FILES["image"]["name"]);
+    $image = ($_FILES["image"]["name"]);
     $location = $_POST['location'];    
+
+    $id = htmlspecialchars($id, ENT_QUOTES, 'UTF-8');
+    $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+    $desc = htmlspecialchars($desc, ENT_QUOTES, 'UTF-8');
+    $image = htmlspecialchars($image, ENT_QUOTES, 'UTF-8');
+    $location = htmlspecialchars($location, ENT_QUOTES, 'UTF-8');
 
     //query para dar update das informações da atividade que esta a ser alterada
     $sql = $db->prepare(" UPDATE Activity SET title = :title, description= :description, location= :location, image= :image where idActivity = :id ");

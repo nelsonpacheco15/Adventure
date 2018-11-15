@@ -77,7 +77,7 @@ $no_result = "";
             </div> 
                  <!----Detalhe 3--->
                 <div class="feature">   
-                <button class="btn-reserve" href="checkout.php">Reservar</button>
+                <a href="checkout.php?Activity&id='.$value['idActivity'].'"><button class="btn-reserve" > Reserve </button></a>
             </div>     
             </div>
             

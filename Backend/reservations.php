@@ -13,6 +13,8 @@ if(!isset($_SESSION['admin'])){
 
 $name = $_SESSION['admin']['name'];
 
+$name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
