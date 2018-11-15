@@ -37,7 +37,6 @@ session_start();
             //Cross Site Scripting
             $user_id = htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8');
             $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
-            $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
             $date = htmlspecialchars($date, ENT_QUOTES, 'UTF-8');
             
 
@@ -173,6 +172,8 @@ session_start();
                       foreach( $row as $value){
 
                        $id_user = $value['idUser'];
+
+                       $id_user = htmlspecialchars($id_user, ENT_QUOTES, 'UTF-8');
 
                          $sql = $db->prepare(" SELECT username FROM `user` where `idUser` = :id ");
 

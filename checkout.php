@@ -9,18 +9,12 @@ session_start();
    if(isset($_SESSION['user'])){
 
     $id_activity = $_GET['id'];
-    #var_dump($id_activity);
     $user_id = $_SESSION['user']['idUser'];
     $cardnumber = $_POST['cardnumber'];
-    #var_dump($cardnumber);
     $cardholdername = $_POST['cardholdername'];
-    #var_dump($cardholdername);
     $expirydate = $_POST['expirydate'];
-   # var_dump($expirydate);
     $securitynumber = $_POST['securitynumber'];
-   # var_dump($securitynumber);
     $state = 'Standby';
-    #var_dump($state);
 
     $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
     $iv = openssl_random_pseudo_bytes($ivlen);
@@ -74,9 +68,9 @@ session_start();
               $already_exists_db = "";
             }else
               {
-                
-                $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
-                VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
+                                        
+              $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
+              VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
       
               $sql->bindParam(':cardNumber', $cardnumber);
               $sql->bindParam(':cardHolderName', $cardholdername);
@@ -87,7 +81,6 @@ session_start();
               } 
         } 
     } else {
-              
               $sql = $db->prepare(" INSERT INTO `CreditCard` (`cardNumber`,`cardHolderName`,`expiryDate`,`securityNumber`)
               VALUES (:cardNumber,:cardHolderName,:expiryDate,:securityNumber)");
           
@@ -98,7 +91,6 @@ session_start();
           
                 $sql->execute();
             }
-    
       $sql = $db->prepare(" SELECT idActivity FROM `Reservation` where `idUser` = :idUser AND `idActivity` = :idActivity ");
       $sql->bindParam(':idUser', $user_id);
       $sql->bindParam(':idActivity', $id_activity);
@@ -112,8 +104,6 @@ session_start();
         $erro_reserva_user = "Ja fez reserva para esta Actividade ";
         
     }else{
-
-      
       
       $sql = $db->prepare(" INSERT INTO `Reservation` (`idUser`, `idActivity`,`cardNumber`,`state`)
       VALUES (:idUser,:idActivity,:cardNumber,:state)");
