@@ -175,7 +175,7 @@ session_start();
 
                        $id_user = htmlspecialchars($id_user, ENT_QUOTES, 'UTF-8');
 
-                         $sql = $db->prepare(" SELECT username FROM `user` where `idUser` = :id ");
+                         $sql = $db->prepare(" SELECT username FROM `User` where `idUser` = :id ");
 
                          $sql->bindParam(':id', $id_user);
 
@@ -194,11 +194,7 @@ session_start();
                         <a href="#">'.$dados[0]['username'].'</a>
                         <span>'.$value['date'].'</span>
                         </div>
-                        
-                        <a class="avatar" href="#">
-                        <img src="img/avatar_author.jpg" width="35" alt="Profile Avatar" title="Cavaco Silva" />
-                        </a>
-                        
+               
                         <p>'.$value['comment'].'</p>
                         
                         </li>

@@ -27,13 +27,13 @@ if(isset($_POST['register']))
         if ($count > 0) {
 
             $user=null;
-            $err_username = "Ja Existe um utilizador com este nome !";
+            $err_username = "Already exists a User !";
         }
 
     //verifica se a pass tem mais do que 8 caracteres
     if (strlen($_POST['pass']) < 8 || strlen($_POST['repeatpass']) <8 )
     {
-        $err_password_length = 'A password tem de ter um mínimo de 8 caracteres.';
+        $err_password_length = 'The password needs a minimum of 8 characters';
         $_POST['pass'] = null;
         $_POST['repeatpass'] = null;
         
@@ -45,13 +45,13 @@ if(isset($_POST['register']))
          
     }
     else{
-          $erro_pass = "A password tem de ser igual ! ";  
+          $erro_pass = "The password has to be the same ! ";  
     }
 
     //faz um hash da password e verifica que so faz isso se a pass não estiver como null
     if($pass !=null){
         $hashed_password = crypt($pass,"123");
-    }.
+    }
     
     //cross-site scripting protection e verifica que so faz isso se o user não estiver como null
     if($user != null){
@@ -74,10 +74,10 @@ if(isset($_POST['register']))
     $count = $sql->rowCount();
 
         if ($count > 0) {
-            $success = "Registo feito !";
+            $success = "Registered !";
         }
         else{
-            $error_register ="Erro !";
+            $error_register ="Error !";
         }    
 }
 

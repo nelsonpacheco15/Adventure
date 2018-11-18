@@ -9,7 +9,7 @@ $no_result = "";
 
     if($_SESSION['search']==null){
 
-        $no_result = "Não existem resultados";
+        $no_result = "No Results found";
         
     }
 

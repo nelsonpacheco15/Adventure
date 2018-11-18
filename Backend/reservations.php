@@ -105,9 +105,9 @@ $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
                         <th>CardNumber</th>
                         <th>State</th>
                       </tr>
-                      //faz a listagem das reservas
 
                       <?php
+                      //faz a listagem das reservas
 
                       $sql = $db->prepare(" SELECT * FROM `Reservation` ");
                       $sql->execute();
