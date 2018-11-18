@@ -134,7 +134,7 @@ session_start();
            
   }
   else{
-    $error_session = "Precisa de fazer de ter feito login para fazer reserva !";
+    $error_session = "Need to be logged in first to reserve !";
   }
 
  }
