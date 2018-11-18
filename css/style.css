@@ -12,6 +12,8 @@
 }
 
 
+
+
 /* SCROLLBAR */
 
 /* width */
@@ -122,33 +124,37 @@ h3 {
 
 .btn-full:link,
 .btn-full:visited {
-    background-color: #406E8E;
-    border: 1px solid #406E8E;
-    color: #fff;
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #23395B;
     margin-right: 15px;
+    text-transform: uppercase;
 }
 
 
 .btn-ghost:link,
 .btn-ghost:visited {
-    border: 1px solid #406E8E;
-    color: #87CEEB;
+    border: 1px solid #fff;
+    color: #fff;
+    text-transform: uppercase;
 }
 
 
 
 .btn-full:hover,
 .btn-full:active {
-    background-color: #23395B;
-    border: 1px solid #23395B;
+
+    background-color: rgba(255, 255, 255, 0.616);
+    border: 1px solid rgba(255, 255, 255, 0.514);
+    color: #333;
 }
 
 
 .btn-ghost:hover,
 .btn-ghost:active {
-    border: 1px solid #23395B;
-    color: #fff;
-    background-color: #23395B;
+    border: 1px solid rgba(255, 255, 255, 0.747);
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.747);
 }
 
 
@@ -182,8 +188,8 @@ a:active {
 
 /* 100vh = 100% viewport */
 header {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(img/hero1.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero1.jpg);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(64, 110, 142, 0.52)), to(rgba(0, 0, 0, 0.383))), url(img/tumblr_ng88k4nD8U1tv1qiho1_1280.gif);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.287), rgba(0, 0, 0, 0.109)), url(img/tumblr_ng88k4nD8U1tv1qiho1_1280.gif);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -195,7 +201,7 @@ header {
 /* Isto é a caixa que contém o titulo do header e os botoes */
 .hero-text-box {
     position: absolute;
-    width: 1140px;
+    width: 100%;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -203,6 +209,130 @@ header {
 }
 
 
+select {
+    padding:12px;
+    margin-top:8px;
+    line-height:1;
+    color: rgba(255, 255, 255, 0.40);
+    text-transform: uppercase;
+    -webkit-appearance:none;
+    outline:none
+    }
+
+    select option {
+        padding: 12px;
+        border: 0;
+        background-color:  #23395B;
+        color: #fff;
+    }
+
+
+
+.hero-text-box h1 {
+    margin-left: 21.5%;
+}
+
+.hero-text-box .btn-full {
+    margin-top: 5%;
+    margin-left: 37.5%;
+}
+
+
+.hero-text-box .local {
+    float: left;
+    width: 27%;
+    height: 44px;
+    margin-right: 3.8%;
+    margin-left: 20%;
+    margin-top: 15px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    transition: border 0.2s;
+}
+
+
+.hero-text-box .local:focus {
+    border: 1px solid #fff;
+}
+
+.hero-text-box .search-bar {
+    float: left;
+    width: 27%;
+}
+
+
+
+input[type=text] {
+    width: 78%;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 5px;
+    color: #fff;
+    text-transform: capitalize;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.40);
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    z-index: -1;
+    outline: none;
+    transition: color border 0.2s;
+}
+
+input[type=text]:focus {
+    border: 1px solid #fff;
+}
+
+
+input[type=text]::-webkit-input-placeholder {
+    margin-left: 15%;
+    padding: 12px;
+    font-size: 100%;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.40);
+    z-index: -1;
+}
+
+
+input[type=text]::-ms-input-placeholder {
+    margin-left: 15%;
+    padding: 12px;
+    font-size: 100%;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.40);
+    z-index: -1;
+}
+
+
+
+
+input[type=text]::placeholder {
+    margin-left: 15%;
+    padding: 12px;
+    font-size: 100%;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.40);
+    z-index: -1;
+}
+
+
+
+button {
+    width: 15%;
+    height: 44px;
+    border: 0;
+    left: -20px;
+    color: #fff;
+    outline: none;
+    background-color: transparent;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+}
+
+button:hover {
+    color: #fff;
+
+}
 
 
 
@@ -240,173 +370,3 @@ header {
 
 
 
-
-
-
-
-
-/* ---------------------------------------------- */
-/* LIST */
-/* ---------------------------------------------- */
-
-
-.box img {
-    opacity: 0.9;
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    transition: opacity 0.2s;
-}
-
-.box img:hover {
-    opacity: 1;
-}
-
-
-
-.list-feature {
-    margin-bottom: 5px;
-}
-
-
-
-
-.search-bar {
-    width: 80%;
-}
-
-
-
-
-#localizacao{
-    width: 100%;
-    padding: 7px;
-    margin-top: 15px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 3px #ccc;
-}
-
-.search-bar {
-    width: 100%;
-}
-
-input[type=text] {
-    width: 70%;
-    padding: 7px;
-    margin-top: 15px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 3px #ccc;
-}
-
-
-input[type=submit] {
-    width: 24.6%;
-    height: 40px;
-    margin-top: 15px;
-    margin-left: 10px;
-    color: #fff;
-    background-color: #406E8E;
-    border: 1px solid #ccc;
-    transition: background-color 0.2s;
-}
-
-input[type=submit]:hover {
-    background-color: #23395B;
-}
-
-
-
-/* ---------------------------------------------- */
-/* FOOTER */
-/* ---------------------------------------------- */
-
-footer {
-   background-color: #333;
-    padding:30px; 
-    /*decidi mudar aqui o font-size, assim nenhuma das outras medidas de texto que adicionei abaixo vao ser afetadas*/
-    font-size: 80%;
-}
-
-.footer-nav {
-    list-style: none;
-    float: left;
-}
-
-.social-links {
-    list-style: none;
-    float: right;
-}
-
-/*para po-los lado a lado eu tenho de formatar o "li", formatando o "ul" se eu disser que quero o inline block, nao vai funcionar*/
-.footer-nav li,
-.social-links li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-/*Fiz isto para tirar a magem que ficava na direita do ultimo icone*/
-.footer-nav li:last-child,
-.social-links li:last-child {
-    margin-right: 0;
-}
-
-.footer-nav li a:link,
-.footer-nav li a:visited,
-
-/*pus o social-links aqui para poder dar-lhes a cor cinzenta que a navegaçao tem*/
-.social-links li a:link,
-.social-links li a:visited {
-    color: #888;
-    text-decoration: none;
-    border-bottom: 0;
-    -webkit-transition: color 0.2s;
-    transition: color 0.2s;
-}
-
-.footer-nav li a:hover,
-.footer-nav li a:active {
-    color: #bbb;
-}
-
-
-/*------social links effect----*/
-/*aqui pus os social-links para mudar o tamanho*/
-.social-links li a:link,
-.social-links li a:visited {
-    font-size: 150%;
-}
-
-/*unica maneira para fazer a transiçao nasdiferentes cores*/
-.ion-social-facebook,
-.ion-social-twitter,
-.ion-social-googleplus,
-.ion-social-instagram {
-    -webkit-transition: color 0.2s;
-    transition: color 0.2s;
-}
-
-/*HOVER EFFECT para os icones sociais*/
-.ion-social-facebook:hover {
-    color: #3b5999;
-}
-
-.ion-social-twitter:hover {
-    color: #55acee;
-}
-
-.ion-social-googleplus:hover {
-    color: #dd4b39;
-}
-
-.ion-social-instagram:hover {
-    color: #e4405f;
-}
-
-
-footer p {
-    color: #888;
-    text-align: center;
-    margin-top: 10px;
-}

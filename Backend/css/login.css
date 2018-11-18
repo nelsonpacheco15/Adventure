@@ -1,0 +1,90 @@
+html,
+body {
+    color: #555;
+    font-family: "Lato", "Arial", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+
+h2 {
+    font-family: lato;
+    font-weight: 300;
+    font-size: 240%;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+    color: #406E8E;
+}
+
+
+
+
+  
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+  .centered form {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+
+
+  input[type=username],
+  input[type=password] {
+      width: 100%;
+      padding: 7px;
+      margin-top: 15px;
+      background-color: #fff;
+      border: 1px solid #acacac;
+  }
+  
+  input::placeholder {
+      color: #ccc;
+  }
+  
+  
+  input[type=submit] {
+      position: relative;
+      float: right;
+      width: 40%;
+      height: 40px;
+      font-size: 90%;
+      text-transform: capitalize;
+      margin-top: 15px;
+      cursor: pointer;
+      color: #fff;
+      background-color: #27ae60;
+      border: 1px solid #27ae60;
+      transition: background-color 0.2s;
+  }
+  
+  input[type=submit]:hover {
+      background-color: #219251;
+  }
+  
+  button {
+      padding: 0;
+      border: none;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
+  
+  
+  /*Isto tira o outline que o browser por padrao poem nas caixas*/
+  input:focus {
+      outline-color: #27ae60;
+  }
