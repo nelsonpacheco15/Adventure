@@ -102,14 +102,8 @@ CREATE TABLE `Reservation` (
 -- Table structure for table `User`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `idUser` int(11) NOT NULL AUTO_INCREMENT,
-=======
 CREATE TABLE `User` (
   `idUser` int(11) NOT NULL,
->>>>>>> beta
   `name` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL
