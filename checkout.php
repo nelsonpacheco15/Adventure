@@ -107,7 +107,7 @@ session_start();
 
      if ($count > 0){
 
-        $erro_reserva_user = "Ja fez reserva para esta Actividade ";
+        $erro_reserva_user = "Already did a reserve to this Activity ! ";
         
     }else{
       
@@ -124,7 +124,7 @@ session_start();
       $count = $sql->rowCount();
 
       if ($count > 0){
-        $success = "Reserva Feita !";
+        $success = "Reserve Done !";
       }
       else{
         $error = "erro na reserva !";
